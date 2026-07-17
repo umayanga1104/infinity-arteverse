@@ -1,0 +1,12 @@
+/* ============================================================
+   COLOR PALETTE CONFIGURATION
+   All brand colors are registered here as Tailwind v4 theme
+   tokens. This file is imported in src/index.css.
+   ============================================================ */
+
+@theme {
+  --color-gray:   #3c3c2b;
+  --color-white:  #ffffff;
+  --color-black:  #010207;
+  --color-backup: #db0b00;
+}

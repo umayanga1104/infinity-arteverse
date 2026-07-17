@@ -1,0 +1,4 @@
+gray: #3c3c2b
+white: #ffffff
+black: #010207
+backup: #db0b00
