@@ -13,16 +13,19 @@ const Origin = () => {
             </h1>
 
             {/* origin data container */}
-            <div className="origin-info-container flex flex-col space-y-28 w-full max-w-5xl">
+            <div className="origin-info-container flex flex-col space-y-16 w-full max-w-5xl">
                 {/* para 1 */}
-                <div className="origin-info-container w-full space-x-8 flex flex-row justify-center items-center">
+                <div className="origin-info-container w-full space-x-28 flex flex-row justify-center items-center">
                     <div className="origin-info-title w-full flex flex-col space-y-4">
                         <div className="overflow-hidden">
-                            <h1 className="origin-descirption-title text-7xl font-ravello">
-                                The <br/>Beginning
+                            <h1 className="origin-descirption-title text-5xl font-ravello">
+                                The <br/> 
+                                <span className="text-9xl font-ravello">
+                                    Beginning
+                                </span>
                             </h1>
                         </div>
-                        <h2 className="origin-descirption-title-description text-md font-satoshi font-bold">
+                        <h2 className="origin-descirption-title-description text-lg font-satoshi font-bold">
                             Every universe begins with a single idea.
                         </h2>
                         <p className="origin-info-description leading-6 text-sm font-satoshi">
@@ -50,7 +53,10 @@ const Origin = () => {
                     <div className="origin-info-title w-full flex flex-col space-y-4">
                         <div className="overflow-hidden">
                             <h1 className="origin-descirption-title text-right text-7xl font-ravello">
-                                What <br/>We Create
+                                What We <br/>
+                                <span className="text-9xl font-ravello">
+                                    Create
+                                </span>
                             </h1>
                         </div>
                         <h2 className="origin-descirption-title-description text-md font-satoshi font-bold">
@@ -67,7 +73,10 @@ const Origin = () => {
                     <div className="origin-info-title w-full flex flex-col space-y-4">
                         <div className="overflow-hidden">
                             <h1 className="origin-descirption-title text-7xl font-ravello">
-                                The <br/>Philosophy
+                                The <br/>
+                                <span className="text-9xl font-ravello">
+                                    Philosophy
+                                </span>
                             </h1>
                         </div>
                         <h2 className="origin-descirption-title-description text-md font-satoshi font-bold">
@@ -98,7 +107,10 @@ const Origin = () => {
                     <div className="origin-info-title w-full flex flex-col space-y-4">
                         <div className="overflow-hidden">
                             <h1 className="origin-descirption-title text-right text-7xl font-ravello">
-                                The <br/>Collective
+                                The <br/>
+                                <span className="text-9xl font-ravello">
+                                    Collective
+                                </span>
                             </h1>
                         </div>
                         <h2 className="origin-descirption-title-description text-md font-satoshi font-bold">
@@ -115,7 +127,10 @@ const Origin = () => {
                     <div className="origin-info-title w-full flex flex-col space-y-4">
                         <div className="overflow-hidden">
                             <h1 className="origin-descirption-title text-7xl font-ravello">
-                                Looking <br/>Beyond
+                                Looking <br/>
+                                <span className="text-9xl font-ravello">
+                                    Beyond
+                                </span>
                             </h1>
                         </div>
                         <h2 className="origin-descirption-title-description text-md font-satoshi font-bold">

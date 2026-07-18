@@ -103,7 +103,7 @@ export const Artefacts = {
             stackPosition:   { xFrac: 0.50, yFrac: 0.10 },
             spreadPositions: [
                 { x:   35, y:   -0 },
-                { x: -56, y: -100 },
+                { x: -90, y: -100 },
                 { x:  100, y: -50 },
                 { x: 40, y:  70 },
             ],
@@ -174,7 +174,7 @@ export const Artefacts = {
             stackPosition:   { xFrac: 0.52, yFrac: 0.38 },
             spreadPositions: [
                 { x:   0, y:   0 },
-                { x: -89, y:  70 },
+                { x: -150, y:  70 },
             ],
             images: [
                 { image: Moonlit_Doughts_ii_img_1, alt: 'Moonlit Doubts II Cover 1' },

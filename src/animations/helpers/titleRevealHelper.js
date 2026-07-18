@@ -12,7 +12,7 @@ export const primaryTitleRevealer = (actor, progress) => {
 
         gsap.to(splits.words,{
             duration: 1.5,
-            yPercent: progress?0:200,
+            yPercent: progress?0:450,
             ease: "power4",
             stagger: 0.1,
             overwrite: "auto"

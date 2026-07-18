@@ -41,8 +41,10 @@ const Timeline = () => {
             const originContainer = q(".origin-info-container");
             const originSubtitle = q(".origin-descirption-title-description");
             const originDescriptions = q(".origin-info-description");
+            const manifestationsTitle=q(".manifestations-title");
             const manifest=q(".manifestations");
             const manifestationsLeftPanel = q(".manifestations-left-panel");
+            const manifestationsProjects = q(".manifestations-projects");
 
             // elements initial positions config
             gsap.set(home,{
@@ -140,6 +142,13 @@ const Timeline = () => {
                 progress: viewportVerticalProgress, 
                 animation: primaryParagraphRevealer
             });
+
+            viewPortEngine.register(manifestationsTitle, {
+                type: "title",
+                active: false, 
+                progress: viewportVerticalProgress, 
+                animation: primaryTitleRevealer
+            });
             
             // viewport based animation engine initiation
             viewPortEngine.start();
@@ -162,19 +171,18 @@ const Timeline = () => {
             }, "-=24").to(originContainer, {
                 yPercent: -210,
                 duration: 30
-            }, "-=10").to(manifest, {
+            }, "-=10").to(originTitle, {
+                opacity: 0,
+                duration: 30,
+                ease: "power4"
+            }, "<").to(manifest, {
                 yPercent: 0,
                 duration: 16,
-            })
-
-            tl.to(manifestationsLeftPanel, {
+            }).to(manifestationsLeftPanel, {
                 opacity:  1,
                 xPercent: 0,
                 duration: 8
-            }, "+=10").to(originTitle,{
-                opacity: 0,
-                duration: 8
-            }, "<")
+            }, "+=10")
             
             Object.entries(Artefacts).forEach(([name, artefact]) => {
                 const cardRefs = artefact.refs.cards;

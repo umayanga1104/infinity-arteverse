@@ -6,20 +6,20 @@ import TimelessImage  from '../assets/idyllic/timeless.webp';
 
 const Idyllics = () => {
     return (
-        <div className="idyllics overflow-hidden py-20 relative z-20 w-full h-full flex items-center justify-center overflow-hidden bg-gray-100 text-black">
+        <div className="idyllics overflow-hidden relative z-20 w-full h-full flex items-center justify-center overflow-hidden bg-gray-100 text-black">
             <div className="idyllics-title-container flex w-[50vw] shrink-0 h-150 items-start justify-center">
-                <h2 className="home-title font-ravello text-center w-full text-black text-8xl">
+                <h2 className="home-title font-ravello mt-15 text-center w-full text-black text-8xl">
                     Idyllics
                 </h2>
             </div>
             
-            <div className="idyllics-container flex flex-row shrink-0 h-150 gap-60">
+            <div className="idyllics-container flex flex-row shrink-0 gap-60">
                 {/* Iceblink */}
                 <div
-                    className="h-full justify-between flex flex-col items-center"
+                    className="justify-between flex flex-col gap-5 items-center"
                 >
                     <img
-                        className='w-60'
+                        className='w-55'
                         src={IceBlinkImage} 
                         alt={"Iceblink"} 
                     />
@@ -28,9 +28,9 @@ const Idyllics = () => {
                     <div className='flex flex-col gap-2 font-satoshi w-70'>
                         {/* Name */}
                         <div className="title-container overflow-hidden">
-                            <h2 className='idyllic-name text-4xl text-black font-ravello'>
+                            <h2 className='idyllic-name text-3xl text-black font-ravello'>
                                 Ice Blink <br/>
-                                <span className='text-xl text-[#5A5A5A] font-satoshi'> 
+                                <span className='text-lg text-[#5A5A5A] font-satoshi'> 
                                     The Path of Reflection
                                 </span>
                             </h2>
@@ -44,15 +44,15 @@ const Idyllics = () => {
 
                 {/* Nostalgia */}
                 <div
-                    className=" h-full justify-between flex flex-col items-center"
+                    className="justify-between flex flex-col gap-5 items-center"
                 >
                     {/* description */}
                     <div className='flex flex-col gap-2 font-satoshi w-70'>
                         {/* Name */}
                         <div className="title-container overflow-hidden">
-                            <h2 className='idyllic-name text-4xl text-black font-ravello'>
+                            <h2 className='idyllic-name text-3xl text-black font-ravello'>
                                 Nostalgia <br/>
-                                <span className='text-xl text-[#5A5A5A] font-satoshi'> 
+                                <span className='text-lg text-[#5A5A5A] font-satoshi'> 
                                     The Path of Memory
                                 </span>
                             </h2>
@@ -64,7 +64,7 @@ const Idyllics = () => {
                     </div>
 
                     <img 
-                        className='w-60'
+                        className='w-55'
                         src={NostalgiaImage} 
                         alt={"Iceblink"} 
                     />
@@ -72,10 +72,10 @@ const Idyllics = () => {
 
                 {/* Feel */}
                 <div
-                    className=" h-full justify-between flex flex-col items-center"
+                    className="justify-between flex flex-col gap-5 items-center"
                 >
                     <img 
-                        className='w-60'
+                        className='w-55'
                         src={FeelImage} 
                         alt={"Feel"} 
                     />
@@ -84,9 +84,9 @@ const Idyllics = () => {
                     <div className='flex flex-col gap-2 font-satoshi w-70'>
                         {/* Name */}
                         <div className="title-container overflow-hidden">
-                            <h2 className='idyllic-name text-4xl text-black font-ravello'>
+                            <h2 className='idyllic-name text-3xl text-black font-ravello'>
                                 Feel <br/>
-                                <span className='text-xl text-[#5A5A5A] font-satoshi'> 
+                                <span className='text-lg text-[#5A5A5A] font-satoshi'> 
                                     The Path of Emotion
                                 </span>
                             </h2>
@@ -100,15 +100,15 @@ const Idyllics = () => {
 
                 {/* Timeless */}
                 <div
-                    className=" h-full justify-between flex flex-col items-center"
+                    className="justify-between flex flex-col gap-5 items-center"
                 >
                     {/* description */}
                     <div className='flex flex-col gap-2 font-satoshi w-70'>
                         {/* Name */}
                         <div className="title-container overflow-hidden">
-                            <h2 className='idyllic-name text-4xl text-black font-ravello'>
+                            <h2 className='idyllic-name text-3xl text-black font-ravello'>
                                 Timeless <br/>
-                                <span className='text-xl text-[#5A5A5A] font-satoshi'> 
+                                <span className='text-lg text-[#5A5A5A] font-satoshi'> 
                                     The Path of Discovery
                                 </span>
                             </h2>
@@ -120,7 +120,7 @@ const Idyllics = () => {
                     </div>
 
                     <img 
-                        className='w-60'
+                        className='w-55'
                         src={TimelessImage} 
                         alt={"Timeless"} 
                     />
@@ -128,10 +128,10 @@ const Idyllics = () => {
 
                 {/* Yarn */}
                 <div
-                    className=" h-full justify-between flex flex-col items-center"
+                    className="justify-between flex flex-col gap-5 items-center"
                 >
                     <img 
-                        className='w-60'
+                        className='w-55'
                         src={YarnImage} 
                         alt={"Yarn"} 
                     />
@@ -140,9 +140,9 @@ const Idyllics = () => {
                     <div className='flex flex-col gap-2 font-satoshi w-70'>
                         {/* Name */}
                         <div className="title-container overflow-hidden">
-                            <h2 className='idyllic-name text-4xl text-black font-ravello'>
+                            <h2 className='idyllic-name text-3xl text-black font-ravello'>
                                 Yearn <br/>
-                                <span className='text-xl text-[#5A5A5A] font-satoshi'> 
+                                <span className='text-lg text-[#5A5A5A] font-satoshi'> 
                                     The Path of Identity
                                 </span>
                             </h2>

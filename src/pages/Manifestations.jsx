@@ -2,11 +2,14 @@ const Manifestations = ({artefacts}) => {
     return (
         <div className="manifestations relative z-40 w-full h-full flex flex-col items-start justify-center bg-transparent text-white">
             {/* <StarFieldCanvas/> */}
-            <div className="manifestations-left-panel flex flex-col pl-30">
-                <h1 className="text-7xl font-light font-ravello leading-snug mb-10">
-                    Manifestations<br />of Infinity
-                </h1>
-                <ul className="font-sm text-white font-satoshi">
+            <div className="manifestations-left-panel flex flex-col pl-40">
+                <div className="title-container overflow-hidden">
+                    <h1 className="manifestations-title text-7xl font-light font-ravello leading-snug mb-10">
+                        Manifestations<br />of Infinity
+                    </h1>
+                </div>
+
+                <ul className="manifestations-projects font-sm text-white font-satoshi">
                     {Object.keys(artefacts).map((name) => (
                         <li key={name}>
                             {name.toLowerCase().replace(/_/g, ' ')}
@@ -27,7 +30,7 @@ const Manifestations = ({artefacts}) => {
                         <img
                             src={img.image}
                             alt={img.alt}
-                            className="w-65 object-cover shadow-md select-none"
+                            className="w-60 object-cover shadow-md select-none"
                             draggable={false}
                         />
                     </div>

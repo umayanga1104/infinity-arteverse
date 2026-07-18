@@ -8,7 +8,7 @@ export const viewportHorizontalProgress = (element) => {
 
 export const viewportVerticalProgress = (element) => {
     const rect = element.getBoundingClientRect();
-    const topBound = window.innerHeight * 0.05;
+    const topBound = window.innerHeight * 0.01;
     const bottomBound = window.innerHeight * 0.95;
 
     return (rect.top >= topBound && rect.bottom <= bottomBound)? true: false;
