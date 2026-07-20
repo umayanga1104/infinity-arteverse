@@ -8,7 +8,7 @@ const Idyllics = () => {
     return (
         <div className="idyllics overflow-hidden relative z-20 w-full h-full flex items-center justify-center overflow-hidden bg-gray-100 text-black">
             <div className="idyllics-title-container flex w-[50vw] shrink-0 h-150 items-start justify-center">
-                <h2 className="home-title font-ravello mt-15 text-center w-full text-black text-8xl">
+                <h2 className="idyllics-title font-ravello mt-15 text-center w-full text-black text-8xl">
                     Idyllics
                 </h2>
             </div>

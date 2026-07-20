@@ -3,10 +3,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
 import { SplitText } from "gsap/all";
 
-import Home from "./pages/Home";
-import Idyllics from "./pages/Idyllics";
-import Manifestations from "./pages/Manifestations";
-import Origin from "./pages/Origin";
+import Home from "./sections/Home";
+import Idyllics from "./sections/Idyllics";
+import Manifestations from "./sections/Manifestations";
+import Origin from "./sections/Origin";
 import { Artefacts } from "./data/artefacts";
 import { viewPortEngine } from "./animations/engine/viewportEngine";
 import { viewportHorizontalProgress, viewportVerticalProgress } from "./animations/helpers/viewportProgress";
@@ -30,6 +30,8 @@ const Timeline = () => {
             const q = gsap.utils.selector(viewPortRef);
 
             const home=q(".home");
+            const homeTitle = q(".home-title");
+            const homeDescription = q(".home-paragraph");
             const idyllic=q(".idyllics");
             const idyllicsTitle = q(".idyllics-title-container");
             const idyllicsContainer = q(".idyllics-container");
@@ -44,7 +46,6 @@ const Timeline = () => {
             const manifestationsTitle=q(".manifestations-title");
             const manifest=q(".manifestations");
             const manifestationsLeftPanel = q(".manifestations-left-panel");
-            const manifestationsProjects = q(".manifestations-projects");
 
             // elements initial positions config
             gsap.set(home,{
@@ -108,6 +109,20 @@ const Timeline = () => {
             ScrollTrigger.refresh();
 
             // typography and visual elemnts registaration
+            viewPortEngine.register(homeTitle, {
+                type: "title",
+                active: false, 
+                progress: viewportHorizontalProgress, 
+                animation: primaryTitleRevealer
+            });
+
+            viewPortEngine.register(homeDescription, {
+                type: "paragraph",
+                active: false, 
+                progress: viewportHorizontalProgress, 
+                animation: primaryParagraphRevealer
+            });
+
             viewPortEngine.register(idyllicNames, {
                 type: "title",
                 active: false, 
@@ -168,17 +183,18 @@ const Timeline = () => {
                 xPercent:0,
                 duration: 4,
                 ease: "power4.inOut"
-            }, "-=24").to(originContainer, {
+            }, "-=20").to(originContainer, {
                 yPercent: -210,
-                duration: 30
-            }, "-=10").to(originTitle, {
+                duration: 30,
+                delay: 1.5,
+            }, "-=20").to(originTitle, {
                 opacity: 0,
                 duration: 30,
                 ease: "power4"
             }, "<").to(manifest, {
                 yPercent: 0,
                 duration: 16,
-            }).to(manifestationsLeftPanel, {
+            }, "-=10").to(manifestationsLeftPanel, {
                 opacity:  1,
                 xPercent: 0,
                 duration: 8

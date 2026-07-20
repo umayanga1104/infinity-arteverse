@@ -9,7 +9,7 @@ const Manifestations = ({artefacts}) => {
                     </h1>
                 </div>
 
-                <ul className="manifestations-projects font-sm text-white font-satoshi">
+                <ul className="manifestations-projects text-white text-sm font-satoshi">
                     {Object.keys(artefacts).map((name) => (
                         <li key={name}>
                             {name.toLowerCase().replace(/_/g, ' ')}
