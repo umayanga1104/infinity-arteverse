@@ -1,15 +1,15 @@
-const Manifestations = ({artefacts}) => {
+const ManifestationsExperience = ({artefacts}) => {
     return (
-        <div className="manifestations relative z-40 w-full h-full flex flex-col items-start justify-center bg-transparent text-white">
+        <div className="manifestations relative z-40 w-full h-full flex flex-col items-start justify-center bg-white text-white">
             {/* <StarFieldCanvas/> */}
             <div className="manifestations-left-panel flex flex-col pl-40">
                 <div className="title-container overflow-hidden">
-                    <h1 className="manifestations-title text-7xl font-light font-ravello leading-snug mb-10">
+                    <h1 className="manifestations-title text-black text-7xl font-light font-ravello leading-snug mb-10">
                         Manifestations<br />of Infinity
                     </h1>
                 </div>
 
-                <ul className="manifestations-projects text-white text-sm font-satoshi">
+                <ul className="manifestations-projects text-black text-sm font-satoshi">
                     {Object.keys(artefacts).map((name) => (
                         <li key={name}>
                             {name.toLowerCase().replace(/_/g, ' ')}
@@ -40,4 +40,4 @@ const Manifestations = ({artefacts}) => {
     );
 }
 
-export default Manifestations;
+export default ManifestationsExperience;

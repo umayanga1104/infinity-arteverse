@@ -6,15 +6,15 @@ gsap.registerPlugin(SplitText)
 export const primaryParagraphRevealer = (actor, progress) => {
     const splits = actor.splits;
 
-    // this if condition ensures the animations is played once the element is out/in bound
-    if(actor.active !== progress){
-        actor.active = progress;
+    // play the reveal animation only once when the element first enters the viewport
+    if (!actor.played && progress) {
+        actor.played = true;
 
-        gsap.to(splits.words,{
-            opacity: progress ? 1 : 0,
-            duration:0.8,
-            stagger:0.06,
-            overwrite: "auto"
+        gsap.to(splits.words, {
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.06,
+            overwrite: "all"
         });
     }
 }

@@ -2,15 +2,16 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css'
-import Landing from './Landing';
-import AboutUs from './AboutUs';
-import ContactUs from './ContactUs';
+import Home from './pages/Home/Home';
+import AboutUs from './pages/AboutUs';
+import ContactUs from './pages/ContactUs';
 import NotFound from './NotFound';
- 
+import Manifestations from './pages/Manifestations';
+
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Landing/>
+    element: <Home/>
   },
   {
     path: "/about",
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: "/contact",
     element: <ContactUs/>
+  },
+  {
+    path: "/projects",
+    element: <Manifestations/>
   },
   {
     path: "/*",
