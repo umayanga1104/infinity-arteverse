@@ -15,6 +15,7 @@ gsap.registerPlugin(SplitText)
 const HomeTimeline = () => {
     const viewPortRef = useRef(null);
     const scrollPanelRef = useRef(null);
+    const transitionMarkerRef = useRef(null);
 
     const navLinks = [
         {label: "home"},
@@ -38,6 +39,8 @@ const HomeTimeline = () => {
             const q = gsap.utils.selector(viewPortRef);
 
             const landing = q(".landing");
+            // const homeTitle = q(".home-title");
+            // const homeDescription = q(".home-description");
             const homeExperience=q(".home-experience");
             const idyllicsTrack = q(".idyllics-track");
             const idyllicsDescription = q(".idyllics-description");
@@ -46,12 +49,16 @@ const HomeTimeline = () => {
             const originTrack = q(".origin-track");
             const footer = q(".footer");
 
+            //transition elements
+            const beams = q(".beam");
+
             // elements initial positions config
             gsap.set(landing,{
                 xPercent:0,
             })
 
             gsap.set(homeExperience, {
+                opacity: 0,
                 xPercent: 100,
                 yPercent: -100
             });
@@ -72,7 +79,50 @@ const HomeTimeline = () => {
                 yPercent: 150,
             })
 
-            // timeline creation
+            // intial state of transitions
+            gsap.set(beams, {
+                attr: {
+                    x: 100
+                }
+            })
+
+            //svg tranistion timeline and animations
+            const transitionTl = gsap.timeline({
+                paused: true
+            });
+
+            transitionTl.to(beams, {
+                attr: {
+                    x: 0
+                },
+                duration: 1,
+                stagger: 0.1,
+                ease: "power3.inOut"
+            }).to(homeExperience, {
+                xPercent: 0,
+                duration: 1,
+            }, "<")
+            .to(homeExperience, {
+                opacity: 1,
+                duration: 1,
+                ease: "power3.inOut",
+            }, ">");
+
+            ScrollTrigger.create({
+                trigger: transitionMarkerRef.current,
+
+                start: "top top",
+
+                onEnter() {
+                    transitionTl.play();
+                },
+
+                onLeaveBack() {
+                    transitionTl.reverse();
+                }
+            });
+
+            // master timeline creation
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: scrollPanelRef.current,
@@ -83,8 +133,25 @@ const HomeTimeline = () => {
                 }
             });
 
-            //settle downs the layout with the pinning of scroll trigger
-            ScrollTrigger.refresh();
+            // master timeline animations
+            tl.to(idyllicsTrack, {
+                xPercent: -120,
+                duration: 32
+            })
+            .add("starting-overlap", "-=20")
+
+            .to(originTitle, {
+                yPercent: 890,
+                duration: 32
+            }, "starting-overlap")
+            .to(originTrack, {
+                yPercent: -85,
+                duration: 32
+            }, "starting-overlap")
+            .to(footer, {
+                yPercent: 0,
+                duration: 8,
+            }, "-=8")
 
             // typography and visual elemnts registaration
             viewPortEngine.register(idyllicsDescription, {
@@ -104,32 +171,10 @@ const HomeTimeline = () => {
             // viewport based animation engine initiation
             viewPortEngine.start();
             
-            // master timeline animations
-            tl.to(homeExperience, {
-                xPercent: 0,
-                duration: 8
-            })
-            .to(idyllicsTrack, {
-                xPercent: -120,
-                duration: 32
-            })
-            .add("starting-overlap", "-=20")
-
-            .to(originTitle, {
-                yPercent: 890,
-                duration: 32
-            }, "starting-overlap")
-            .to(originTrack, {
-                yPercent: -85,
-                duration: 32
-            }, "starting-overlap")
-            .to(footer, {
-                yPercent: 0,
-                duration: 28,
-                delay: 5
-            }, "-=16")
-            
+            //settle downs the layout with the pinning of scroll trigger
+            ScrollTrigger.refresh();
         }, viewPortRef.current);
+
 
         return () => {
             splits.forEach(split => split.revert());
@@ -138,10 +183,50 @@ const HomeTimeline = () => {
     }, []);
 
     return (<>
-        <div ref={scrollPanelRef} className="w-full h-[100vh]"></div>
+        <div ref={scrollPanelRef} className="w-full h-[100vh]">
+            <div
+                ref={transitionMarkerRef}
+                className="absolute top-[1vh] h-px w-full"
+            />
+        </div>
         <div ref={viewPortRef} className="viewport inset-0 fixed overflow-hidden w-full h-full">
             <div id="scenes-container" className="relative w-full h-full">
                 <Landing/>
+
+                {/* z-15 for the svg mask page transitoin */}
+                <svg
+                    className="transition-svg absolute inset-0 z-15 w-full h-full pointer-events-none"
+                    viewBox="0 0 100 100"
+                    preserveAspectRatio="none"
+                >
+                    <rect
+                        className="beam beam-1"
+                        x="100"
+                        y="0"
+                        width="100"
+                        height="34"
+                        fill="white"
+                    />
+
+                    <rect
+                        className="beam beam-2"
+                        x="100"
+                        y="33"
+                        width="100"
+                        height="34"
+                        fill="white"
+                    />
+
+                    <rect
+                        className="beam beam-3"
+                        x="100"
+                        y="66"
+                        width="100"
+                        height="34"
+                        fill="white"
+                    />
+                </svg>
+
                 <HomeExperience/>
                 {/* footer */}
                 <div className="footer absolute bottom-0 left-0 w-full gap-15 z-50 flex flex-row">

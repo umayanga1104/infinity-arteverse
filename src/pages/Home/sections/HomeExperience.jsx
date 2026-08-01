@@ -9,8 +9,8 @@ const HomeExperience = () => {
     return(
         <div className="home-experience bg-white relative z-20 w-full h-full overflow-hidden">
             {/* idyllics track */}
-            <div className="idyllics-track absolute left-50 top-1/2 -translate-y-1/2 flex items-center justify-center space-x-200 w-max">
-                <div className="idyllics-title-container flex gap-12 flex-col w-[50vw] shrink-0 h-full items-start justify-center">
+            <div className="idyllics-track absolute left-50 top-1/2 -translate-y-1/2 flex items-center justify-center space-x-100 w-max">
+                <div className="idyllics-title-container flex gap-12 flex-col w-[50vw] shrink-0 ml-150 h-full items-start justify-center">
                     <h2 className="idyllics-title font-ravello text-start w-full text-black text-8xl">
                         Idyllics
                     </h2>
