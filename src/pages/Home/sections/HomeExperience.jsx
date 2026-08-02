@@ -9,8 +9,12 @@ import FeelImage      from '../../../assets/idyllic/feel.webp';
 import NostalgiaImage from '../../../assets/idyllic/nostalgia.webp';
 import TimelessImage  from '../../../assets/idyllic/timeless.webp';
 
+import {Artefacts} from "../../../data/artefacts"
+
 
 const HomeExperience = () => {
+    const artefacts = Artefacts;
+
     return(
         <div className="home-experience bg-transparent relative z-20 w-full h-full overflow-hidden">
             {/* idyllics track */}
@@ -172,7 +176,7 @@ const HomeExperience = () => {
             {/* origin content track */}
             <div className="origin-track absolute text-black left-0 top-0 flex flex-row w-full">
                 {/* left col */}
-                <div className="w-full space-y-12 max-w-130 origin-content-container-left-col flex flex-col">
+                <div className="w-full space-y-16 max-w-138 origin-content-container-left-col flex flex-col">
                     <div className="w-full flex items-end h-200">
                         <p className="origin-description font-satoshi text-sm leading-6 pl-10">
                             Infinity Artverse began with a simple belief—that creativity should never be confined by a single medium, style, or perspective. What started as a passion for creating visual experiences gradually evolved into a universe where photography, cinematography, branding, and storytelling coexist under one artistic identity. Rather than following trends, we chose to build a space where imagination could lead every decision and every creation.
@@ -213,7 +217,7 @@ const HomeExperience = () => {
                 </div>
 
                 {/* right col */}
-                <div className="w-full space-y-12 max-w-130 origin-content-container-right-col flex flex-col">
+                <div className="w-full space-y-16 max-w-138 origin-content-container-right-col flex flex-col">
                     <div className="w-full flex justify-end">
                         <img
                             className="w-110"
@@ -261,6 +265,45 @@ const HomeExperience = () => {
                         </p>
                     </div>
                 </div>
+            </div>
+
+            {/* manifestations track */}
+            <div className="manifestations-track relative z-40 w-full h-full flex flex-col items-start justify-center bg-white text-white">
+                {/* <StarFieldCanvas/> */}
+                <div className="manifestations-left-panel flex flex-col pl-40">
+                    <div className="title-container overflow-hidden">
+                        <h1 className="manifestations-title text-black text-7xl font-light font-ravello leading-snug mb-10">
+                            Manifestations<br />of Infinity
+                        </h1>
+                    </div>
+
+                    <ul className="manifestations-projects text-black text-sm font-satoshi">
+                        {Object.keys(artefacts).map((name) => (
+                            <li key={name}>
+                                {name.toLowerCase().replace(/_/g, ' ')}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+                {Object.entries(artefacts).map(([name, artefact]) => (
+                    artefact.images.map((img, i) => (
+                        <div 
+                            key={`${name}-${i}`}
+                            className="absolute top-0 left-0"
+                            ref={el => {
+                                if(!artefact.refs.cards[i]) artefact.refs.cards[i] = el
+                            }}
+                        >
+                            <img
+                                src={img.image}
+                                alt={img.alt}
+                                className="w-60 object-cover shadow-md select-none"
+                                draggable={false}
+                            />
+                        </div>
+                    ))
+                ))}
             </div>
         </div>
     );

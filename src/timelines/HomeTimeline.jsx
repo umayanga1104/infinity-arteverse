@@ -9,6 +9,8 @@ import HomeExperience from "../pages/Home/sections/HomeExperience";
 import { viewportHorizontalProgress, viewportVerticalProgress } from "../animations/helpers/viewportProgress";
 import { primaryParagraphRevealer } from "../animations/helpers/paragraphRevealHelper";
 
+import {Artefacts} from "../data/artefacts"
+
 gsap.registerPlugin(ScrollTrigger)
 gsap.registerPlugin(SplitText)
 
@@ -23,6 +25,8 @@ const HomeTimeline = () => {
         const splits = [];
 
         const context = gsap.context(() => {
+            const vw = window.innerWidth
+            const vh = window.innerHeight
 
             const q = gsap.utils.selector(viewPortRef);
 
@@ -38,7 +42,8 @@ const HomeTimeline = () => {
             const originHeadings = q(".origin-headings");
             const originSubHeadings = q(".origin-sub-headings");
             const originTrack = q(".origin-track");
-            const footer = q(".footer");
+            const manifestationsTrack = q(".manifestations-track");
+            const manifestationsLeftPanel = q(".manifestations-left-panel");
 
             //transition elements
             const beams = q(".beam");
@@ -70,8 +75,30 @@ const HomeTimeline = () => {
                 yPercent: 100
             })
 
-            gsap.set(footer, {
-                yPercent: 150,
+            gsap.set(manifestationsTrack, {
+                yPercent: 120
+            })
+
+            gsap.set(manifestationsLeftPanel, { 
+                opacity: 0, 
+                xPercent: -100 
+            })
+
+            Object.entries(Artefacts).forEach(([name, artefact]) => {
+                const cardRefs = artefact.refs.cards;
+                if(!cardRefs)return;
+
+                // Convert viewport fractions → real pixel values
+                const landX = artefact.landingPosition.xFrac * vw
+                const landY = artefact.landingPosition.yFrac * vh
+                
+                cardRefs.forEach((card, i) => {
+                    gsap.set(card, {
+                        x: landX,
+                        y: landY,
+                        zIndex:   artefact.images.length - i,  // img_1 on top
+                    })
+                })
             })
 
             // intial state of transitions
@@ -165,7 +192,7 @@ const HomeTimeline = () => {
                 scrollTrigger: {
                     trigger: scrollPanelRef.current,
                     start: 'top top',
-                    end: ()=>window.innerHeight*5,
+                    end: ()=>window.innerHeight*6,
                     scrub: true,
                     pin: true,
                 }
@@ -187,13 +214,35 @@ const HomeTimeline = () => {
                 duration: 64
             }, "starting-overlap")
             .to(originTrack, {
-                yPercent: -85,
+                yPercent: -100,
                 duration: 64
             }, "starting-overlap")
-            .to(footer, {
+            .to(manifestationsTrack, {
                 yPercent: 0,
-                duration: 8,
-            }, "-=12")
+                duration: 32
+            }, "-=24")
+            .to(manifestationsLeftPanel, {
+                xPercent: 0,
+                duration: 32,
+                opacity: 1,
+            }, ">")
+
+            Object.entries(Artefacts).forEach(([name, artefact]) => {
+                const cardRefs = artefact.refs.cards;
+                if(!cardRefs)return;
+
+                const stackX = artefact.stackPosition.xFrac * vw
+                const stackY = artefact.stackPosition.yFrac * vh
+
+                cardRefs.forEach((card, i) => {
+                    tl.to(card, {
+                        x:        stackX + (artefact.spreadPositions[i]?.x ?? 0),
+                        y:        stackY + (artefact.spreadPositions[i]?.y ?? 0),
+                        ease:     'power2.inOut',
+                        duration: 32,
+                    }, "<")   // ← "0" = all images start animating at the same scroll moment
+                })
+            });
 
             // typography and visual elemnts registaration
             viewPortEngine.register(idyllicsDescription, {
@@ -232,7 +281,7 @@ const HomeTimeline = () => {
             />
             <div
                 ref={transitionTwoMarkerRef}
-                className="absolute top-[250vh] h-px w-full"
+                className="absolute top-[200vh] h-px w-full"
             />
         </div>
         <div ref={viewPortRef} className="viewport inset-0 fixed overflow-hidden w-full h-full">
@@ -273,7 +322,7 @@ const HomeTimeline = () => {
                     />
                 </svg>
 
-                <HomeExperience/>
+                <HomeExperience artefacts={Artefacts}/>
             </div>
         </div>
     </>);
