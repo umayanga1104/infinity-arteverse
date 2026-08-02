@@ -2,60 +2,165 @@ import img_1 from "../../../assets/origin/img_1.webp";
 import img_2 from "../../../assets/origin/img_2.webp";
 import img_3 from "../../../assets/origin/img_3.webp";
 import img_4 from "../../../assets/origin/img_4.webp";
-import { idyllics } from '../../../data/idyllics';
+
+import IceBlinkImage  from '../../../assets/idyllic/ice_blink.webp';
+import YarnImage      from '../../../assets/idyllic/yarn.webp';
+import FeelImage      from '../../../assets/idyllic/feel.webp';
+import NostalgiaImage from '../../../assets/idyllic/nostalgia.webp';
+import TimelessImage  from '../../../assets/idyllic/timeless.webp';
 
 
 const HomeExperience = () => {
     return(
-        <div className="home-experience bg-white relative z-20 w-full h-full overflow-hidden">
+        <div className="home-experience bg-transparent relative z-20 w-full h-full overflow-hidden">
             {/* idyllics track */}
             <div className="idyllics-track absolute left-50 top-1/2 -translate-y-1/2 flex items-center justify-center space-x-100 w-max">
-                <div className="idyllics-title-container flex gap-12 flex-col w-[50vw] shrink-0 ml-150 h-full items-start justify-center">
-                    <h2 className="idyllics-title font-ravello text-start w-full text-black text-8xl">
-                        Idyllics
-                    </h2>
-                    <h2 className="idyllics-title font-ravello text-center w-full text-black text-8xl">
-                        Idyllics
-                    </h2>
-                    <h2 className="idyllics-title font-ravello text-end w-full text-black text-8xl">
+                <div className="idyllics-title-container flex w-[50vw] shrink-0 h-150 items-start justify-center">
+                    <h2 className="home-title font-ravello mt-15 text-center w-full text-black text-8xl">
                         Idyllics
                     </h2>
                 </div>
-            
-                <div className="idyllics-container flex flex-row shrink-0 space-x-50">
                 
-                    {Object.entries(idyllics).map(([name, idyllic]) => (
-                        <div
-                            key={name}
-                            className="justify-between flex flex-col items-center"
-                        >
+                <div className="idyllics-container flex flex-row shrink-0 gap-60">
+                    {/* Iceblink */}
+                    <div
+                        className="justify-between flex flex-col gap-5 items-center"
+                    >
+                        <img
+                            className='w-55'
+                            src={IceBlinkImage} 
+                            alt={"Iceblink"} 
+                        />
+
                         {/* description */}
                         <div className='flex flex-col gap-2 font-satoshi w-70'>
                             {/* Name */}
-                            <div className="title-container overflow-hidden mb-8">
-                                <h2 className='idyllic-name text-3xl text-left text-black font-ravello'>
-                                    {name} <br/>
-                                    <span className='text-lg text-[#5A5A5A] font-ravello'> 
-                                        {idyllic.title}
+                            <div className="title-container overflow-hidden">
+                                <h2 className='idyllic-name text-3xl text-black font-ravello'>
+                                    Ice Blink <br/>
+                                    <span className='text-lg text-[#5A5A5A] font-satoshi'> 
+                                        The Path of Reflection
                                     </span>
                                 </h2>
                             </div>
-
-                            {/* image */}
-                            <img
-                                className='w-55 mb-4'
-                                src={idyllic.image}
-                                alt={`${name} image`} 
-                            />
-
                             {/* description */}
-                            <p className='idyllics-description text-sm text-justify text-black mt-2 leading-6'>
-                                {idyllic.description}
+                            <p className='idyllics-description text-sm text-black mt-2 leading-loose'>
+                                Iceblink is the first idyllic path of Infinity Artverse. Inspired by the distant reflections that guide explorers through uncertainty, it represents the art of preserving moments in time. Through photography, fleeting memories become lasting reflections, capturing stories that continue to illuminate the journey ahead.
                             </p>
                         </div>
                     </div>
-                    ))}
-                    
+
+                    {/* Nostalgia */}
+                    <div
+                        className="justify-between flex flex-col gap-5 items-center"
+                    >
+                        {/* description */}
+                        <div className='flex flex-col gap-2 font-satoshi w-70'>
+                            {/* Name */}
+                            <div className="title-container overflow-hidden">
+                                <h2 className='idyllic-name text-3xl text-black font-ravello'>
+                                    Nostalgia <br/>
+                                    <span className='text-lg text-[#5A5A5A] font-satoshi'> 
+                                        The Path of Memory
+                                    </span>
+                                </h2>
+                            </div>
+                            {/* description */}
+                            <p className='idyllics-description text-sm text-black mt-2 leading-loose'>
+                                Nostalgia is the second idyllic path, born from the connection between memory and emotion. It embraces the moments that replay within us, transforming fragments of the past into moving stories. Through videography, memories are preserved not as records, but as experiences that can be felt again and again.
+                            </p>
+                        </div>
+
+                        <img 
+                            className='w-55'
+                            src={NostalgiaImage} 
+                            alt={"Iceblink"} 
+                        />
+                    </div>
+
+                    {/* Feel */}
+                    <div
+                        className="justify-between flex flex-col gap-5 items-center"
+                    >
+                        <img 
+                            className='w-55'
+                            src={FeelImage} 
+                            alt={"Feel"} 
+                        />
+
+                        {/* description */}
+                        <div className='flex flex-col gap-2 font-satoshi w-70'>
+                            {/* Name */}
+                            <div className="title-container overflow-hidden">
+                                <h2 className='idyllic-name text-3xl text-black font-ravello'>
+                                    Feel <br/>
+                                    <span className='text-lg text-[#5A5A5A] font-satoshi'> 
+                                        The Path of Emotion
+                                    </span>
+                                </h2>
+                            </div>
+                            {/* description */}
+                            <p className='idyllics-description text-sm text-black mt-2 leading-loose'>
+                                Feel is the third idyllic path, where imagination and emotion converge. It is the expression of thoughts shaped by memories, experiences, colours, and forms. Through creative exploration, this path transforms emotions into visual experiences that resonate beyond words.
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Timeless */}
+                    <div
+                        className="justify-between flex flex-col gap-5 items-center"
+                    >
+                        {/* description */}
+                        <div className='flex flex-col gap-2 font-satoshi w-70'>
+                            {/* Name */}
+                            <div className="title-container overflow-hidden">
+                                <h2 className='idyllic-name text-3xl text-black font-ravello'>
+                                    Timeless <br/>
+                                    <span className='text-lg text-[#5A5A5A] font-satoshi'> 
+                                        The Path of Discovery
+                                    </span>
+                                </h2>
+                            </div>
+                            {/* description */}
+                            <p className='idyllics-description text-sm text-black mt-2 leading-loose'>
+                                Timeless is the fourth idyllic path, inspired by the wonder found in the unexpected. It celebrates creations that transcend trends and moments, revealing new perspectives within the familiar. Through experimentation and innovation, this path seeks to create works that remain meaningful across time.
+                            </p>
+                        </div>
+
+                        <img 
+                            className='w-55'
+                            src={TimelessImage} 
+                            alt={"Timeless"} 
+                        />
+                    </div>
+
+                    {/* Yarn */}
+                    <div
+                        className="justify-between flex flex-col gap-5 items-center"
+                    >
+                        <img 
+                            className='w-55'
+                            src={YarnImage} 
+                            alt={"Yarn"} 
+                        />
+
+                        {/* description */}
+                        <div className='flex flex-col gap-2 font-satoshi w-70'>
+                            {/* Name */}
+                            <div className="title-container overflow-hidden">
+                                <h2 className='idyllic-name text-3xl text-black font-ravello'>
+                                    Yearn <br/>
+                                    <span className='text-lg text-[#5A5A5A] font-satoshi'> 
+                                        The Path of Identity
+                                    </span>
+                                </h2>
+                            </div>
+                            {/* description */}
+                            <p className='idyllics-description text-sm text-black mt-2 leading-loose'>
+                                Yearn is the fifth and final idyllic path, embodying the human desire to create, grow, and leave a lasting mark. It represents the pursuit of individuality and purpose, transforming aspirations into distinctive identities. Through branding and visual storytelling, this path helps ideas evolve into something uniquely their own.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -69,7 +174,7 @@ const HomeExperience = () => {
                 {/* left col */}
                 <div className="w-full space-y-12 max-w-130 origin-content-container-left-col flex flex-col">
                     <div className="w-full flex items-end h-200">
-                        <p className=" font-satoshi text-sm leading-6 pl-10">
+                        <p className="origin-description font-satoshi text-sm leading-6 pl-10">
                             Infinity Artverse began with a simple belief—that creativity should never be confined by a single medium, style, or perspective. What started as a passion for creating visual experiences gradually evolved into a universe where photography, cinematography, branding, and storytelling coexist under one artistic identity. Rather than following trends, we chose to build a space where imagination could lead every decision and every creation.
                         </p>
                     </div>
@@ -82,14 +187,14 @@ const HomeExperience = () => {
                     </div>
                     <div className="w-full h-220 overflow-hidden pl-10 relative flex flex-col space-y-4">
                         <div className="overflow-hidden">
-                            <h1 className="text-5xl font-ravello">
+                            <h1 className="origin-headings text-5xl font-ravello">
                                 The <br/> 
                                 <span className="text-9xl font-ravello">
                                     Collective
                                 </span>
                             </h1>
                         </div>
-                        <h2 className=" text-lg font-satoshi font-bold">
+                        <h2 className="origin-sub-headings text-lg font-satoshi font-bold">
                             Built by people who believe in creation.
                         </h2>
                         <p className="origin-description leading-6 z-35 text-sm font-satoshi">
@@ -118,14 +223,14 @@ const HomeExperience = () => {
                     </div>
                     <div className="w-full flex flex-col space-y-4">
                         <div className="overflow-hidden">
-                            <h1 className="origin-descirption-title text-right text-5xl font-ravello">
+                            <h1 className="origin-headings text-right text-5xl font-ravello">
                                 The <br/> 
                                 <span className="text-9xl font-ravello">
                                     Philosophy
                                 </span>
                             </h1>
                         </div>
-                        <h2 className="text-lg font-satoshi font-bold">
+                        <h2 className="origin-sub-headings text-lg font-satoshi font-bold">
                             Guided by imagination. Driven by purpose.
                         </h2>
                         <p className="origin-description leading-6 text-sm font-satoshi">
@@ -141,14 +246,14 @@ const HomeExperience = () => {
                     </div>
                     <div className="w-full flex flex-col space-y-4">
                         <div className="overflow-hidden">
-                            <h1 className="text-5xl font-ravello text-right">
+                            <h1 className="origin-headings text-5xl font-ravello text-right">
                                 Looking<br/> 
                                 <span className="text-9xl font-ravello">
                                     Beyond
                                 </span>
                             </h1>
                         </div>
-                        <h2 className="text-lg font-satoshi font-bold">
+                        <h2 className="origin-sub-headings text-lg font-satoshi font-bold">
                             The journey has only begun.
                         </h2>
                         <p className="origin-description leading-6 text-sm font-satoshi">

@@ -15,21 +15,9 @@ gsap.registerPlugin(SplitText)
 const HomeTimeline = () => {
     const viewPortRef = useRef(null);
     const scrollPanelRef = useRef(null);
-    const transitionMarkerRef = useRef(null);
 
-    const navLinks = [
-        {label: "home"},
-        {label: "projects"},
-        {label: "about us"},
-        {label: "contact us"},
-    ];
-    
-    const socialLinks = [
-        {label: "instagram"},
-        {label: "behance"},
-        {label: "linked_in"},
-        {label: "youtube"},
-    ]
+    const transitionOneMarkerRef = useRef(null);
+    const transitionTwoMarkerRef = useRef(null);
 
     useEffect(() => {
         const splits = [];
@@ -42,10 +30,13 @@ const HomeTimeline = () => {
             // const homeTitle = q(".home-title");
             // const homeDescription = q(".home-description");
             const homeExperience=q(".home-experience");
-            const idyllicsTrack = q(".idyllics-track");
+            const idyllicsTitle = q(".idyllics-title-container");
+            const idyllicsContainer = q(".idyllics-container");
             const idyllicsDescription = q(".idyllics-description");
             const originTitle = q(".origin-title");
             const originDescription = q(".origin-description");
+            const originHeadings = q(".origin-headings");
+            const originSubHeadings = q(".origin-sub-headings");
             const originTrack = q(".origin-track");
             const footer = q(".footer");
 
@@ -63,8 +54,12 @@ const HomeTimeline = () => {
                 yPercent: -100
             });
 
-            gsap.set(idyllicsTrack, {
-                xPercent: 0
+            gsap.set(idyllicsTitle, {
+                xPercent: 85,
+            })
+
+            gsap.set(idyllicsContainer, {
+                xPercent: 100,
             })
 
             gsap.set(originTitle, {
@@ -86,12 +81,12 @@ const HomeTimeline = () => {
                 }
             })
 
-            //svg tranistion timeline and animations
-            const transitionTl = gsap.timeline({
+            //Transtion 1 timeline and animations
+            const transitionOneTl = gsap.timeline({
                 paused: true
             });
 
-            transitionTl.to(beams, {
+            transitionOneTl.to(beams, {
                 attr: {
                     x: 0
                 },
@@ -109,16 +104,59 @@ const HomeTimeline = () => {
             }, ">");
 
             ScrollTrigger.create({
-                trigger: transitionMarkerRef.current,
+                trigger: transitionOneMarkerRef.current,
 
                 start: "top top",
 
                 onEnter() {
-                    transitionTl.play();
+                    transitionOneTl.play();
                 },
 
                 onLeaveBack() {
-                    transitionTl.reverse();
+                    transitionOneTl.reverse();
+                }
+            });
+
+            // Transition 2 timeline and animations
+            const transitionTwoTl = gsap.timeline({
+                paused: true
+            });
+
+            transitionTwoTl.to(beams, {
+                attr: {
+                    fill: "black"
+                },
+                duration: 1,
+                ease: "power3.inOut",
+            })
+            .to(originTitle, {
+                color: "#ffffff",
+                duration: 1
+            }, "<")
+            .to(originHeadings, {
+                color: "#ffffff",
+                duration: 1
+            }, "<")
+            .to(originSubHeadings, {
+                color: "#ffffff",
+                duration: 1
+            }, "<")
+            .to(originDescription, {
+                color: "#ffffff",
+                duration: 1
+            }, "<");
+
+            ScrollTrigger.create({
+                trigger: transitionTwoMarkerRef.current,
+
+                start: "top top",
+
+                onEnter() {
+                    transitionTwoTl.play();
+                },
+
+                onLeaveBack() {
+                    transitionTwoTl.reverse();
                 }
             });
 
@@ -134,24 +172,28 @@ const HomeTimeline = () => {
             });
 
             // master timeline animations
-            tl.to(idyllicsTrack, {
-                xPercent: -120,
-                duration: 32
-            })
-            .add("starting-overlap", "-=20")
+            tl.to(idyllicsContainer,{
+                xPercent:-180,
+                duration: 64
+            }).to(idyllicsTitle,{
+                xPercent:-100,
+                duration: 60
+            }, "0.5")
+
+            .add("starting-overlap", "-=35")
 
             .to(originTitle, {
                 yPercent: 890,
-                duration: 32
+                duration: 64
             }, "starting-overlap")
             .to(originTrack, {
                 yPercent: -85,
-                duration: 32
+                duration: 64
             }, "starting-overlap")
             .to(footer, {
                 yPercent: 0,
                 duration: 8,
-            }, "-=8")
+            }, "-=12")
 
             // typography and visual elemnts registaration
             viewPortEngine.register(idyllicsDescription, {
@@ -185,8 +227,12 @@ const HomeTimeline = () => {
     return (<>
         <div ref={scrollPanelRef} className="w-full h-[100vh]">
             <div
-                ref={transitionMarkerRef}
+                ref={transitionOneMarkerRef}
                 className="absolute top-[1vh] h-px w-full"
+            />
+            <div
+                ref={transitionTwoMarkerRef}
+                className="absolute top-[250vh] h-px w-full"
             />
         </div>
         <div ref={viewPortRef} className="viewport inset-0 fixed overflow-hidden w-full h-full">
@@ -228,64 +274,6 @@ const HomeTimeline = () => {
                 </svg>
 
                 <HomeExperience/>
-                {/* footer */}
-                <div className="footer absolute bottom-0 left-0 w-full gap-15 z-50 flex flex-row">
-                    <h1 className="font-ravello pl-70 text-black text-9xl leading-1 uppercase opacity-46">
-                        Infinity <br/> 
-                        <span className="font ravello text-9xl opacity-15">
-                            Artverse
-                        </span>
-                    </h1>
-
-                    {/* left col */}
-                    <div className="w flex flex-col gap-5 w-full">
-                        <p className="text-sm text-black font-satoshi">
-                            Every manifestation begins with imagination. <br/>
-                            Every journey begins with a single idea.
-                        </p>
-                        
-                        {/* devider */}
-                        <div className="w-full h-px bg-black/20" />
-
-                        {/* links container*/}
-                        <div className="flex flex-row w-full gap-10 pb-5 h-full">
-                            {/* nav links */}
-                            <div className="flex-col flex w-full h-full gap-2">
-                                <h2 className="font-satoshi uppercase text-black text-sm">
-                                    studio
-                                </h2>
-                                <ul className="font-satoshi text-sm text-black">
-                                    {navLinks.map((item, index) => (
-                                        <li className="font-satoshi text-sm hover:underline cursor-pointer" key={index}>
-                                            {item.label}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-
-                            {/* social links */}
-                            <div className="flex-col flex w-full h-full gap-2">
-                                <h2 className="font-satoshi uppercase text-black text-sm">
-                                    connect
-                                </h2>
-                                <ul className="font-satoshi text-sm text-black">
-                                    {socialLinks.map((item, index) => (
-                                        <li className="font-satoshi text-sm hover:underline cursor-pointer" key={index}>
-                                            {item.label}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-
-                            {/* all rights resereved */}
-                            <div className="w-full h-full flex items-end">
-                                <p className="font-satoshi text-sm text-black text-right">
-                                    © 2026 Infinity Artverse Crafted <br/> with imagination.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </>);
