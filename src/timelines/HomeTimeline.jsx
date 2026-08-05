@@ -10,6 +10,7 @@ import { viewportHorizontalProgress, viewportVerticalProgress } from "../animati
 import { primaryParagraphRevealer } from "../animations/helpers/paragraphRevealHelper";
 
 import {Artefacts} from "../data/artefacts"
+import { primaryTitleRevealer } from "../animations/helpers/titleRevealHelper";
 
 gsap.registerPlugin(ScrollTrigger)
 gsap.registerPlugin(SplitText)
@@ -40,6 +41,7 @@ const HomeTimeline = () => {
             const homeExperience=q(".home-experience");
             const idyllicsTitle = q(".idyllics-title-container");
             const idyllicsContainer = q(".idyllics-container");
+            const idyllicsName = q(".idyllic-name");
             const idyllicsDescription = q(".idyllics-description");
             const originTitle = q(".origin-title");
             const originDescription = q(".origin-description");
@@ -302,11 +304,25 @@ const HomeTimeline = () => {
             masterTlRef.current = tl;
 
             // typography and visual elemnts registaration
+            viewPortEngine.register(idyllicsName, {
+                type: "title",
+                active: false, 
+                progress: viewportHorizontalProgress, 
+                animation: primaryTitleRevealer
+            });
+
             viewPortEngine.register(idyllicsDescription, {
                 type: "paragraph",
                 active: false, 
                 progress: viewportHorizontalProgress, 
                 animation: primaryParagraphRevealer
+            });
+
+            viewPortEngine.register(originHeadings, {
+                type: "title",
+                active: false, 
+                progress: viewportVerticalProgress, 
+                animation: primaryTitleRevealer
             });
 
             viewPortEngine.register(originDescription, {
