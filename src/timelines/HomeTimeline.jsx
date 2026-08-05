@@ -1,6 +1,6 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SplitText } from "gsap/all";
 
 import Landing from "../pages/Home/sections/Landing";
@@ -17,6 +17,10 @@ gsap.registerPlugin(SplitText)
 const HomeTimeline = () => {
     const viewPortRef = useRef(null);
     const scrollPanelRef = useRef(null);
+    const masterTlRef = useRef(null);        // ← so you can pause/resume it
+    const enterDetailsTlRef = useRef(null);  // ← bridge out of useEffect
+    const exitDetailsTlRef = useRef(null);   // ← bridge out of useEffect
+    const [activeProject, setActiveProject] = useState(null);
 
     const transitionOneMarkerRef = useRef(null);
     const transitionTwoMarkerRef = useRef(null);
@@ -44,6 +48,7 @@ const HomeTimeline = () => {
             const originTrack = q(".origin-track");
             const manifestationsTrack = q(".manifestations-track");
             const manifestationsLeftPanel = q(".manifestations-left-panel");
+            const manifestationInfoPanel = q(".manifestation-info-panel");
 
             //transition elements
             const beams = q(".beam");
@@ -83,6 +88,10 @@ const HomeTimeline = () => {
                 opacity: 0, 
                 xPercent: -100 
             })
+            gsap.set(manifestationInfoPanel, { 
+                opacity: 0, 
+                xPercent: -100
+            })
 
             Object.entries(Artefacts).forEach(([name, artefact]) => {
                 const cardRefs = artefact.refs.cards;
@@ -106,6 +115,49 @@ const HomeTimeline = () => {
                 attr: {
                     x: 100
                 }
+            })
+
+            // enter details timeline & animations
+            const enterDetailsTl = gsap.timeline({
+                paused: true,
+                defaults: {
+                    ease: "power4"
+                }
+            });
+
+            enterDetailsTl.to(manifestationsLeftPanel, {
+                opacity:  0,
+                duration: 1,
+            })
+            .to(manifestationInfoPanel, {
+                xPercent: 0,
+                duration: 0.2,
+            })
+            .to(manifestationInfoPanel, {
+                opacity:  1,
+                duration: 1,
+            })
+
+            // exit details timeline & animations
+            const exitDetailsTl = gsap.timeline({
+                paused: true,
+                defaults: {
+                    duration: 1,
+                    ease: "power2.inOut"
+                }
+            })
+
+            exitDetailsTl.to(manifestationInfoPanel, {
+                opacity:  0,
+                duration: 1,
+            })
+            .to(manifestationInfoPanel, {
+                xPercent: -100,
+                duration: 0.2,
+            })
+            .to(manifestationsLeftPanel, {
+                opacity:  1,
+                duration: 1,
             })
 
             //Transtion 1 timeline and animations
@@ -244,6 +296,11 @@ const HomeTimeline = () => {
                 })
             });
 
+            // store timelines in refs so handlers below can reach them
+            enterDetailsTlRef.current = enterDetailsTl;
+            exitDetailsTlRef.current = exitDetailsTl;
+            masterTlRef.current = tl;
+
             // typography and visual elemnts registaration
             viewPortEngine.register(idyllicsDescription, {
                 type: "paragraph",
@@ -272,6 +329,97 @@ const HomeTimeline = () => {
             context.revert();
         };
     }, []);
+
+    // detail view anchor point — cards fan out rightward from here
+    const DETAIL_ANCHOR = { xFrac: 0.35, yFrac: 0.30 }
+
+    const handleProjectClick = (projectName) => {
+        const vw = window.innerWidth
+        const vh = window.innerHeight
+
+        setActiveProject(Artefacts[projectName]);
+        masterTlRef.current?.scrollTrigger?.disable(false);
+
+        // kill any running exit
+        exitDetailsTlRef.current?.pause();
+
+        // build fresh enter tl each click
+        const detailAnchorX = DETAIL_ANCHOR.xFrac * vw
+        const detailAnchorY = DETAIL_ANCHOR.yFrac * vh
+
+        const enterTl = gsap.timeline({
+            defaults: { ease: "power3.out", duration: 1 }
+        });
+
+        // panels
+        enterTl.to(".manifestations-left-panel", { opacity: 0, duration: 0.6 }, 0)
+        enterTl.to(".manifestation-info-panel",  { xPercent: 0, duration: 0.3 }, 0)
+        enterTl.to(".manifestation-info-panel",  { opacity: 1, duration: 0.8 }, 0.2)
+
+        // cards
+        Object.entries(Artefacts).forEach(([name, artefact]) => {
+            const isActive = name === projectName
+            const cards = artefact.refs.cards
+
+            cards.forEach((card, i) => {
+                if (isActive) {
+                    enterTl.to(card, {
+                        x: detailAnchorX + (artefact.detailPositions[i]?.x ?? 0),
+                        y: detailAnchorY + (artefact.detailPositions[i]?.y ?? 0),
+                        opacity: 1,
+                        duration: 1,
+                    }, 0)
+                } else {
+                    enterTl.to(card, {
+                        y: vh + 300,
+                        opacity: 0,
+                        duration: 0.7,
+                        ease: "power2.in"
+                    }, 0)
+                }
+            })
+        })
+
+        enterDetailsTlRef.current = enterTl
+    }
+
+    const handleBack = () => {
+        const vw = window.innerWidth
+        const vh = window.innerHeight
+
+        // setActiveProject(null);
+        enterDetailsTlRef.current?.pause();
+
+        const exitTl = gsap.timeline({
+            defaults: { ease: "power2.inOut", duration: 1 },
+            onComplete: () => {
+                masterTlRef.current?.scrollTrigger?.enable(false);
+            }
+        })
+
+        // panels
+        exitTl.to(".manifestation-info-panel",  { opacity: 0, duration: 0.6 }, 0)
+        exitTl.to(".manifestation-info-panel",  { xPercent: -100, duration: 0.3 }, 0.5)
+        exitTl.to(".manifestations-left-panel", { opacity: 1, duration: 0.8 }, 0.4)
+
+        // restore all cards to their stack + spread positions
+        Object.entries(Artefacts).forEach(([name, artefact]) => {
+            const stackX = artefact.stackPosition.xFrac * vw
+            const stackY = artefact.stackPosition.yFrac * vh
+            const cards = artefact.refs.cards
+
+            cards.forEach((card, i) => {
+                exitTl.to(card, {
+                    x: stackX + (artefact.spreadPositions[i]?.x ?? 0),
+                    y: stackY + (artefact.spreadPositions[i]?.y ?? 0),
+                    opacity: 1,
+                    duration: 1,
+                }, 0)
+            })
+        })
+
+        exitDetailsTlRef.current = exitTl
+    }
 
     return (<>
         <div ref={scrollPanelRef} className="w-full h-[100vh]">
@@ -322,7 +470,12 @@ const HomeTimeline = () => {
                     />
                 </svg>
 
-                <HomeExperience artefacts={Artefacts}/>
+                <HomeExperience
+                    artefacts={Artefacts}
+                    onProjectClick={handleProjectClick}  // ← passed down
+                    onBack={handleBack}                  // ← passed down
+                    activeProject={activeProject}
+                />
             </div>
         </div>
     </>);
