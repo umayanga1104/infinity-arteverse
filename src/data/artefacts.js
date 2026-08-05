@@ -57,6 +57,14 @@ export const Artefacts = {
                 { x: -40, y:  80 },
                 { x:  60, y:  50 },
             ],
+            // anchor: xFrac 0.35, yFrac 0.25 → cards fan right from there
+            detailPositions: [
+                { x:   200, y:   -175  },
+                { x: 200, y:  175  },
+                { x: 500, y: -175  },
+                { x: 500, y:  175  },
+                { x: 800, y:  -175  },
+            ],
             images: [
                 { image: Anantasakha_img_1, alt: 'Anantasakha Cover 1' },
                 { image: Anantasakha_img_2, alt: 'Anantasakha Cover 2' },
@@ -64,6 +72,61 @@ export const Artefacts = {
                 { image: Anantasakha_img_4, alt: 'Anantasakha Cover 4' },
                 { image: Anantasakha_img_5, alt: 'Anantasakha Cover 5' },
             ],
+            details: {
+                title: "Anantaśākhā",
+                subtitle: "Dealing with emotions that take place inside your own mind.",
+                shortDescription:
+                    "A collaborative digital artwork exploring the emotional landscapes hidden within the human mind.",
+
+                fullDescription:
+                    "Created in collaboration with Puragaraya Artverse, Anantaśākhā explores the emotions that reside within the human mind through surreal visual storytelling. The project combines conceptual framing, digital post-production, and poetic writing to create an introspective visual experience.",
+
+                type: ["Digital Artwork", "Concept Design", "Post Production"],
+                category: "Collaboration",
+
+                collaboration: {
+                    isCollaboration: true,
+                    partner: ["Puragaraya Artverse"]
+                },
+
+                credits: [
+                    {
+                        role: "Frames & Concept",
+                        name: "Agrabhanu Gunasekara",
+                        social: "@theinfinityartverse"
+                    },
+                    {
+                        role: "Post Production",
+                        name: "Yehendu Methkalana",
+                        social: "@theinfinityartverse"
+                    },
+                    {
+                        role: "Words",
+                        name: "Minuthi Sehansa",
+                        social: "@theinfinityartverse"
+                    }
+                ],
+
+                medium: [
+                    "Digital Art",
+                    "Concept Design",
+                    "Post Production"
+                ],
+
+                galleryTitle: "Visual Archive",
+
+                links: {
+                    instagram: "...",
+                    youtube: "",
+                    behance: "",
+                    website: ""
+                },
+
+                metadata: {
+                    year: 2025,
+                    status: "Published"
+                }
+            }
         },
         butterfly_Effect: {
             refs: {title: null, description: null, cards: []},
@@ -74,11 +137,67 @@ export const Artefacts = {
                 { x: -90, y: -70 },
                 { x:  70, y:  80 },
             ],
+            detailPositions: [
+                { x:   300, y:   -150  },
+                { x: 300, y:  150  },
+                { x: 600, y: 0  },
+            ],
             images: [
                 { image: Butterfly_Effect_img_1, alt: 'Butterfly Effect Cover 1' },
                 { image: Butterfly_Effect_img_2, alt: 'Butterfly Effect Cover 2' },
                 { image: Butterfly_Effect_img_3, alt: 'Butterfly Effect Cover 3' },
             ],
+            details: {
+                title: "Wings of Harmony",
+                subtitle: "The Butterfly Effect in Music.",
+
+                shortDescription:
+                    "A conceptual artwork created for the upcoming school musical show 'Swara Ranjana', exploring how the smallest musical moments can inspire profound emotional experiences.",
+
+                fullDescription:
+                    "Created for the school musical production 'Swara Ranjana', Wings of Harmony visualizes the butterfly effect through the language of music. Inspired by the idea that even the smallest notes and melodies can create lasting emotional ripples, the artwork symbolizes the delicate relationship between subtle beginnings and transformative outcomes. Through expressive composition and symbolic imagery, the project celebrates the harmony, emotion, and interconnectedness that define every musical journey.",
+
+                type: [
+                    "Digital Artwork",
+                    "Event Artwork",
+                    "Visual Concept"
+                ],
+
+                category: "Commission",
+
+                collaboration: {
+                    isCollaboration: false,
+                    partner: []
+                },
+
+                credits: [
+                    {
+                        role: "Artwork & Visual Concept",
+                        name: "Infinity Artverse",
+                        social: "@theinfinityartverse"
+                    }
+                ],
+
+                medium: [
+                    "Digital Illustration",
+                    "Graphic Design",
+                    "Visual Storytelling"
+                ],
+
+                galleryTitle: "Visual Archive",
+
+                links: {
+                    instagram: "...",
+                    youtube: "",
+                    behance: "",
+                    website: ""
+                },
+
+                metadata: {
+                    year: 2024,
+                    status: "Published"
+                }
+            }
         },
         capturing_Affection: {
             refs: {title: null, description: null, cards: []},
@@ -90,12 +209,119 @@ export const Artefacts = {
                 { x:   60, y: -90 },
                 { x:  -50, y:  90 },
             ],
+            detailPositions: [
+                { x:   300, y:   -160  },
+                { x: 300, y:  160  },
+                { x: 600, y: -160  },
+                { x: 600, y:  160  },
+            ],
             images: [
                 { image: Capturing_Affection_img_1, alt: 'Capturing Affection Cover 1' },
                 { image: Capturing_Affection_img_2, alt: 'Capturing Affection Cover 2' },
                 { image: Capturing_Affection_img_3, alt: 'Capturing Affection Cover 3' },
                 { image: Capturing_Affection_img_4, alt: 'Capturing Affection Cover 4' },
             ],
+            details: {
+                title: "Capturing Affection",
+                subtitle: "A story of love, memory, and the moments that define human connection.",
+
+                shortDescription:
+                    "An original short film produced by Artverse Architects, exploring affection through cinematic storytelling, visual emotion, and carefully crafted production design.",
+
+                fullDescription:
+                    "Capturing Affection is an original cinematic production that brings together visual storytelling, expressive performances, and thoughtful filmmaking to explore the emotions that shape human relationships. Produced by Artverse Architects, the project reflects a collaborative effort across directing, cinematography, production design, editing, music, and visual effects, resulting in a film that celebrates both the artistry and emotion behind every frame.",
+
+                type: [
+                    "Short Film",
+                    "Cinematography",
+                    "Visual Storytelling"
+                ],
+
+                category: "Original Production",
+
+                collaboration: {
+                    isCollaboration: true,
+                    partner: [
+                        "Artverse Architects"
+                    ]
+                },
+
+                credits: [
+                    {
+                        role: "Director",
+                        name: "Yehendu Methkalana",
+                        social: "@theinfinityartverse"
+                    },
+                    {
+                        role: "Production Designer",
+                        name: "Bhanidu Dewshan",
+                        social: ""
+                    },
+                    {
+                        role: "Cinematographer",
+                        name: "Chamathka Kaveen",
+                        social: ""
+                    },
+                    {
+                        role: "Visual Effects",
+                        name: "Shehan Navodya",
+                        social: ""
+                    },
+                    {
+                        role: "Music",
+                        name: "Seneth Dassanayake",
+                        social: ""
+                    },
+                    {
+                        role: "Sound Design",
+                        name: "Seneth Dassanayake",
+                        social: ""
+                    },
+                    {
+                        role: "Sound Design",
+                        name: "Amayuru Premarathne",
+                        social: ""
+                    },
+                    {
+                        role: "Editor",
+                        name: "Yehendu Methkalana",
+                        social: "@theinfinityartverse"
+                    },
+                    {
+                        role: "Colourist",
+                        name: "Bhanidu Dewshan",
+                        social: ""
+                    },
+                    {
+                        role: "Writer",
+                        name: "Chamathka Kaveen",
+                        social: ""
+                    }
+                ],
+
+                medium: [
+                    "Film Production",
+                    "Cinematography",
+                    "Editing",
+                    "Color Grading",
+                    "Visual Effects",
+                    "Sound Design"
+                ],
+
+                galleryTitle: "Visual Archive",
+
+                links: {
+                    instagram: "...",
+                    youtube: "",
+                    behance: "",
+                    website: ""
+                },
+
+                metadata: {
+                    year: 2025,
+                    status: "Published"
+                }
+            }
         },
         dethol: {
             refs: {title: null, description: null, cards: []},
@@ -107,12 +333,80 @@ export const Artefacts = {
                 { x:  100, y: -50 },
                 { x: 40, y:  70 },
             ],
+            detailPositions: [
+                { x:   250, y:   -190  },
+                { x: 250, y:  150  },
+                { x: 520, y: -190  },
+                { x: 520, y:  150  },
+            ],
             images: [
                 { image: Dethol_img_1, alt: 'Dethol Cover 1' },
                 { image: Dethol_img_2, alt: 'Dethol Cover 2' },
                 { image: Dethol_img_3, alt: 'Dethol Cover 3' },
                 { image: Dethol_img_4, alt: 'Dethol Cover 4' },
             ],
+            details: {
+                title: "Dethol",
+                subtitle: "Behind the Frames.",
+
+                shortDescription:
+                    "A visual concept and creative direction project developed to shape the artistic identity and atmosphere of the story 'Dethol'.",
+
+                fullDescription:
+                    "Dethol is a behind-the-scenes creative collaboration focused on developing the visual identity of the production. From the initial concept to the final artistic direction, Infinity Artverse was responsible for designing a visual language that complements the story's emotional tone. Built through close collaboration with the production team, the project reflects the importance of concept development in bringing cinematic narratives to life.",
+
+                type: [
+                    "Creative Direction",
+                    "Visual Concept",
+                    "Film Production"
+                ],
+
+                category: "Collaboration",
+
+                collaboration: {
+                    isCollaboration: true,
+                    partner: []
+                },
+
+                credits: [
+                    {
+                        role: "Visual Concept & Creative Direction",
+                        name: "Yehendu Methkalana",
+                        social: "@theinfinityartverse"
+                    },
+                    {
+                        role: "Project Collaboration",
+                        name: "Prabhashan",
+                        social: "@prabhashan_a"
+                    },
+                    {
+                        role: "Project Collaboration",
+                        name: "Kavishanke Adithya",
+                        social: "@kavishanke__adithya"
+                    }
+                ],
+
+                medium: [
+                    "Creative Direction",
+                    "Concept Development",
+                    "Visual Design",
+                    "Film Production"
+                ],
+
+                galleryTitle: "Visual Archive",
+
+                links: {
+                    instagram: "...",
+                    youtube: "",
+                    behance: "",
+                    website: ""
+                },
+
+                metadata: {
+                    year: 2025,
+                    status: "Published"
+                }
+            }
         },
         five_Feet_Apart: {
             refs: {title: null, description: null, cards: []},
@@ -123,11 +417,67 @@ export const Artefacts = {
                 { x: -80, y: -70 },
                 { x:  80, y:  60 },
             ],
+            detailPositions: [
+                { x:   200, y:   -150  },
+                { x: 200, y:  150  },
+                { x: 500, y: 0  },
+            ],
             images: [
                 { image: Five_Feet_Apart_img_1, alt: 'Five Feet Apart Cover 1' },
                 { image: Five_Feet_Apart_img_2, alt: 'Five Feet Apart Cover 2' },
                 { image: Five_Feet_Apart_img_3, alt: 'Five Feet Apart Cover 3' },
             ],
+            details: {
+                title: "Humantouch",
+                subtitle: "Inspired by the film 'Five Feet Apart'.",
+
+                shortDescription:
+                    "A conceptual digital artwork inspired by Five Feet Apart, exploring the profound significance of human connection and the emotional power of touch.",
+
+                fullDescription:
+                    "Humantouch is a conceptual artwork inspired by the 2019 film Five Feet Apart. Through symbolic composition and expressive visual storytelling, the piece reflects the emotional intimacy shared between two souls separated by circumstances beyond their control. It celebrates the universal language of human touch—its ability to provide comfort, security, love, and hope—while reminding us that even the simplest gestures can carry immeasurable meaning. The artwork stands as a tribute to the connections that define our lives and the moments we should never take for granted.",
+
+                type: [
+                    "Digital Artwork",
+                    "Concept Art",
+                    "Visual Storytelling"
+                ],
+
+                category: "Personal",
+
+                collaboration: {
+                    isCollaboration: false,
+                    partner: []
+                },
+
+                credits: [
+                    {
+                        role: "Concept, Artwork & Visual Storytelling",
+                        name: "Infinity Artverse",
+                        social: "@theinfinityartverse"
+                    }
+                ],
+
+                medium: [
+                    "Digital Illustration",
+                    "Concept Design",
+                    "Visual Storytelling"
+                ],
+
+                galleryTitle: "Visual Archive",
+
+                links: {
+                    instagram: "...",
+                    youtube: "",
+                    behance: "",
+                    website: ""
+                },
+
+                metadata: {
+                    year: 2024,
+                    status: "Published"
+                }
+            }
         },
         heena_Paarana: {
             refs: {title: null, description: null, cards: []},
@@ -135,10 +485,101 @@ export const Artefacts = {
             stackPosition:   { xFrac: 0.52, yFrac: 0.55 },
             spreadPositions: [
                 { x: 0, y: 0 },
+                { x: 0, y: 0 },
+                { x: 0, y: 0 },
+                { x: 0, y: 0 },
+            ],
+            detailPositions: [
+                { x:   300, y:   -150  },
+                { x: 300, y:  150  },
+                { x: 600, y: -150  },
+                { x: 600, y:  150  },
             ],
             images: [
                 { image: Heena_Paarana_img_1, alt: 'Heena Paarana Cover 1' },
+                { image: Heena_Paarana_img_1, alt: 'Heena Paarana Cover 1' },
+                { image: Heena_Paarana_img_1, alt: 'Heena Paarana Cover 1' },
+                { image: Heena_Paarana_img_1, alt: 'Heena Paarana Cover 1' },
             ],
+            details: {
+                title: "Heena Paarana",
+                subtitle: "An album artwork created for a heartfelt musical journey.",
+
+                shortDescription:
+                    "A cover artwork designed for the musical project 'Heena Paarana', translating the emotion and atmosphere of the song into a distinctive visual identity.",
+
+                fullDescription:
+                    "Heena Paarana is an album artwork created to visually represent the emotion, atmosphere, and identity of the song. Developed after months of creative exploration, the project focused on crafting a visual language that complements the music while reflecting its emotional depth. Through composition, color, and symbolism, the artwork became an extension of the listening experience, connecting the audience with the story beyond the music itself.",
+
+                type: [
+                    "Album Artwork",
+                    "Cover Design",
+                    "Visual Identity"
+                ],
+
+                category: "Collaboration",
+
+                collaboration: {
+                    isCollaboration: true,
+                    partner: [
+                        "Fort Lab Studios"
+                    ]
+                },
+
+                credits: [
+                    {
+                        role: "Artist",
+                        name: "Banu",
+                        social: "@banu_401_"
+                    },
+                    {
+                        role: "Melody",
+                        name: "Miran Archana",
+                        social: "@miran_archana"
+                    },
+                    {
+                        role: "Music Arrangement & Production",
+                        name: "Prabhashan",
+                        social: "@prabhashan_a"
+                    },
+                    {
+                        role: "Cello & Concert Flute",
+                        name: "Miuru Fernando",
+                        social: "@miuru_fernando"
+                    },
+                    {
+                        role: "Artwork",
+                        name: "Yehendu Methkalana",
+                        social: "@yeahendu"
+                    },
+                    {
+                        role: "Audio Production",
+                        name: "Fort Lab Studios",
+                        social: "@fortlab_studios"
+                    }
+                ],
+
+                medium: [
+                    "Graphic Design",
+                    "Album Cover Design",
+                    "Visual Identity",
+                    "Digital Illustration"
+                ],
+
+                galleryTitle: "Visual Archive",
+
+                links: {
+                    instagram: "...",
+                    youtube: "",
+                    behance: "",
+                    website: ""
+                },
+
+                metadata: {
+                    year: 2024,
+                    status: "Published"
+                }
+            }
         },
         mammoth_Inventor: {
             refs: {title: null, description: null, cards: []},
@@ -146,10 +587,75 @@ export const Artefacts = {
             stackPosition:   { xFrac: 0.67, yFrac: 0.55 },
             spreadPositions: [
                 { x: 0, y: 0 },
+                { x: 0, y: 0 },
+                { x: 0, y: 0 },
+            ],
+            detailPositions: [
+                { x: 300, y:  0  },
+                { x: 600, y: -150  },
+                { x: 600, y:  150  },
             ],
             images: [
                 { image: Mammoth_Inventor_img_1, alt: 'Mammoth Inventor Cover 1' },
+                { image: Mammoth_Inventor_img_1, alt: 'Mammoth Inventor Cover 1' },
+                { image: Mammoth_Inventor_img_1, alt: 'Mammoth Inventor Cover 1' },
             ],
+            details: {
+                title: "The Mammoth Inventor",
+                subtitle: "A philosophical exploration of creation, belief, and the burden of innovation.",
+
+                shortDescription:
+                    "A conceptual digital artwork that questions the relationship between creators and their creations, exploring the consequences of innovation through symbolic visual storytelling.",
+
+                fullDescription:
+                    "The Mammoth Inventor is a conceptual artwork inspired by the philosophical writing of Sumi. Through surreal symbolism and visual storytelling, the project reflects on the responsibilities carried by every creator and the unforeseen consequences that accompany innovation. It challenges conventional perspectives by questioning the nature of belief, the role of humanity in shaping its own ideals, and the fine line between creation and creator. Rather than presenting definitive answers, the artwork invites viewers to interpret its meaning through their own experiences and perspectives.",
+
+                type: [
+                    "Digital Artwork",
+                    "Concept Art",
+                    "Visual Storytelling"
+                ],
+
+                category: "Personal",
+
+                collaboration: {
+                    isCollaboration: false,
+                    partner: []
+                },
+
+                credits: [
+                    {
+                        role: "Concept & Writing",
+                        name: "Sumi",
+                        social: ""
+                    },
+                    {
+                        role: "Artwork & Visual Interpretation",
+                        name: "Infinity Artverse",
+                        social: "@theinfinityartverse"
+                    }
+                ],
+
+                medium: [
+                    "Digital Illustration",
+                    "Concept Design",
+                    "Visual Storytelling"
+                ],
+
+                galleryTitle: "Visual Archive",
+
+                links: {
+                    instagram: "...",
+                    youtube: "",
+                    behance: "",
+                    website: ""
+                },
+
+                metadata: {
+                    year: 2025,
+                    status: "Published"
+                }
+            }
         },
         mariposa_Memoir: {
             refs: {title: null, description: null, cards: []},
@@ -161,12 +667,69 @@ export const Artefacts = {
                 { x:  60, y: -70 },
                 { x: -40, y:  80 },
             ],
+            detailPositions: [
+                { x:   300, y:   -150  },
+                { x: 300, y:  150  },
+                { x: 600, y: -150  },
+                { x: 600, y:  150  },
+            ],
             images: [
                 { image: Mariposa_Memoir_img_1, alt: 'Mariposa Memoir Cover 1' },
                 { image: Mariposa_Memoir_img_2, alt: 'Mariposa Memoir Cover 2' },
                 { image: Mariposa_Memoir_img_3, alt: 'Mariposa Memoir Cover 3' },
                 { image: Mariposa_Memoir_img_4, alt: 'Mariposa Memoir Cover 4' },
             ],
+            details: {
+                title: "Mariposa Memoir",
+                subtitle: "A visual diary inspired by the butterflies in our hearts.",
+
+                shortDescription:
+                    "A conceptual digital artwork inspired by the feeling of 'butterflies in the stomach', preserving a cherished memory through symbolism, emotion, and visual storytelling.",
+
+                fullDescription:
+                    "Mariposa Memoir is a conceptual artwork inspired by the universal feeling of anticipation, nervousness, and excitement often described as butterflies in the stomach. Created as a tribute to the memories of March 25, 2023, the artwork transforms an unforgettable moment into a visual diary where every color, composition, and butterfly symbolizes a heartbeat, an emotion, and a fleeting memory. Rather than simply documenting an event, the piece celebrates the beauty of emotions that are temporary yet leave a lasting imprint, reminding us to embrace the moments that make our hearts flutter.",
+
+                type: [
+                    "Digital Artwork",
+                    "Concept Art",
+                    "Visual Storytelling"
+                ],
+
+                category: "Personal",
+
+                collaboration: {
+                    isCollaboration: false,
+                    partner: []
+                },
+
+                credits: [
+                    {
+                        role: "Concept, Artwork & Visual Storytelling",
+                        name: "Yehendu Methkalana",
+                        social: "@theinfinityartverse"
+                    }
+                ],
+
+                medium: [
+                    "Digital Illustration",
+                    "Concept Design",
+                    "Visual Storytelling"
+                ],
+
+                galleryTitle: "Visual Archive",
+
+                links: {
+                    instagram: "...",
+                    youtube: "",
+                    behance: "",
+                    website: ""
+                },
+
+                metadata: {
+                    year: 2024,
+                    status: "Published"
+                }
+            }
         },
         moonlit_Doughts_ii: {
             refs: {title: null, description: null, cards: []},
@@ -176,10 +739,63 @@ export const Artefacts = {
                 { x:   0, y:   0 },
                 { x: -150, y:  70 },
             ],
+            detailPositions: [
+                { x:   250, y:   0 },
+                { x: 520, y:  0 },
+            ],
             images: [
                 { image: Moonlit_Doughts_ii_img_1, alt: 'Moonlit Doubts II Cover 1' },
                 { image: Moonlit_Doughts_ii_img_2, alt: 'Moonlit Doubts II Cover 2' },
             ],
+            details: {
+                title: "Moonlit Doubts II",
+                subtitle: "Episode 10",
+
+                shortDescription: "A conceptual visual narrative exploring uncertainty, emotion, and the quiet conversations that unfold beneath the moonlight.",
+
+                fullDescription: "Moonlit Doubts II continues the episodic visual journey through themes of introspection and emotional conflict. Built upon symbolic imagery and atmospheric composition, the project invites viewers to embrace uncertainty rather than seek immediate answers. Every frame serves as a fragment of a larger narrative, allowing personal interpretation to become part of the story itself.",
+
+                type: [
+                    "Digital Artwork",
+                    "Concept Art",
+                    "Visual Storytelling"
+                ],
+
+                category: "Personal",
+
+                collaboration: {
+                    isCollaboration: false,
+                    partner: []
+                },
+
+                credits: [
+                    {
+                        role: "Concept, Artwork & Visual Storytelling",
+                        name: "Yehendu Methkalana",
+                        social: "@theinfinityartverse"
+                    }
+                ],
+
+                medium: [
+                    "Digital Illustration",
+                    "Concept Design",
+                    "Visual Storytelling"
+                ],
+
+                galleryTitle: "Visual Archive",
+
+                links: {
+                    instagram: "...",
+                    youtube: "",
+                    behance: "",
+                    website: ""
+                },
+
+                metadata: {
+                    year: 2025,
+                    status: "Published"
+                }
+            }
         },
         seema_Wii_Adare: {
             refs: {title: null, description: null, cards: []},
@@ -191,12 +807,77 @@ export const Artefacts = {
                 { x:   70, y: -60 },
                 { x:  -50, y:  70 },
             ],
+            detailPositions: [
+                { x:   320, y:   -170  },
+                { x: 320, y:  160  },
+                { x: 600, y: -170  },
+                { x: 600, y:  160  },
+            ],
             images: [
                 { image: Seema_Wii_Adare_img_1, alt: 'Seema Wii Adare Cover 1' },
                 { image: Seema_Wii_Adare_img_2, alt: 'Seema Wii Adare Cover 2' },
                 { image: Seema_Wii_Adare_img_3, alt: 'Seema Wii Adare Cover 3' },
                 { image: Seema_Wii_Adare_img_4, alt: 'Seema Wii Adare Cover 4' },
             ],
+            details: {
+            title: "Seema Wii Adare",
+            subtitle: "Behind the Frames.",
+
+            shortDescription:
+                "A visual concept and creative direction project developed to establish the artistic identity and emotional atmosphere of 'Seema Wii Adare'.",
+
+            fullDescription:
+                "Seema Wii Adare is a collaborative creative project centered on developing the visual identity behind the story. Infinity Artverse was responsible for designing and shaping the visual concept, creating an artistic direction that complements the narrative's emotional depth. Through thoughtful concept development and visual exploration, the project demonstrates how strong creative direction can enhance storytelling and leave a lasting visual impression.",
+
+            type: [
+                "Creative Direction",
+                "Visual Concept",
+                "Film Production"
+            ],
+
+            category: "Collaboration",
+
+            collaboration: {
+                isCollaboration: true,
+                partner: [
+                    "Cozzy"
+                ]
+            },
+
+            credits: [
+                {
+                    role: "Visual Concept & Creative Direction",
+                    name: "Yehendu Methkalana",
+                    social: "@theinfinityartverse"
+                },
+                {
+                    role: "Project Collaboration",
+                    name: "Cozzy",
+                    social: "@cozzy"
+                }
+            ],
+
+            medium: [
+                "Creative Direction",
+                "Concept Development",
+                "Visual Design",
+                "Film Production"
+            ],
+
+            galleryTitle: "Visual Archive",
+
+            links: {
+                instagram: "...",
+                youtube: "",
+                behance: "",
+                website: ""
+            },
+
+            metadata: {
+                year: 2025,
+                status: "Published"
+            }
+        }
         },
         seven_Days_Descent: {
             refs: {title: null, description: null, cards: []},
@@ -207,11 +888,67 @@ export const Artefacts = {
                 { x: -90, y: -70 },
                 { x:  60, y:  60 },
             ],
+            detailPositions: [
+                { x:   530, y:   150  },
+                { x: 230, y:  0  },
+                { x: 530, y: -150  },
+            ],
             images: [
                 { image: Seven_Days_Descent_img_1, alt: 'Seven Days Descent Cover 1' },
                 { image: Seven_Days_Descent_img_2, alt: 'Seven Days Descent Cover 2' },
                 { image: Seven_Days_Descent_img_3, alt: 'Seven Days Descent Cover 3' },
             ],
+            details: {
+                title: "Seven Days' Descent",
+                subtitle: "A journey between imagination and reality.",
+
+                shortDescription:
+                    "A conceptual digital artwork exploring the gradual descent from imagination into reality, guided by symbolism and existential reflection.",
+
+                fullDescription:
+                    "Seven Days' Descent is a conceptual artwork that visualizes the delicate transition between imagination and reality. Through the symbolic presence of seven crows, the piece portrays a solitary figure descending through the layers of existence, where each passing day draws the dreamer closer to the tangible world. Balancing surrealism with introspective storytelling, the artwork invites viewers to reflect on the inevitable journey from limitless imagination toward the realities that shape our lives.",
+
+                type: [
+                    "Digital Artwork",
+                    "Concept Art",
+                    "Visual Storytelling"
+                ],
+
+                category: "Personal",
+
+                collaboration: {
+                    isCollaboration: false,
+                    partner: []
+                },
+
+                credits: [
+                    {
+                        role: "Concept, Artwork & Visual Storytelling",
+                        name: "Yehendu Methkalana",
+                        social: "@theinfinityartverse"
+                    }
+                ],
+
+                medium: [
+                    "Digital Illustration",
+                    "Concept Design",
+                    "Visual Storytelling"
+                ],
+
+                galleryTitle: "Visual Archive",
+
+                links: {
+                    instagram: "...",
+                    youtube: "",
+                    behance: "",
+                    website: ""
+                },
+
+                metadata: {
+                    year: 2024,
+                    status: "Published"
+                }
+            }
         },
         thol_Pethi: {
             refs: {title: null, description: null, cards: []},
@@ -221,10 +958,121 @@ export const Artefacts = {
                 { x:   -348, y:   60 },
                 { x: -80, y:  70 },
             ],
+            detailPositions: [
+                { x:   250, y:   0 },
+                { x: 520, y:  0 },
+            ],
             images: [
                 { image: Thol_Pethi_img_1, alt: 'Thol Pethi Cover 1' },
                 { image: Thol_Pethi_img_2, alt: 'Thol Pethi Cover 2' },
             ],
+            details: {
+                title: "Project Title",
+                subtitle: "Album Cover Design & Marketing Visuals.",
+
+                shortDescription:
+                    "A creative collaboration contributing the album cover design and promotional visual identity for a debut music video production.",
+
+                fullDescription:
+                    "Developed as part of a collaborative music video production, this project focused on creating the album cover artwork and marketing visuals that represent the identity of the release. Designed to complement the cinematic tone of the production, the visual assets establish a consistent artistic presence across promotional platforms while supporting the storytelling behind the music. The project reflects the importance of visual identity in extending the emotional impact of a musical experience beyond the screen.",
+
+                type: [
+                    "Album Artwork",
+                    "Marketing Visuals",
+                    "Graphic Design"
+                ],
+
+                category: "Collaboration",
+
+                collaboration: {
+                    isCollaboration: true,
+                    partner: []
+                },
+
+                credits: [
+                    {
+                        role: "Director",
+                        name: "Sasindu Anuradha",
+                        social: ""
+                    },
+                    {
+                        role: "Director of Photography",
+                        name: "Pasindu Weerasinghe",
+                        social: ""
+                    },
+                    {
+                        role: "Editing & Color Grading",
+                        name: "Pasindu Weerasinghe",
+                        social: ""
+                    },
+                    {
+                        role: "Camera Assistant",
+                        name: "Sakulya Gunawardana",
+                        social: ""
+                    },
+                    {
+                        role: "Casting",
+                        name: "Malshika Thathsarani",
+                        social: ""
+                    },
+                    {
+                        role: "Casting",
+                        name: "Lakshan Daluwaththa",
+                        social: ""
+                    },
+                    {
+                        role: "Official Photography",
+                        name: "Manoj Bandara",
+                        social: ""
+                    },
+                    {
+                        role: "Props Design",
+                        name: "Manoj Bandara",
+                        social: ""
+                    },
+                    {
+                        role: "Production Coordination",
+                        name: "Manoj Bandara",
+                        social: ""
+                    },
+                    {
+                        role: "Production Coordination",
+                        name: "Harsha Jayathilaka",
+                        social: ""
+                    },
+                    {
+                        role: "Transport",
+                        name: "Harsha Jayathilaka",
+                        social: ""
+                    },
+                    {
+                        role: "Album Cover Design & Marketing Visuals",
+                        name: "Yehendu Methkalana",
+                        social: "@infinityartverse"
+                    }
+                ],
+
+                medium: [
+                    "Album Cover Design",
+                    "Marketing Visual Design",
+                    "Graphic Design",
+                    "Creative Direction"
+                ],
+
+                galleryTitle: "Visual Archive",
+
+                links: {
+                    instagram: "...",
+                    youtube: "https://shorturl.at/AxBu",
+                    behance: "",
+                    website: ""
+                },
+
+                metadata: {
+                    year: 2024,
+                    status: "Published"
+                }
+            }
         },
         to_Dear_U_Epi_iii: {
             refs: {title: null, description: null, cards: []},
@@ -235,11 +1083,67 @@ export const Artefacts = {
                 { x: -90, y: -70 },
                 { x:  70, y:  80 },
             ],
+            detailPositions: [
+                { x:   250, y:   -180 },
+                { x: 250, y:  150 },
+                { x: 550, y: 0 },
+            ],
             images: [
                 { image: To_Dear_U_Epi_iii_img_1, alt: 'To Dear U Epi III Cover 1' },
                 { image: To_Dear_U_Epi_iii_img_2, alt: 'To Dear U Epi III Cover 2' },
                 { image: To_Dear_U_Epi_iii_img_3, alt: 'To Dear U Epi III Cover 3' },
             ],
+            details: {
+                title: "To Dear U",
+                subtitle: "Episode III · Roots of Memories",
+
+                shortDescription:
+                    "A conceptual digital artwork exploring how memories are formed through fleeting moments, emotions, and the people who leave lasting impressions on our lives.",
+
+                fullDescription:
+                    "Roots of Memories is the third chapter of the 'To Dear U' series, inspired by the quiet beauty of memories created through meaningful connections. The artwork reflects how every encounter, every passing day, and every shared emotion gradually intertwine to shape the story of a relationship. Through symbolic composition and expressive visual storytelling, the piece transforms fragments of memory into a single visual narrative, celebrating the moments that continue to live within us long after they have passed.",
+
+                type: [
+                    "Digital Artwork",
+                    "Concept Art",
+                    "Visual Storytelling"
+                ],
+
+                category: "Personal",
+
+                collaboration: {
+                    isCollaboration: false,
+                    partner: []
+                },
+
+                credits: [
+                    {
+                        role: "Concept, Artwork & Visual Storytelling",
+                        name: "Yehendu Methkalana",
+                        social: "@theinfinityartverse"
+                    }
+                ],
+
+                medium: [
+                    "Digital Illustration",
+                    "Concept Design",
+                    "Visual Storytelling"
+                ],
+
+                galleryTitle: "Visual Archive",
+
+                links: {
+                    instagram: "...",
+                    youtube: "",
+                    behance: "",
+                    website: ""
+                },
+
+                metadata: {
+                    year: 2024,
+                    status: "Published"
+                }
+            }
         },
         yannemi: {
             refs: {title: null, description: null, cards: []},
@@ -254,6 +1158,15 @@ export const Artefacts = {
                 { x:  -50, y:  100 },
                 { x:   40, y:  -40 },
             ],
+            detailPositions: [
+                { x:   300, y:   -160  },
+                { x: 300, y:  160  },
+                { x: 600, y: -160  },
+                { x: 600, y:  160  },
+                { x: 900, y:  -160 },
+                { x: 900, y:  160 },
+                { x: 1500, y: -10 },
+            ],
             images: [
                 { image: Yannemi_img_1, alt: 'Yannemi Cover 1' },
                 { image: Yannemi_img_2, alt: 'Yannemi Cover 2' },
@@ -263,5 +1176,84 @@ export const Artefacts = {
                 { image: Yannemi_img_6, alt: 'Yannemi Cover 6' },
                 { image: Yannemi_img_7, alt: 'Yannemi Cover 7' },
             ],
+            details: {
+                title: "Yannemi",
+                subtitle: "A visual journey through solitude and the beauty of emptiness.",
+
+                shortDescription:
+                    "A collaborative visual storytelling project created with RaajakeeyabioScopes Collective, exploring solitude, loss, and the search for meaning through cinematic imagery.",
+
+                fullDescription:
+                    "Created in collaboration with RaajakeeyabioScopes Collective, Yannemi is a visual narrative that explores the quiet beauty found within solitude and emptiness. Through carefully composed frames, expressive color grading, and cinematic post-production, the project follows the journey of a lone soul wandering through the aftermath of loss. Every visual element was crafted to evoke reflection and emotion, allowing the story to unfold through imagery rather than words while inviting viewers to interpret its meaning through their own experiences.",
+
+                type: [
+                    "Visual Storytelling",
+                    "Photography",
+                    "Post Production"
+                ],
+
+                category: "Collaboration",
+
+                collaboration: {
+                    isCollaboration: true,
+                    partner: [
+                        "RaajakeeyabioScopes Collective"
+                    ]
+                },
+
+                credits: [
+                    {
+                        role: "Frames, Color & Concept",
+                        name: "Chamathka Kaveen Bandara",
+                        social: "@RaajakeeyabioScopes"
+                    },
+                    {
+                        role: "Reframing & Post Production",
+                        name: "Yehendu Methkalana",
+                        social: "@theinfinityartverse"
+                    },
+                    {
+                        role: "Cast",
+                        name: "Tharushi Pathirana",
+                        social: ""
+                    },
+                    {
+                        role: "Coordinator",
+                        name: "Sandeepa Premarathne",
+                        social: "@RaajakeeyabioScopes"
+                    },
+                    {
+                        role: "Cast",
+                        name: "Senuka Premarathne",
+                        social: ""
+                    },
+                    {
+                        role: "Cast",
+                        name: "Dasuni Pathirana",
+                        social: ""
+                    }
+                ],
+
+                medium: [
+                    "Photography",
+                    "Post Production",
+                    "Color Grading",
+                    "Visual Storytelling"
+                ],
+
+                galleryTitle: "Visual Archive",
+
+                links: {
+                    instagram: "...",
+                    youtube: "",
+                    behance: "",
+                    website: ""
+                },
+
+                metadata: {
+                    year: 2024,
+                    status: "Published"
+                }
+            }
         },
     }
