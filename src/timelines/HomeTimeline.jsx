@@ -205,7 +205,7 @@ const HomeTimeline = () => {
 
             transitionTwoTl.to(beams, {
                 attr: {
-                    fill: "black"
+                    fill: "#5d5646"
                 },
                 duration: 1,
                 ease: "power3.inOut",
@@ -464,7 +464,7 @@ const HomeTimeline = () => {
                         y="0"
                         width="100"
                         height="34"
-                        fill="white"
+                        fill="#eeeae2"
                     />
 
                     <rect
@@ -473,7 +473,7 @@ const HomeTimeline = () => {
                         y="33"
                         width="100"
                         height="34"
-                        fill="white"
+                        fill="#eeeae2"
                     />
 
                     <rect
@@ -482,7 +482,7 @@ const HomeTimeline = () => {
                         y="66"
                         width="100"
                         height="34"
-                        fill="white"
+                        fill="#eeeae2"
                     />
                 </svg>
 
