@@ -464,7 +464,7 @@ const HomeTimeline = () => {
                         y="0"
                         width="100"
                         height="34"
-                        fill="white"
+                        fill="#CCCCCC"
                     />
 
                     <rect
@@ -473,7 +473,7 @@ const HomeTimeline = () => {
                         y="33"
                         width="100"
                         height="34"
-                        fill="white"
+                        fill="#CCCCCC"
                     />
 
                     <rect
@@ -482,7 +482,7 @@ const HomeTimeline = () => {
                         y="66"
                         width="100"
                         height="34"
-                        fill="white"
+                        fill="#CCCCCC"
                     />
                 </svg>
 

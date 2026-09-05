@@ -13,7 +13,7 @@ import TimelessImage  from '../../../assets/idyllic/timeless.webp';
 const HomeExperience = ({ artefacts, onProjectClick, onBack, activeProject }) => {
 
     return(
-        <div className="home-experience bg-transparent relative z-20 w-full h-full overflow-hidden">
+        <div className="home-experience bg-transparent relative z-20 w-full h-screen overflow-hidden">
             {/* idyllics track */}
             <div className="idyllics-track absolute left-50 top-1/2 -translate-y-1/2 flex items-center justify-center space-x-100 w-max">
                 <div className="idyllics-title-container flex w-[50vw] shrink-0 h-150 items-start justify-center">
