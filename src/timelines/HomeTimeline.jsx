@@ -174,7 +174,12 @@ const HomeTimeline = () => {
                 duration: 1,
                 stagger: 0.1,
                 ease: "power3.inOut"
-            }).to(homeExperience, {
+            }).to(landing, {
+                opacity: 0,
+                duration: 1,
+                ease: "power3.inOut",
+            }, "<")
+            .to(homeExperience, {
                 xPercent: 0,
                 duration: 1,
             }, "<")
@@ -205,25 +210,27 @@ const HomeTimeline = () => {
 
             transitionTwoTl.to(beams, {
                 attr: {
-                    fill: "black"
+                    // fill: "black"
+                    fill: "#ffffff"
                 },
                 duration: 1,
                 ease: "power3.inOut",
             })
             .to(originTitle, {
-                color: "#ffffff",
+                // color: "#ffffff",
+                color: "#000000",
                 duration: 1
             }, "<")
             .to(originHeadings, {
-                color: "#ffffff",
+                color: "#000000",
                 duration: 1
             }, "<")
             .to(originSubHeadings, {
-                color: "#ffffff",
+                color: "#000000",
                 duration: 1
             }, "<")
             .to(originDescription, {
-                color: "#ffffff",
+                color: "#000000",
                 duration: 1
             }, "<");
 

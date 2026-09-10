@@ -45,7 +45,7 @@ const HomeExperience = ({ artefacts, onProjectClick, onBack, activeProject }) =>
                                 </h2>
                             </div>
                             {/* description */}
-                            <p className='idyllics-description text-sm text-black mt-2 leading-loose'>
+                            <p className='idyllics-description text-justify text-sm text-black mt-2 leading-loose'>
                                 Iceblink is the first idyllic path of Infinity Artverse. Inspired by the distant reflections that guide explorers through uncertainty, it represents the art of preserving moments in time. Through photography, fleeting memories become lasting reflections, capturing stories that continue to illuminate the journey ahead.
                             </p>
                         </div>
@@ -67,7 +67,7 @@ const HomeExperience = ({ artefacts, onProjectClick, onBack, activeProject }) =>
                                 </h2>
                             </div>
                             {/* description */}
-                            <p className='idyllics-description text-sm text-black mt-2 leading-loose'>
+                            <p className='idyllics-description text-justify text-sm text-black mt-2 leading-loose'>
                                 Nostalgia is the second idyllic path, born from the connection between memory and emotion. It embraces the moments that replay within us, transforming fragments of the past into moving stories. Through videography, memories are preserved not as records, but as experiences that can be felt again and again.
                             </p>
                         </div>
@@ -101,7 +101,7 @@ const HomeExperience = ({ artefacts, onProjectClick, onBack, activeProject }) =>
                                 </h2>
                             </div>
                             {/* description */}
-                            <p className='idyllics-description text-sm text-black mt-2 leading-loose'>
+                            <p className='idyllics-description text-justify text-sm text-black mt-2 leading-loose'>
                                 Feel is the third idyllic path, where imagination and emotion converge. It is the expression of thoughts shaped by memories, experiences, colours, and forms. Through creative exploration, this path transforms emotions into visual experiences that resonate beyond words.
                             </p>
                         </div>
@@ -123,7 +123,7 @@ const HomeExperience = ({ artefacts, onProjectClick, onBack, activeProject }) =>
                                 </h2>
                             </div>
                             {/* description */}
-                            <p className='idyllics-description text-sm text-black mt-2 leading-loose'>
+                            <p className='idyllics-description text-justify text-sm text-black mt-2 leading-loose'>
                                 Timeless is the fourth idyllic path, inspired by the wonder found in the unexpected. It celebrates creations that transcend trends and moments, revealing new perspectives within the familiar. Through experimentation and innovation, this path seeks to create works that remain meaningful across time.
                             </p>
                         </div>
@@ -157,7 +157,7 @@ const HomeExperience = ({ artefacts, onProjectClick, onBack, activeProject }) =>
                                 </h2>
                             </div>
                             {/* description */}
-                            <p className='idyllics-description text-sm text-black mt-2 leading-loose'>
+                            <p className='idyllics-description text-justify text-sm text-black mt-2 leading-loose'>
                                 Yearn is the fifth and final idyllic path, embodying the human desire to create, grow, and leave a lasting mark. It represents the pursuit of individuality and purpose, transforming aspirations into distinctive identities. Through branding and visual storytelling, this path helps ideas evolve into something uniquely their own.
                             </p>
                         </div>
@@ -198,7 +198,7 @@ const HomeExperience = ({ artefacts, onProjectClick, onBack, activeProject }) =>
                         <h2 className="origin-sub-headings text-lg font-satoshi font-bold">
                             Built by people who believe in creation.
                         </h2>
-                        <p className="origin-description leading-6 z-35 text-sm font-satoshi">
+                        <p className="origin-description text-justify leading-6 z-35 text-sm font-satoshi">
                             Behind every manifestation is a team brought together by a shared passion for creativity. Each member contributes a unique perspective, allowing different disciplines to merge into one unified vision. By combining individual strengths with collaborative thinking, Infinity Artverse continues to grow as a creative collective where ideas are transformed into experiences that inspire and connect.
                         </p>
 
@@ -234,7 +234,7 @@ const HomeExperience = ({ artefacts, onProjectClick, onBack, activeProject }) =>
                         <h2 className="origin-sub-headings text-lg font-satoshi font-bold">
                             Guided by imagination. Driven by purpose.
                         </h2>
-                        <p className="origin-description leading-6 text-sm font-satoshi">
+                        <p className="origin-description text-justify leading-6 text-sm font-satoshi">
                             At the heart of Infinity Artverse lies a philosophy of exploration. We believe creativity grows when curiosity is embraced and limitations are challenged. Every project becomes a journey of discovery, where ideas are refined through collaboration, experimentation, and thoughtful design. It is this pursuit of meaningful expression that continues to shape the Artverse and everything created within it.
                         </p>
                     </div>
@@ -257,7 +257,7 @@ const HomeExperience = ({ artefacts, onProjectClick, onBack, activeProject }) =>
                         <h2 className="origin-sub-headings text-lg font-satoshi font-bold">
                             The journey has only begun.
                         </h2>
-                        <p className="origin-description leading-6 text-sm font-satoshi">
+                        <p className="origin-description text-justify leading-6 text-sm font-satoshi">
                             Infinity Artverse is not defined by what has already been created, but by the possibilities that remain undiscovered. Every project becomes another step toward expanding the universe we continue to imagine. As new ideas emerge and new stories are told, our commitment remains unchanged—to explore beyond convention, create without boundaries, and inspire others to see the infinite within their own imagination.
                         </p>
                     </div>
@@ -265,7 +265,7 @@ const HomeExperience = ({ artefacts, onProjectClick, onBack, activeProject }) =>
             </div>
 
             {/* manifestations track */}
-            <div className="manifestations-track relative z-40 w-full h-full flex flex-col items-start justify-center bg-white text-white">
+            <div className="manifestations-track relative z-40 w-full h-full flex flex-col items-start justify-center bg-[#ffffff] text-black">
                 {/* manifestations left panel */}
                 <div className="manifestations-left-panel absolute top-0 left-10 flex flex-col">
                     <div className="title-container overflow-hidden">
@@ -274,7 +274,7 @@ const HomeExperience = ({ artefacts, onProjectClick, onBack, activeProject }) =>
                         </h1>
                     </div>
 
-                    <ul className="manifestations-projects max-w-35 leading-relaxed w-full text-black text-sm font-satoshi">
+                    <ul className="manifestations-projects max-w-35 leading-relaxed w-full text-black text-md font-satoshi">
                         {Object.keys(artefacts).map((name) => (
                             <li 
                                 className="cursor-pointer hover:font-bold transition-all duration-300" 
