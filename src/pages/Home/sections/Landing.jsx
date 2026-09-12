@@ -1,10 +1,11 @@
 import LogoImg from "../../../assets/logo/logo_1.png"
 
 const Landing = () => {
+
     return (
         <div className="landing overflow-hidden relative z-10 w-full h-full flex flex-col items-end justify-around text-white">
 
-            <div className="landing-content-container mr-20 -space-x-55 flex flex-row">
+            <div className="landing-content-container mr-30 -space-x-55 flex flex-row">
                 {/* Infinity */}
                 <div className="left-landing-content-column flex flex-col pt-20">
                     <p className="landing-paragraph text-justify font-satoshi max-w-xs text-gray-300 text-sm">
@@ -17,6 +18,7 @@ const Landing = () => {
                         Infinity represents the belief that creativity has no final form. An idea does not have to belong to one medium, one style, or one definition. It can begin as a thought, become an image, evolve into a story, transform into sound, or take a shape that was never imagined at the beginning. For us, infinity is the freedom to keep exploring—to create without placing a boundary around what something should become.
                     </p>
                 </div>
+                {/* logo */}
                 <div className="landing-logo-container flex overflow-hidden items-center justify-center">
                     <img src={LogoImg} alt="Logo" className="object-contain w-200" />
                 </div>

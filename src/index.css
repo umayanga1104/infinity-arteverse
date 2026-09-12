@@ -31,15 +31,38 @@ body {
   font-family: "Noto Serif JP", serif;
 }
 
-@utility scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
-
 .font-display {
   font-family: 'Cormorant Garamond', serif;
+}
+
+/* 1. Standard rules for Firefox */
+/* * { */
+  /* scrollbar-width: thin;           */
+  /* scrollbar-color: #f3f4f6 #6b7280;  */
+  /* thumb color | track color */
+  /* Options: auto, thin, none */
+/* } */
+
+/* 2. WebKit rules for Chrome, Safari, and Edge */
+
+/* The entire scrollbar container */
+::-webkit-scrollbar {
+  width: 6px;               /* Width of vertical scrollbar */
+  height: 10px;              /* Height of horizontal scrollbar */
+}
+
+/* The track (background) of the scrollbar */
+::-webkit-scrollbar-track {
+  /* background: #f3f4f6;  */
+  background: #cccccc; 
+}
+ 
+/* The draggable scroll thumb */
+::-webkit-scrollbar-thumb {
+  background-color: #6b7280;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #4b5563; 
 }

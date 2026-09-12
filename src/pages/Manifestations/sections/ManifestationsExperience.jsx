@@ -68,7 +68,7 @@ const ManifestationsExperience = ({ artefacts, onProjectClick, onBack, activePro
                         key={`${name}-${i}`}
                         className="absolute top-0 left-0"
                         ref={el => {
-                            if(!artefact.refs.cards[i]) artefact.refs.cards[i] = el
+                            artefact.refs.cards[i] = el
                         }}
                     >
                         <img

@@ -9,6 +9,8 @@ import FeelImage      from '../../../assets/idyllic/feel.webp';
 import NostalgiaImage from '../../../assets/idyllic/nostalgia.webp';
 import TimelessImage  from '../../../assets/idyllic/timeless.webp';
 
+import ManifestationsFooter from "../../../components/ManifestationsFooter";
+
 
 const HomeExperience = ({ artefacts, onProjectClick, onBack, activeProject }) => {
 
@@ -165,6 +167,13 @@ const HomeExperience = ({ artefacts, onProjectClick, onBack, activeProject }) =>
                 </div>
             </div>
 
+            {/* idyllics description track */}
+            <div className="w-full absolute bottom-0 left-0 overflow-hidden">
+                <p className="idyllics-description-track whitespace-nowrap font-bold font-satoshi text-sm text-black leading-loose">
+                    Idyllics are the paths through which Infinity Artverse explores creativity. Each path carries its own character, emotion, and way of seeing—guiding ideas from the unseen into something tangible. Together, they form the creative language of the Artverse, connecting different forms of expression while leaving endless room for discovery.
+                </p>
+            </div>
+
             {/* origin title */}
             <h1 className="origin-title text-9xl text-black absolute -rotate-90 origin-center font-ravello leading-none pointer-events-none select-none top-0 -right-90">
                 Unveiling the Infinity
@@ -274,7 +283,7 @@ const HomeExperience = ({ artefacts, onProjectClick, onBack, activeProject }) =>
                         </h1>
                     </div>
 
-                    <ul className="manifestations-projects max-w-35 leading-relaxed w-full text-black text-md font-satoshi">
+                    <ul className="manifestations-projects max-w-35 leading-relaxed w-full text-black text-sm font-satoshi">
                         {Object.keys(artefacts).map((name) => (
                             <li 
                                 className="cursor-pointer hover:font-bold transition-all duration-300" 
@@ -333,7 +342,7 @@ const HomeExperience = ({ artefacts, onProjectClick, onBack, activeProject }) =>
                             key={`${name}-${i}`}
                             className="absolute top-0 left-0"
                             ref={el => {
-                                if(!artefact.refs.cards[i]) artefact.refs.cards[i] = el
+                                artefact.refs.cards[i] = el
                             }}
                         >
                             <img
@@ -346,6 +355,7 @@ const HomeExperience = ({ artefacts, onProjectClick, onBack, activeProject }) =>
                     ))
                 ))}
             </div>
+            <ManifestationsFooter />
         </div>
     );
 }

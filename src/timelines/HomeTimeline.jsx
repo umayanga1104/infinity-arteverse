@@ -43,6 +43,7 @@ const HomeTimeline = () => {
             const idyllicsContainer = q(".idyllics-container");
             const idyllicsName = q(".idyllic-name");
             const idyllicsDescription = q(".idyllics-description");
+            const idyllicsDescriptionTrack = q(".idyllics-description-track");
             const originTitle = q(".origin-title");
             const originDescription = q(".origin-description");
             const originHeadings = q(".origin-headings");
@@ -51,6 +52,7 @@ const HomeTimeline = () => {
             const manifestationsTrack = q(".manifestations-track");
             const manifestationsLeftPanel = q(".manifestations-left-panel");
             const manifestationInfoPanel = q(".manifestation-info-panel");
+            const manifestationFooter = q(".manifestations-footer");
 
             //transition elements
             const beams = q(".beam");
@@ -68,6 +70,9 @@ const HomeTimeline = () => {
 
             gsap.set(idyllicsTitle, {
                 xPercent: 85,
+            })
+            gsap.set(idyllicsDescriptionTrack, {
+                xPercent: -80
             })
 
             gsap.set(idyllicsContainer, {
@@ -93,6 +98,10 @@ const HomeTimeline = () => {
             gsap.set(manifestationInfoPanel, { 
                 opacity: 0, 
                 xPercent: -100
+            })
+            gsap.set(manifestationFooter, { 
+                opacity: 0, 
+                yPercent: 100
             })
 
             Object.entries(Artefacts).forEach(([name, artefact]) => {
@@ -210,7 +219,6 @@ const HomeTimeline = () => {
 
             transitionTwoTl.to(beams, {
                 attr: {
-                    // fill: "black"
                     fill: "#ffffff"
                 },
                 duration: 1,
@@ -267,6 +275,10 @@ const HomeTimeline = () => {
                 xPercent:-100,
                 duration: 60
             }, "0.5")
+            .to(idyllicsDescriptionTrack,{
+                xPercent: 100,
+                duration: 64
+            }, "<")
 
             .add("starting-overlap", "-=35")
 
@@ -287,6 +299,11 @@ const HomeTimeline = () => {
                 duration: 32,
                 opacity: 1,
             }, ">")
+            .to(manifestationFooter, {
+                yPercent: 0,
+                duration: 32,
+                opacity: 1,
+            }, "<");
 
             Object.entries(Artefacts).forEach(([name, artefact]) => {
                 const cardRefs = artefact.refs.cards;
@@ -346,10 +363,10 @@ const HomeTimeline = () => {
             ScrollTrigger.refresh();
         }, viewPortRef.current);
 
-
         return () => {
             splits.forEach(split => split.revert());
             context.revert();
+            viewPortEngine.terminate();
         };
     }, []);
 
@@ -448,14 +465,15 @@ const HomeTimeline = () => {
         <div ref={scrollPanelRef} className="w-full h-[100vh]">
             <div
                 ref={transitionOneMarkerRef}
-                className="absolute top-[1vh] h-px w-full"
+                className="transition-one-marker absolute top-[1vh] h-px w-full"
             />
             <div
                 ref={transitionTwoMarkerRef}
-                className="absolute top-[200vh] h-px w-full"
+                className="transition-two-marker absolute top-[200vh] h-px w-full"
             />
         </div>
         <div ref={viewPortRef} className="viewport inset-0 fixed overflow-hidden w-full h-full">
+            
             <div id="scenes-container" className="relative w-full h-full">
                 <Landing/>
 

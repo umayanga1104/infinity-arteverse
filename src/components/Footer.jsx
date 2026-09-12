@@ -14,8 +14,8 @@ const Footer = () => {
     ]
 
     return(
-        <div className="footer absolute bottom-0 left-0 w-full gap-15 z-50 flex flex-row">
-            <h1 className="font-ravello pl-70 text-black text-9xl leading-1 uppercase opacity-46">
+        <div className="footer relative w-full gap-15 z-50 flex flex-row">
+            <h1 className="font-ravello text-black text-9xl leading-1 uppercase opacity-46">
                 Infinity <br/> 
                 <span className="font ravello text-9xl opacity-15">
                     Artverse
