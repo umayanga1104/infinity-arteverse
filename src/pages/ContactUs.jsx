@@ -23,7 +23,7 @@ const ContactInfoCard = memo(({type, detail="", href=""}) => {
 const ContactUs = () => {
 
     return (
-        <div className="w-full flex flex-col bg-white items-center justify-between h-screen relative overflow-hidden">
+        <div className="w-screen flex flex-col bg-white items-center justify-between h-screen relative overflow-hidden">
             <h1 className="font-ravello text-black text-8xl pt-8">
                 Get In Touch
             </h1>
