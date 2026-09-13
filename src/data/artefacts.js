@@ -76,7 +76,7 @@ export const Artefacts = {
                 title: "Anantaśākhā",
                 subtitle: "Dealing with emotions that take place inside your own mind.",
                 shortDescription:
-                    "A collaborative digital artwork exploring the emotional landscapes hidden within the human mind.",
+                    "A digital artwork exploring the hidden emotional landscapes of the mind.",
 
                 fullDescription:
                     "Created in collaboration with Puragaraya Artverse, Anantaśākhā explores the emotions that reside within the human mind through surreal visual storytelling. The project combines conceptual framing, digital post-production, and poetic writing to create an introspective visual experience.",
@@ -155,7 +155,7 @@ export const Artefacts = {
                 subtitle: "A story of love, memory, and the moments that define human connection.",
 
                 shortDescription:
-                    "An original short film produced by Artverse Architects, exploring affection through cinematic storytelling, visual emotion, and carefully crafted production design.",
+                    "A short film exploring affection, memory, and human connection through cinematic storytelling.",
 
                 fullDescription:
                     "Capturing Affection is an original cinematic production that brings together visual storytelling, expressive performances, and thoughtful filmmaking to explore the emotions that shape human relationships. Produced by Artverse Architects, the project reflects a collaborative effort across directing, cinematography, production design, editing, music, and visual effects, resulting in a film that celebrates both the artistry and emotion behind every frame.",
@@ -279,7 +279,7 @@ export const Artefacts = {
                 subtitle: "Behind the Frames.",
 
                 shortDescription:
-                    "A visual concept and creative direction project developed to shape the artistic identity and atmosphere of the story 'Dethol'.",
+                    "A creative direction project shaping the visual identity of the story 'Dethol'.",
 
                 fullDescription:
                     "Dethol is a behind-the-scenes creative collaboration focused on developing the visual identity of the production. From the initial concept to the final artistic direction, Infinity Artverse was responsible for designing a visual language that complements the story's emotional tone. Built through close collaboration with the production team, the project reflects the importance of concept development in bringing cinematic narratives to life.",
@@ -361,7 +361,7 @@ export const Artefacts = {
                 subtitle: "Inspired by the film 'Five Feet Apart'.",
 
                 shortDescription:
-                    "A conceptual digital artwork inspired by Five Feet Apart, exploring the profound significance of human connection and the emotional power of touch.",
+                    "A digital artwork inspired by Five Feet Apart and the emotional power of human touch.",
 
                 fullDescription:
                     "Humantouch is a conceptual artwork inspired by the 2019 film Five Feet Apart. Through symbolic composition and expressive visual storytelling, the piece reflects the emotional intimacy shared between two souls separated by circumstances beyond their control. It celebrates the universal language of human touch—its ability to provide comfort, security, love, and hope—while reminding us that even the simplest gestures can carry immeasurable meaning. The artwork stands as a tribute to the connections that define our lives and the moments we should never take for granted.",
@@ -435,7 +435,7 @@ export const Artefacts = {
                 subtitle: "An album artwork created for a heartfelt musical journey.",
 
                 shortDescription:
-                    "A cover artwork designed for the musical project 'Heena Paarana', translating the emotion and atmosphere of the song into a distinctive visual identity.",
+                    "An album cover translating the emotion of 'Heena Paarana' into a visual identity.",
 
                 fullDescription:
                     "Heena Paarana is an album artwork created to visually represent the emotion, atmosphere, and identity of the song. Developed after months of creative exploration, the project focused on crafting a visual language that complements the music while reflecting its emotional depth. Through composition, color, and symbolism, the artwork became an extension of the listening experience, connecting the audience with the story beyond the music itself.",
@@ -537,7 +537,7 @@ export const Artefacts = {
             subtitle: "Behind the Frames.",
 
             shortDescription:
-                "A visual concept and creative direction project developed to establish the artistic identity and emotional atmosphere of 'Seema Wii Adare'.",
+                "A creative direction project shaping the visual identity of 'Seema Wii Adare'.",
 
             fullDescription:
                 "Seema Wii Adare is a collaborative creative project centered on developing the visual identity behind the story. Infinity Artverse was responsible for designing and shaping the visual concept, creating an artistic direction that complements the narrative's emotional depth. Through thoughtful concept development and visual exploration, the project demonstrates how strong creative direction can enhance storytelling and leave a lasting visual impression.",
@@ -616,7 +616,7 @@ export const Artefacts = {
                 subtitle: "A journey between imagination and reality.",
 
                 shortDescription:
-                    "A conceptual digital artwork exploring the gradual descent from imagination into reality, guided by symbolism and existential reflection.",
+                    "A conceptual artwork tracing the journey from imagination into reality.",
 
                 fullDescription:
                     "Seven Days' Descent is a conceptual artwork that visualizes the delicate transition between imagination and reality. Through the symbolic presence of seven crows, the piece portrays a solitary figure descending through the layers of existence, where each passing day draws the dreamer closer to the tangible world. Balancing surrealism with introspective storytelling, the artwork invites viewers to reflect on the inevitable journey from limitless imagination toward the realities that shape our lives.",
@@ -699,7 +699,7 @@ export const Artefacts = {
                 subtitle: "A visual journey through solitude and the beauty of emptiness.",
 
                 shortDescription:
-                    "A collaborative visual storytelling project created with RaajakeeyabioScopes Collective, exploring solitude, loss, and the search for meaning through cinematic imagery.",
+                    "A collaborative visual story about solitude, loss, and finding meaning through cinematic imagery.",
 
                 fullDescription:
                     "Created in collaboration with RaajakeeyabioScopes Collective, Yannemi is a visual narrative that explores the quiet beauty found within solitude and emptiness. Through carefully composed frames, expressive color grading, and cinematic post-production, the project follows the journey of a lone soul wandering through the aftermath of loss. Every visual element was crafted to evoke reflection and emotion, allowing the story to unfold through imagery rather than words while inviting viewers to interpret its meaning through their own experiences.",

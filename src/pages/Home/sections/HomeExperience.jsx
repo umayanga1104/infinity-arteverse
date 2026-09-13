@@ -306,7 +306,7 @@ const HomeExperience = ({ artefacts, onProjectClick, onBack, activeProject }) =>
 
                     <div className="max-w-md space-y-10 leading-relaxed w-full text-black text-sm font-satoshi">
                         <div className="project-description">
-                            {activeProject?.details.fullDescription}
+                            {activeProject?.details.shortDescription}
                         </div>
                         <div className="type-and-collab-stat flex flex-col">
                             <p className="project-type flex flex-row">
