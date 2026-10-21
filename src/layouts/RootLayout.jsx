@@ -7,6 +7,8 @@ import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 
+import LogoImg from "../assets/logo/logo_1.png"
+
 gsap.registerPlugin(ScrollTrigger);
 
 const RootLayout = () => {
@@ -28,7 +30,7 @@ const RootLayout = () => {
         gsap.ticker.lagSmoothing(0);
 
         return () => {
-            gsap.ticker.remove(updateScroll);
+            gsap.ticker.remove(updateScroll);   
             lenis.destroy();
         };
     }, { scope: globalAnimationRef });
@@ -42,6 +44,49 @@ const RootLayout = () => {
         const sidebarChevron = q(".lucide-chevron-left");
         const transitionOneMarker = q(".transition-one-marker")[0];
         const transitionTwoMarker = q(".transition-two-marker")[0];
+
+        // initial loader animation elements
+        const initialBeams = q(".initial-beam");
+        const loadingScreenLogo = q(".loading-screen-logo-container");
+        const initialAnimationContainer = q(".intial-animation-container");
+
+        //landing page access
+        const landingPage = q(".landing");
+
+        // intial animation timeline creation
+        const initialAnimationTl = gsap.timeline();
+
+        // intial timeline animations
+        initialAnimationTl.fromTo(loadingScreenLogo, {
+            opacity: 0
+        }, {
+            opacity: 100,
+            duration: 3,
+            ease: "power1.in"
+        })
+        .to(initialBeams, {
+            xPercent: 100,
+            duration: 1.5,
+            stagger: 0.3,
+            ease: "power3.inOut"
+        })
+        .to(loadingScreenLogo, {
+            opacity: 0,
+            duration: 2,
+            ease: "power3.inOut",
+        }, "-=3.8")
+        .to(initialAnimationContainer, {
+            display:"none",
+        }, "+=1")
+        .fromTo(landingPage, {
+            opacity: 0,
+            scale: 0.995,
+        }, {
+            scale: 1,
+            opacity: 100,
+            duration: 1,
+            ease: "power3.inOut"
+        }, "-=3")
 
         //Transtion 1 timeline and animations
             const transitionOneTl = gsap.timeline({
@@ -111,6 +156,47 @@ const RootLayout = () => {
     return (
         <div ref={globalAnimationRef} className="global-animation container relative min-h-screen w-full bg-black">
             <Sidebar />
+            {/* animation assets container */}
+            <div className="intial-animation-container flex items-center justify-center fixed inset-0 z-100">
+                {/* logo */}
+                <div className="loading-screen-logo-container z-100 overflow-hidden items-center justify-center">
+                    <img src={LogoImg} alt="Logo" className="object-contain w-200" />
+                </div>
+
+                {/* z-50 svg mask for initial page transition part*/}
+                <svg
+                    className="transition-svg fixed inset-0 w-full h-full pointer-events-none"
+                    viewBox="0 0 100 100"
+                    preserveAspectRatio="none"
+                >
+                    <rect
+                        className="initial-beam initial-beam-1"
+                        x="0"
+                        y="0"
+                        width="100"
+                        height="34"
+                        fill="#000000"
+                    />
+
+                    <rect
+                        className="initial-beam initial-beam-2"
+                        x="0"
+                        y="33"
+                        width="100"
+                        height="34"
+                        fill="#000000"
+                    />
+
+                    <rect
+                        className="initial-beam initial-beam-3"
+                        x="0"
+                        y="66"
+                        width="100"
+                        height="34"
+                        fill="#000000"
+                    />
+                </svg>
+            </div>
 
             {/* Page outlet */}
             <div className="relative w-full bg-black">
