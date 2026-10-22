@@ -278,6 +278,10 @@ const HomeTimeline = () => {
             .to(idyllicsDescriptionTrack,{
                 xPercent: 100,
                 duration: 64
+            }, "<").to(idyllicsTitle,{
+                filter: "blur(15px)",
+                opacity: 0,
+                duration: 64
             }, "<")
 
             .add("starting-overlap", "-=35")
