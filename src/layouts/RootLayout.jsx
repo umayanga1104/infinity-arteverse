@@ -19,6 +19,8 @@ const RootLayout = () => {
         const lenis = new Lenis({
             autoRaf: false,
             smoothWheel: true,
+            lerp: 0.08,
+            wheelMultiplier: 0.4,
         });
 
         const updateScroll = (time) => {
@@ -50,9 +52,6 @@ const RootLayout = () => {
         const loadingScreenLogo = q(".loading-screen-logo-container");
         const initialAnimationContainer = q(".intial-animation-container");
 
-        //landing page access
-        const landingPage = q(".landing");
-
         // intial animation timeline creation
         const initialAnimationTl = gsap.timeline();
 
@@ -78,15 +77,6 @@ const RootLayout = () => {
         .to(initialAnimationContainer, {
             display:"none",
         }, "+=1")
-        .fromTo(landingPage, {
-            opacity: 0,
-            scale: 0.995,
-        }, {
-            scale: 1,
-            opacity: 100,
-            duration: 1,
-            ease: "power3.inOut"
-        }, "-=3")
 
         //Transtion 1 timeline and animations
             const transitionOneTl = gsap.timeline({
@@ -200,7 +190,7 @@ const RootLayout = () => {
 
             {/* Page outlet */}
             <div className="relative w-full bg-black">
-                <main className="relative z-10 w-full min-h-screen">
+                <main className="relative overflow-hidden z-10 w-full min-h-screen">
                     <Outlet />
                 </main>
             </div>

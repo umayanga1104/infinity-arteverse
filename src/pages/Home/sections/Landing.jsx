@@ -11,7 +11,7 @@ const Landing = () => {
                     <p className="landing-paragraph text-left font-satoshi max-w-xs text-gray-300 text-sm">
                         It is the freedom to keep exploring, discovering, and creating beyond what is already known. Infinity is not about reaching an end, but continuing beyond it.
                     </p>
-                    <h1 className="landing-title text-right font-ravello w-100 text-left text-gray-300 text-9xl origin-center">
+                    <h1 className="landing-title text-right font-italianno w-100 text-left text-gray-300 text-9xl origin-center">
                         Infinity
                     </h1>
                     <p className="landing-paragraph font-satoshi text-left max-w-xs text-gray-300 text-sm">
@@ -19,7 +19,7 @@ const Landing = () => {
                     </p>
                 </div>
                 {/* logo */}
-                <div className="landing-logo-container flex overflow-hidden items-center justify-center">
+                <div className="landing-logo-container ml-10 flex overflow-hidden items-center justify-center">
                     <img src={LogoImg} alt="Logo" className="object-contain w-200" />
                 </div>
                 {/* Artverese */}
@@ -30,7 +30,7 @@ const Landing = () => {
                     <p className="landing-paragraph font-satoshi pt-20 text-right w-full text-gray-300 max-w-xs text-sm">
                         Every work created within this universe becomes a small manifestation of something once unseen. Some begin with a feeling, some with a memory, some with a question, and others simply with the desire to create something that has never existed before. Together, these fragments form the Artverse—a constantly evolving collection of perspectives, stories, and experiences. It is not simply a place where art is made; it is a universe where imagination becomes tangible.
                     </p>
-                    <h1 className="landing-title font-ravello text-left w-full text-gray-300 text-9xl origin-center">
+                    <h1 className="landing-title font-italianno text-left w-full text-gray-300 text-9xl origin-center">
                         Artverse
                     </h1>
                     <p className="landing-paragraph font-satoshi text-right w-full text-gray-300 text-sm max-w-xs">

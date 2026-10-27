@@ -4,9 +4,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css'
 import RootLayout from './layouts/RootLayout';
 import Home from './pages/Home/Home';
-import AboutUs from './pages/AboutUs';
+import AboutUs from './pages/About/AboutUs';
 import ContactUs from './pages/ContactUs';
 import NotFound from './NotFound';
+import ViewportGuard from './otherHelpers/ViewportGuard';
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <ViewportGuard>
+      <RouterProvider router={router} />
+    </ViewportGuard>
   </StrictMode>,
 )

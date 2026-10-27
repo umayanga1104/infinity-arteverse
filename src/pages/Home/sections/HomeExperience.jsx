@@ -41,7 +41,7 @@ const HomeExperience = ({ artefacts, onProjectClick, onBack, activeProject }) =>
                             <div className="title-container overflow-hidden">
                                 <h2 className='idyllic-name text-3xl text-black font-ravello'>
                                     Ice Blink <br/>
-                                    <span className='text-lg text-[#5A5A5A] font-satoshi'> 
+                                    <span className='text-[#5A5A5A] text-3xl font-italianno'> 
                                         The Path of Reflection
                                     </span>
                                 </h2>
@@ -63,7 +63,7 @@ const HomeExperience = ({ artefacts, onProjectClick, onBack, activeProject }) =>
                             <div className="title-container overflow-hidden">
                                 <h2 className='idyllic-name text-3xl text-black font-ravello'>
                                     Nostalgia <br/>
-                                    <span className='text-lg text-[#5A5A5A] font-satoshi'> 
+                                    <span className='text-3xl font-italianno text-[#5A5A5A]'> 
                                         The Path of Memory
                                     </span>
                                 </h2>
@@ -97,7 +97,7 @@ const HomeExperience = ({ artefacts, onProjectClick, onBack, activeProject }) =>
                             <div className="title-container overflow-hidden">
                                 <h2 className='idyllic-name text-3xl text-black font-ravello'>
                                     Feel <br/>
-                                    <span className='text-lg text-[#5A5A5A] font-satoshi'> 
+                                    <span className='text-3xl font-italianno text-[#5A5A5A]'> 
                                         The Path of Emotion
                                     </span>
                                 </h2>
@@ -119,7 +119,7 @@ const HomeExperience = ({ artefacts, onProjectClick, onBack, activeProject }) =>
                             <div className="title-container overflow-hidden">
                                 <h2 className='idyllic-name text-3xl text-black font-ravello'>
                                     Timeless <br/>
-                                    <span className='text-lg text-[#5A5A5A] font-satoshi'> 
+                                    <span className='text-[#5A5A5A] text-3xl font-italianno'> 
                                         The Path of Discovery
                                     </span>
                                 </h2>
@@ -153,7 +153,7 @@ const HomeExperience = ({ artefacts, onProjectClick, onBack, activeProject }) =>
                             <div className="title-container overflow-hidden">
                                 <h2 className='idyllic-name text-3xl text-black font-ravello'>
                                     Yearn <br/>
-                                    <span className='text-lg text-[#5A5A5A] font-satoshi'> 
+                                    <span className='text-[#5A5A5A] text-3xl font-italianno'> 
                                         The Path of Identity
                                     </span>
                                 </h2>
@@ -204,7 +204,7 @@ const HomeExperience = ({ artefacts, onProjectClick, onBack, activeProject }) =>
                                 </span>
                             </h1>
                         </div>
-                        <h2 className="origin-sub-headings text-lg font-satoshi font-bold">
+                        <h2 className="origin-sub-headings text-3xl font-italianno font-bold">
                             Built by people who believe in creation.
                         </h2>
                         <p className="origin-description text-justify leading-6 z-35 text-sm font-satoshi">
@@ -240,7 +240,7 @@ const HomeExperience = ({ artefacts, onProjectClick, onBack, activeProject }) =>
                                 </span>
                             </h1>
                         </div>
-                        <h2 className="origin-sub-headings text-lg font-satoshi font-bold">
+                        <h2 className="origin-sub-headings text-3xl font-italianno font-bold">
                             Guided by imagination. Driven by purpose.
                         </h2>
                         <p className="origin-description text-justify leading-6 text-sm font-satoshi">
@@ -263,7 +263,7 @@ const HomeExperience = ({ artefacts, onProjectClick, onBack, activeProject }) =>
                                 </span>
                             </h1>
                         </div>
-                        <h2 className="origin-sub-headings text-lg font-satoshi font-bold">
+                        <h2 className="origin-sub-headings text-3xl font-italianno font-bold">
                             The journey has only begun.
                         </h2>
                         <p className="origin-description text-justify leading-6 text-sm font-satoshi">

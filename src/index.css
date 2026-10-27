@@ -1,6 +1,7 @@
 /* Cormorant Garamond — loaded from Google Fonts (no file needed) */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=BJCree:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
 
 /* Self-hosted Ravello and Satoshi fonts */
 @import './assets/fonts/fonts.css';
@@ -15,6 +16,13 @@
   --font-ravello:   'Ravello', serif;
   --font-satoshi:   'Satoshi', sans-serif;
   --font-cormorant: 'Cormorant Garamond', serif;
+  --font-italianno: 'Italianno', cursive;
+}
+
+@media (width >= 1024px) and
+       (height >= 600px) and
+       (orientation: landscape) {
+  /* Desktop portfolio styles */
 }
 
 *, *::before, *::after {
@@ -47,19 +55,20 @@ body {
 
 /* The entire scrollbar container */
 ::-webkit-scrollbar {
-  width: 6px;               /* Width of vertical scrollbar */
-  height: 10px;              /* Height of horizontal scrollbar */
+  width: 2.2px;               /* Width of vertical scrollbar */
+  height: 1px;              /* Height of horizontal scrollbar */
 }
 
 /* The track (background) of the scrollbar */
 ::-webkit-scrollbar-track {
   /* background: #f3f4f6;  */
-  background: #cccccc; 
+  background: #ffffff; 
 }
  
 /* The draggable scroll thumb */
 ::-webkit-scrollbar-thumb {
   background-color: #6b7280;
+  border-radius: 10px;       /* Roundness of the scroll thumb */
 }
 
 /* Handle on hover */
