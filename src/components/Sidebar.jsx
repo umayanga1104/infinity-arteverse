@@ -18,17 +18,15 @@ const Sidebar = () => {
   const navigate = useNavigate();
 
   const navLinks = [
-        {label: "home"},
-        {label: "projects"},
-        {label: "about us"},
-        {label: "contact us"},
+        {label: "home", link: "/"},
+        {label: "about us", link: "/about"},
+        {label: "contact us", link: "/contact"},
     ];
     
     const socialLinks = [
-        {label: "instagram"},
-        {label: "behance"},
-        {label: "linked_in"},
-        {label: "youtube"},
+        {label: "instagram", href: "https://www.instagram.com/infinityartverse/"},
+        {label: "facebook", href: "https://www.facebook.com/infinityartverse"},
+        {label: "linked_in", href: "https://www.linkedin.com/company/infinity-artverse/"},
     ]
 
   useGSAP(() => {
@@ -148,7 +146,9 @@ const Sidebar = () => {
                       </h2>
                       <ul className="font-satoshi text-sm text-white">
                           {navLinks.map((item, index) => (
-                              <li className="sidebar-text font-satoshi text-sm hover:underline cursor-pointer" key={index}>
+                              <li
+                                onClick={(e) => handleLinkClick(e, item.link)} 
+                                className="sidebar-text font-satoshi text-sm hover:underline cursor-pointer" key={index}>
                                   {item.label}
                               </li>
                           ))}
@@ -163,7 +163,9 @@ const Sidebar = () => {
                       <ul className="font-satoshi text-sm text-white">
                           {socialLinks.map((item, index) => (
                               <li className="sidebar-text font-satoshi text-sm hover:underline cursor-pointer" key={index}>
-                                  {item.label}
+                                  <a href={item.href} target="_blank" rel="noopener noreferrer">
+                                      {item.label}
+                                  </a>
                               </li>
                           ))}
                       </ul>

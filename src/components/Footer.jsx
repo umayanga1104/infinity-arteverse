@@ -1,17 +1,24 @@
+import { useNavigate } from "react-router-dom";
+
 const Footer = () => {
+    const navigate = useNavigate();
+
     const navLinks = [
-        {label: "home"},
-        {label: "projects"},
-        {label: "about us"},
-        {label: "contact us"},
+        {label: "home", link: "/"},
+        {label: "about us", link: "/about"},
+        {label: "contact us", link: "/contact"},
     ];
     
     const socialLinks = [
-        {label: "instagram"},
-        {label: "behance"},
-        {label: "linked_in"},
-        {label: "youtube"},
+        {label: "instagram", href: "https://www.instagram.com/infinityartverse/"},
+        {label: "behance", href: "https://www.behance.net/infinityartverse"},
+        {label: "linked_in", href: "https://www.linkedin.com/company/infinity-artverse/"},
     ]
+
+    const handleLinkClick = (e, link) => {
+        e.preventDefault();
+        navigate(link);
+    }
 
     return(
         <div className="footer relative w-full gap-15 z-50 flex flex-row">
@@ -41,7 +48,9 @@ const Footer = () => {
                         </h2>
                         <ul className="font-satoshi text-sm text-black">
                             {navLinks.map((item, index) => (
-                                <li className="font-satoshi text-sm hover:underline cursor-pointer" key={index}>
+                                <li className="font-satoshi text-sm hover:underline cursor-pointer" 
+                                    key={index} onClick={(e) => handleLinkClick(e, item.link)}
+                                >
                                     {item.label}
                                 </li>
                             ))}
@@ -56,7 +65,9 @@ const Footer = () => {
                         <ul className="font-satoshi text-sm text-black">
                             {socialLinks.map((item, index) => (
                                 <li className="font-satoshi text-sm hover:underline cursor-pointer" key={index}>
-                                    {item.label}
+                                    <a href={item.href} target="_blank" rel="noopener noreferrer">
+                                        {item.label}
+                                    </a>
                                 </li>
                             ))}
                         </ul>

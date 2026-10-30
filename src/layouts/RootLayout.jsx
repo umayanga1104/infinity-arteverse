@@ -20,7 +20,7 @@ const RootLayout = () => {
             autoRaf: false,
             smoothWheel: true,
             lerp: 0.08,
-            wheelMultiplier: 0.4,
+            wheelMultiplier: 0.5,
         });
 
         const updateScroll = (time) => {
