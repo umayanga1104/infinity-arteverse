@@ -467,7 +467,7 @@ export const Artefacts = {
                         social: "@miran_archana"
                     },
                     {
-                        role: "Music Arrangement & Production",
+                        role: "Music & Production",
                         name: "Prabhashan",
                         social: "@prabhashan_a"
                     },

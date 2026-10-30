@@ -304,7 +304,7 @@ const HomeExperience = ({ artefacts, onProjectClick, onBack, activeProject }) =>
                         </h1>
                     </div>
 
-                    <div className="max-w-md space-y-10 leading-relaxed w-full text-black text-sm font-satoshi">
+                    <div className="max-w-xl space-y-5 leading-relaxed w-full text-black text-sm font-satoshi">
                         <div className="project-description">
                             {activeProject?.details.shortDescription}
                         </div>
@@ -316,11 +316,15 @@ const HomeExperience = ({ artefacts, onProjectClick, onBack, activeProject }) =>
                                 Collaborations: <span className="font-bold">{activeProject?.details.collaboration.partner.join(" | ")}</span>
                             </p>
                         </div>
-                        <ul className="credits flex flex-col">
+                        <ul className={`credits grid gap-x-4 ${
+                            activeProject?.details.credits.length > 5 
+                            ? 'grid-cols-2' 
+                            : 'grid-cols-1'
+                        }`}>
                             {activeProject?.details.credits.map((credit, index) => (
                                 <li key={index} className="credit-item flex flex-row">
                                     <span className="credit-role">{credit.role}</span>: 
-                                    <span className="credit-name font-bold">{credit.name}</span>
+                                    <span className="credit-name font-bold ml-1">{credit.name}</span>
                                 </li>
                             ))}
                         </ul>
@@ -328,7 +332,7 @@ const HomeExperience = ({ artefacts, onProjectClick, onBack, activeProject }) =>
 
                     <div className="">
                         <button 
-                            className="text-sm cursor-pointer text-black font-bold mt-15 font-satoshi" 
+                            className="text-sm cursor-pointer text-black font-bold mt-10 font-satoshi" 
                             onClick={onBack}
                         >
                             {"<< Back to Manifestations"}
