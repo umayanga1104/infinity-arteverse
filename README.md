@@ -115,7 +115,14 @@ Runs the app in development mode with Vite.
 ```bash
 npm run build
 ```
-Builds the application for production into the `dist` folder.
+Builds the application for production into the `dist` folder. `public/sitemap.xml` is copied into the build, then regenerated in both `public/` and `dist/`.
+
+The sitemap includes the homepage, about page, and contact page at `https://infinityartverse.com`. Set `SITE_URL` to override the domain for another deployment. `public/robots.txt` also points search engines to the sitemap.
+
+```bash
+npm run sitemap
+```
+Regenerates the sitemap independently.
 
 ```bash
 npm run preview

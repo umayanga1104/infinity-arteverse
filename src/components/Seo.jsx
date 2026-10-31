@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
 
-const siteUrl = "https://infinity-artverse.com";
+const siteUrl = "https://infinityartverse.com";
 const imageUrl = `${siteUrl}/logo_1.webp`;
 
 const pageMetadata = {
