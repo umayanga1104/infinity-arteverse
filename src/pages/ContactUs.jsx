@@ -23,32 +23,34 @@ const ContactInfoCard = memo(({type, detail="", href=""}) => {
 const ContactUs = () => {
 
     return (
-        <div className="w-screen flex flex-col bg-white items-center justify-between h-screen relative overflow-hidden">
-            <h1 className="font-ravello text-black text-8xl pt-8">
-                Get In Touch
-            </h1>
-            {/* contact information container */}
-            <div className="flex flex-row space-x-20">
-                {/* col-1 */}
-                <div className="flex flex-col gap-5">
-                    <ContactInfoCard type="Email" detail="hello@infinityartverse.com" />
-                    <ContactInfoCard type="Phone" detail="+94 71 018 4698" />
-                    <ContactInfoCard type="Location" detail="Sri Lanka" />
-                </div>
-                {/* col-2 */}
-                <div className="flex flex-col gap-5">
-                    <ContactInfoCard type="Instagram" detail="instagram.com/infinityartverse" href="https://www.instagram.com/infinityartverse/" />
-                    <ContactInfoCard type="Facebook" detail="facebook.com/infinityartverse" href="https://www.facebook.com/infinityartverse" />
-                    <ContactInfoCard type="LinkedIn" detail="linkedin.com/company/infinity-artverse" href="https://www.linkedin.com/company/infinity-artverse/" />
-                </div>
-                {/* col-3 */}
-                <div className="flex flex-col gap-5">
-                    <ContactInfoCard type="Web" detail="infinity-artverse.com" href="infinity-artverse.com" />
+        <>
+            <div className="w-screen flex flex-col bg-white items-center justify-between h-screen relative overflow-hidden">
+                <h1 className="font-ravello text-black text-8xl pt-8">
+                    Get In Touch
+                </h1>
+                {/* contact information container */}
+                <div className="flex flex-row space-x-20">
+                    {/* col-1 */}
+                    <div className="flex flex-col gap-5">
+                        <ContactInfoCard type="Email" detail="hello@infinityartverse.com" />
+                        <ContactInfoCard type="Phone" detail="+94 71 018 4698" />
+                        <ContactInfoCard type="Location" detail="Sri Lanka" />
+                    </div>
+                    {/* col-2 */}
+                    <div className="flex flex-col gap-5">
+                        <ContactInfoCard type="Instagram" detail="instagram.com/infinityartverse" href="https://www.instagram.com/infinityartverse/" />
+                        <ContactInfoCard type="Facebook" detail="facebook.com/infinityartverse" href="https://www.facebook.com/infinityartverse" />
+                        <ContactInfoCard type="LinkedIn" detail="linkedin.com/company/infinity-artverse" href="https://www.linkedin.com/company/infinity-artverse/" />
+                    </div>
+                    {/* col-3 */}
+                    <div className="flex flex-col gap-5">
+                        <ContactInfoCard type="Web" detail="infinity-artverse.com" href="infinity-artverse.com" />
 
+                    </div>
                 </div>
+                <Footer/>
             </div>
-            <Footer/>
-        </div>
+        </>
     );
 }
 

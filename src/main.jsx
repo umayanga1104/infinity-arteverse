@@ -1,18 +1,18 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import './index.css'
-import RootLayout from './layouts/RootLayout';
+import AppLayout from './layouts/AppLayout';
 import Home from './pages/Home/Home';
 import AboutUs from './pages/About/AboutUs';
 import ContactUs from './pages/ContactUs';
 import NotFound from './NotFound';
-import ViewportGuard from './otherHelpers/ViewportGuard';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <RootLayout/>,
+    element: <AppLayout />,
     children: [
       {
         path: "/",
@@ -37,8 +37,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <ViewportGuard>
+    <HelmetProvider>
       <RouterProvider router={router} />
-    </ViewportGuard>
+    </HelmetProvider>
   </StrictMode>,
 )

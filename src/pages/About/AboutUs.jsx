@@ -1,11 +1,10 @@
 import AboutUsTimeline from "../../timelines/AboutUsTimeline";
 
-export default function Home() {
-  
+export default function AboutUs() {
   return (
     <>
       <div className="w-full h-full relative overflow-hidden">
-        <AboutUsTimeline/>
+        <AboutUsTimeline />
       </div>
     </>
   );
