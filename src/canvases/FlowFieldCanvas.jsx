@@ -1,36 +1,28 @@
 import { useEffect, useRef } from "react";
 import p5 from "p5";
 
-export default function P5Canvas() {
+export default function P5Canvas({ fitToContainer = false }) {
   const containerRef = useRef();
 
   useEffect(() => {
-
     const noiseScale = 0.002;
-
     const numParticles = 400;
-
     const mouseInfluenceRadius = 50;
-
-    // Mouse distortion strength
     const forceStrength = 1.2;
-
     let particles = [];
 
     const myP5 = new p5((sketch) => {
-
       sketch.setup = () => {
-
+        const container = containerRef.current;
+        const width = fitToContainer ? container.clientWidth : window.innerWidth;
+        const height = fitToContainer ? container.clientHeight : window.innerHeight;
         sketch.createCanvas(
-          window.innerWidth,
-          window.innerHeight
+          width,
+          height
         );
-
         sketch.background(0);
 
-        // Create particles
         for (let i = 0; i < numParticles; i++) {
-
           particles.push(
             new Particle(
               sketch,
@@ -43,52 +35,34 @@ export default function P5Canvas() {
       };
 
       sketch.draw = () => {
-        // Trail effect
         sketch.background(0, 10);
-
-        // DEBUG VISUALIZATION
-        // SHOWS MOUSE INFLUENCE AREA
-        /*
-        sketch.noFill();
-        sketch.stroke(255, 20);
-
-        sketch.circle(
-          sketch.mouseX,
-          sketch.mouseY,
-          mouseInfluenceRadius * 2
-        );
-        */
-
-        // Update each particle per frame
         particles.forEach((particle) => {
-
           particle.follow();
           particle.update();
           particle.edges();
           particle.show();
-
         });
       };
 
-      // Canvas configuration for responsiveness
       sketch.windowResized = () => {
-
+        const container = containerRef.current;
         sketch.resizeCanvas(
-          window.innerWidth,
-          window.innerHeight
+          fitToContainer ? container.clientWidth : window.innerWidth,
+          fitToContainer ? container.clientHeight : window.innerHeight
         );
       };
-
     }, containerRef.current);
 
     return () => myP5.remove();
-
-  }, []);
+  }, [fitToContainer]);
 
   return (
     <div
       ref={containerRef}
-      style={{ position: "fixed", inset: 0, width: "100%", height: "100%", zIndex: 0, pointerEvents: "none" }}
+      aria-hidden="true"
+      className={fitToContainer
+        ? "pointer-events-none absolute inset-0 z-0 h-full w-full opacity-80"
+        : "pointer-events-none fixed inset-0 z-0 h-full w-full"}
     />
   );
 }

@@ -17,6 +17,29 @@
   --font-satoshi:   'Satoshi', sans-serif;
   --font-cormorant: 'Cormorant Garamond', serif;
   --font-italianno: 'Italianno', cursive;
+  --animate-mobile-art-drift: mobile-art-drift 14s ease-in-out infinite alternate;
+  --animate-mobile-cue-bob: mobile-cue-bob 1.7s ease-in-out infinite;
+
+  @keyframes mobile-art-drift {
+    from {
+      transform: translateY(-5px) rotate(-5deg);
+    }
+
+    to {
+      transform: translateY(7px) rotate(5deg);
+    }
+  }
+
+  @keyframes mobile-cue-bob {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(4px);
+    }
+  }
 }
 
 @media (width >= 1024px) and
