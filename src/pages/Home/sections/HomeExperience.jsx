@@ -204,7 +204,7 @@ const HomeExperience = ({ artefacts, onProjectClick, onBack, activeProject }) =>
                                 </span>
                             </h1>
                         </div>
-                        <h2 className="origin-sub-headings text-3xl font-italianno font-bold">
+                        <h2 className="origin-sub-headings text-3xl font-italianno">
                             Built by people who believe in creation.
                         </h2>
                         <p className="origin-description text-justify leading-6 z-35 text-sm font-satoshi">
@@ -240,7 +240,7 @@ const HomeExperience = ({ artefacts, onProjectClick, onBack, activeProject }) =>
                                 </span>
                             </h1>
                         </div>
-                        <h2 className="origin-sub-headings text-3xl font-italianno font-bold">
+                        <h2 className="origin-sub-headings text-3xl font-italianno">
                             Guided by imagination. Driven by purpose.
                         </h2>
                         <p className="origin-description text-justify leading-6 text-sm font-satoshi">
@@ -263,7 +263,7 @@ const HomeExperience = ({ artefacts, onProjectClick, onBack, activeProject }) =>
                                 </span>
                             </h1>
                         </div>
-                        <h2 className="origin-sub-headings text-3xl font-italianno font-bold">
+                        <h2 className="origin-sub-headings text-3xl font-italianno">
                             The journey has only begun.
                         </h2>
                         <p className="origin-description text-justify leading-6 text-sm font-satoshi">
