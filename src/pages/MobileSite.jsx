@@ -109,7 +109,7 @@ function MobileHeader({ currentPath, isVisible }) {
                         <Link
                             key={path}
                             aria-current={currentPath === path ? "page" : undefined}
-                            className={`py-2.5 text-xs font-satoshi transition-colors duration-[180ms] hover:text-white motion-reduce:transition-none ${currentPath === path ? "text-white after:mt-[5px] after:block after:h-px after:bg-[#d3c8b3] after:content-['']" : "text-white/60"}`}
+                            className={`py-2.5 text-xs font-satoshi transition-colors duration-[180ms] hover:text-white motion-reduce:transition-none ${currentPath === path ? "text-white" : "text-white/60"}`}
                             to={path}
                         >
                             {label}
@@ -352,7 +352,7 @@ function MobileContact() {
                     Have a story, a spark or a collaboration in mind? We’d love
                     to hear what you’re imagining.
                 </p>
-                <a className="mt-8 inline-flex max-w-full items-center gap-[9px] border-b border-[#010207]/[0.38] pb-[9px] text-sm min-[560px]:text-base [overflow-wrap:anywhere]" href="mailto:hello@infinityartverse.com">
+                <a className="mt-8 inline-flex max-w-full items-center gap-[9px] text-sm min-[560px]:text-base [overflow-wrap:anywhere]" href="mailto:hello@infinityartverse.com">
                     hello@infinityartverse.com
                     <ArrowUpRight className="shrink-0" aria-hidden="true" size={20} />
                 </a>
