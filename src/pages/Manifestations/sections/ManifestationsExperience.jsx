@@ -2,8 +2,8 @@ const ManifestationsExperience = ({ artefacts, onProjectClick, onBack, activePro
     return (
         <div className="manifestations relative z-40 w-full h-full flex flex-col items-start justify-center bg-white text-white">
             {/* project list */}
-            <div className="manifestations-left-panel absolute mt-10 lg:mt-0 ml-5 top-0 left:5 md:left-10 lg:left-10 flex flex-col">
-                <div className="title-container overflow-hidden">
+            <div className="manifestations-left-panel absolute ml-5 top-0 left:5 md:left-10 lg:left-10 flex flex-col">
+                <div className="title-container overflow-hidden p-0">
                     <h1 className="manifestations-title text-black text-5xl md:text-6xl lg:text-8xl font-light font-cormorant leading-snug mb-10">
                         Manifestations
                     </h1>
@@ -23,8 +23,8 @@ const ManifestationsExperience = ({ artefacts, onProjectClick, onBack, activePro
             </div>
             
             {/* project info */}
-            <div className="manifestation-info-panel absolute mt-5 md:mt-15 lg:mt-15 lg:mt-0 ml-0 md:ml-5 lg:ml-5 top-0 left-5 md:left-10 lg:left-10 flex flex-col">
-                <div className="title-container overflow-hidden">
+            <div className="manifestation-info-panel absolute ml-5 top-0 left:5 md:left-10 lg:left-10 flex flex-col">
+                <div className="title-container overflow-hidden p-0">
                     <h1 className="manifestations-title text-black text-5xl md:text-6xl lg:text-8xl font-light font-cormorant leading-snug mb-10">
                         {activeProject?.details.title}
                     </h1>
