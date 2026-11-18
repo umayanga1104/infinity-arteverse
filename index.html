@@ -4,38 +4,108 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/logo_1.webp" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- 1. Put minimal CSS here so the loader styles instantly -->
-    
-  <style>
-    .initial-loader {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #010207;
-      color: #ffffff;
-      font-family: sans-serif;
-    }
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arima:wght@400;500&family=Cormorant+Garamond:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .initial-loader {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        background-color: #010207;
+        color: #ffffff;
+        text-align: center;
+      }
 
-    .initial-loader p {
-      margin: 0;
-      font-size: 12px;
-      font-weight: 400;
-      letter-spacing: 0.2em;
-      text-align: center;
-      color: rgb(255 255 255 / 60%);
-    }
-  </style>
+      .initial-loader h1 {
+        margin: 0;
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: clamp(2.5rem, 8vw, 4.5rem);
+        font-weight: 400;
+        letter-spacing: 0.035em;
+        line-height: 1;
+      }
 
+      .initial-loader h2 {
+        margin: 18px 0 0;
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: clamp(1.25rem, 3vw, 1.75rem);
+        font-weight: 400;
+      }
+
+      .initial-loader p {
+        margin: 10px 0 0;
+        color: rgb(255 255 255 / 68%);
+        font-family: "Arima", sans-serif;
+        font-size: 0.875rem;
+        line-height: 1.7;
+      }
+
+      .initial-loader__progress {
+        width: min(220px, 70vw);
+        height: 3px;
+        margin-top: 30px;
+        overflow: hidden;
+        background: #55565b;
+      }
+
+      .initial-loader__thumb {
+        width: 35%;
+        height: 100%;
+        background: #ffffff;
+        animation: initial-loader-progress 1.6s ease-in-out infinite alternate;
+      }
+
+      .initial-loader__copyright {
+        position: absolute;
+        right: 24px;
+        bottom: 20px;
+        left: 24px;
+        color: rgb(255 255 255 / 45%);
+        font-family: "Arima", sans-serif;
+        font-size: 0.7rem;
+      }
+
+      @keyframes initial-loader-progress {
+        from {
+          transform: translateX(0);
+        }
+
+        to {
+          transform: translateX(185%);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .initial-loader__thumb {
+          animation: none;
+          margin-left: auto;
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="root" id="root">
-      <div class="initial-loader">
-        <p>
-          Art takes time. So does this page.
-        </p>
+      <div class="initial-loader" role="status" aria-live="polite">
+        <h1>Infinity Artverse</h1>
+        <h2>A world of art, stories, and imagination</h2>
+        <p>The Infinity Artverse experience is loading. Please wait a moment.</p>
+        <div
+          class="initial-loader__progress"
+          role="progressbar"
+          aria-label="Loading Infinity Artverse"
+        >
+          <div class="initial-loader__thumb"></div>
+        </div>
+        <small class="initial-loader__copyright">© Infinity Artverse</small>
       </div>
     </div>
     <script type="module" src="/src/main.jsx"></script>
