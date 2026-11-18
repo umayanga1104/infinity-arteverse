@@ -82,7 +82,7 @@ const HomeTimeline = () => {
             })
 
             gsap.set(originTitle, {
-                yPercent: -680
+                yPercent: -720
             })
 
             gsap.set(originTrack, {
