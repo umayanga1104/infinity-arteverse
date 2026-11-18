@@ -26,7 +26,7 @@ class ViewportEngine {
                 return;
             }
 
-            const splits = new SplitText(el, { type: "words" });
+            const splits = type === "fade" ? null : new SplitText(el, { type: "words" });
 
             switch (type) {
                 case "title":
@@ -39,6 +39,12 @@ class ViewportEngine {
                 case "paragraph":
                 case "quote":
                     gsap.set(splits.words, {
+                        opacity: 0,
+                    });
+                    break;
+
+                case "fade":
+                    gsap.set(el, {
                         opacity: 0,
                     });
                     break;
@@ -69,6 +75,12 @@ class ViewportEngine {
                     break;
                 }
 
+                case "fade": {
+                    const progress = item.progress(item.element);
+                    item.animation(item, progress);
+                    break;
+                }
+
                 default:
                     break;
             }
@@ -87,7 +99,7 @@ class ViewportEngine {
         this.running = false;
 
         this.items.forEach((item) => {
-            item.splits.revert();
+            item.splits?.revert();
         });
 
         // Important when the component mounts again.

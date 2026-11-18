@@ -1,8 +1,7 @@
-import { Outlet } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { Outlet, useBlocker, useLocation } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import gsap from "gsap";
-import { useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Lenis from "lenis";
@@ -13,7 +12,47 @@ gsap.registerPlugin(ScrollTrigger);
 
 const RootLayout = () => {
     const globalAnimationRef = useRef(null);
+    const pageContentRef = useRef(null);
+    const isRouteTransitioningRef = useRef(false);
     const location = useLocation();
+    const previousLocationKeyRef = useRef(location.key);
+    const blocker = useBlocker(({ currentLocation, nextLocation }) =>
+        currentLocation.pathname !== nextLocation.pathname ||
+        currentLocation.search !== nextLocation.search ||
+        currentLocation.hash !== nextLocation.hash
+    );
+
+    useEffect(() => {
+        if (blocker.state !== "blocked" || isRouteTransitioningRef.current) return;
+
+        isRouteTransitioningRef.current = true;
+        gsap.to(pageContentRef.current, {
+            opacity: 0,
+            pointerEvents: "none",
+            duration: 0.45,
+            ease: "power2.inOut",
+            overwrite: "auto",
+            onComplete: () => blocker.proceed(),
+        });
+    }, [blocker]);
+
+    useLayoutEffect(() => {
+        if (previousLocationKeyRef.current === location.key) return;
+        previousLocationKeyRef.current = location.key;
+
+        if (!isRouteTransitioningRef.current) return;
+
+        gsap.to(pageContentRef.current, {
+            opacity: 1,
+            pointerEvents: "auto",
+            duration: 0.8,
+            ease: "power2.inOut",
+            overwrite: "auto",
+            onComplete: () => {
+                isRouteTransitioningRef.current = false;
+            },
+        });
+    }, [location.key]);
 
     useGSAP(() => {
         const lenis = new Lenis({
@@ -87,7 +126,7 @@ const RootLayout = () => {
                 backgroundColor: "#cccccc",
                 borderLeftColor: "#000000",
                 textColor: "#000000",
-                duration: 0.5
+                duration: 0.3
             });
 
             if (transitionOneMarker) {
@@ -111,19 +150,19 @@ const RootLayout = () => {
             transitionTwoTl.to(sidebar, {
                 backgroundColor: "#ffffff",
                 borderLeftColor: "#000000",
-                duration: 0.5
+                duration: 0.3
             })
             .to(sidebarText, {
                 color: "#000000",
-                duration: 0.5
+                duration: 0.3
             }, "<")
             .to(sidebarDevider, {
                 backgroundColor: "#000000",
-                duration: 0.5
+                duration: 0.3
             }, "<")
             .to(sidebarChevron, {
                 color: "#000000",
-                duration: 0.5
+                duration: 0.3
             }, "<");
 
             if (transitionTwoMarker) {
@@ -189,8 +228,8 @@ const RootLayout = () => {
             </div>
 
             {/* Page outlet */}
-            <div className="relative w-full bg-black">
-                <main className="relative overflow-hidden z-10 w-full min-h-screen">
+            <div className="relative w-full bg-white">
+                <main ref={pageContentRef} className="relative overflow-hidden z-10 w-full min-h-screen">
                     <Outlet />
                 </main>
             </div>

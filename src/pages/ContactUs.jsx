@@ -4,15 +4,15 @@ import Footer from "../components/Footer"
 const ContactInfoCard = memo(({type, detail="", href=""}) => {
     return (
         <div className="w-full flex-col text-black">
-            <h3 className="font-satoshi text-sm font-bold">
+            <h3 className="font-arima text-sm font-bold">
                 {type}
             </h3>
             {href === "" ?
-                <p className="font-satoshi text-sm text-black">
+                <p className="font-arima text-sm text-black">
                     {detail}
                 </p>
                 :
-                <a className="cursor-pointer font-satoshi text-sm text-black" href={href} target="_blank">
+                <a className="cursor-pointer font-arima text-sm text-black" href={href} target="_blank">
                     {detail}
                 </a>
             }
@@ -25,7 +25,7 @@ const ContactUs = () => {
     return (
         <>
             <div className="w-screen flex flex-col bg-white items-center justify-between h-screen relative overflow-hidden">
-                <h1 className="font-ravello text-black text-8xl pt-8">
+                <h1 className="font-cormorant text-black text-8xl pt-8">
                     Get In Touch
                 </h1>
                 {/* contact information container */}

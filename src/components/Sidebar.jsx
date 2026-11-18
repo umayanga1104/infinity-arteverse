@@ -6,80 +6,184 @@ import LogoImg from "../assets/logo/logo_1.png";
 // import { Home, User, FolderKanban, Mail, Menu, X } from "lucide-react";
 
 const links = [
-  { label: "JOURNEY", href: "/" },
-  { label: "WHO WE ARE", href: "/about" },
-  { label: "GET IN TOUCH", href: "/contact" },
+  { label: "Journey", href: "/" },
+  { label: "Who We Are", href: "/about" },
+  { label: "What We Created", href: "/projects" },
+];
+
+const navLinks = [
+  { label: "home", link: "/" },
+  { label: "about us", link: "/about" },
+  { label: "projects", link: "/projects" },
+];
+
+const socialLinks = [
+  { label: "instagram", href: "https://www.instagram.com/infinityartverse/" },
+  { label: "facebook", href: "https://www.facebook.com/infinityartverse" },
+  { label: "linked_in", href: "https://www.linkedin.com/company/infinity-artverse/" },
 ];
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);  
   const containerRef = useRef(null); 
-  const sidebarTimelineRef = useRef(null);
   const navigate = useNavigate();
 
-  const navLinks = [
-        {label: "home", link: "/"},
-        {label: "about us", link: "/about"},
-        {label: "contact us", link: "/contact"},
-    ];
-    
-    const socialLinks = [
-        {label: "instagram", href: "https://www.instagram.com/infinityartverse/"},
-        {label: "facebook", href: "https://www.facebook.com/infinityartverse"},
-        {label: "linked_in", href: "https://www.linkedin.com/company/infinity-artverse/"},
-    ]
+  //the devider does not fade away in the main nav link click tl,
+  //manually fade it away quickly to avoid visual bug, then fade it back in when the sidebar is opened again
+  //fadeaway is in the "sidebarNavLinkRevealTl" tl
+  const sidebarDeviderRef = useRef(null);
+  // const sidebarLogoChevronContainerRef = useRef(null);
+
+  const sidebarNavLinkRevealTl = useRef(null);
+  const sidebarOpeningClosingTl = useRef(null);
+  const isNavigatingRef = useRef(false);
 
   useGSAP(() => {
-    // 1. Initially hide it off-screen to the right
-    gsap.set(containerRef.current, { x: 550 });
-    gsap.set(".sidebar-link-reveal", { yPercent: 110, opacity: 0 });
-    
-    // 2. Build a snappy timeline with a clean power2.out ease
-    sidebarTimelineRef.current = gsap.timeline({ paused: true })
-      .to(containerRef.current, {
-        x: 0,
-        duration: 0.4, // Reduced from 2s to 0.4s for standard crisp UI performance
-        ease: "power2.out" 
-      })
-      .to(".sidebar-link-reveal", {
-        yPercent: 0,
-        opacity: 1,
-        duration: 0.8,
-        ease: "power4.out",
-        stagger: 0.1,
-      }, "-=0.15");
+    const mm = gsap.matchMedia();
+
+    const DesktopTimeline = () => {
+      gsap.set(containerRef.current, { xPercent: 96.5 });
+      gsap.set(".sidebar-link-reveal", { yPercent: 110, opacity: 0 });
+      gsap.set(sidebarDeviderRef.current, { opacity: 0 });
+  
+      sidebarOpeningClosingTl.current = gsap.timeline({ paused: true })
+        .to(containerRef.current, {
+          xPercent: 0,
+          duration: 0.8,
+          ease: "power2.inOut"
+        });
+  
+      sidebarNavLinkRevealTl.current = gsap.timeline({ paused: true })
+        .to(".sidebar-link-reveal", {
+          yPercent: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power4.out",
+        })
+        .to(sidebarDeviderRef.current, {
+          opacity: 1,
+          duration: 0.1,
+        }, "<");
+    }
+
+    const TabletTimeline = () => {
+      gsap.set(containerRef.current, { xPercent: 94 });
+      gsap.set(".sidebar-link-reveal", { yPercent: 110, opacity: 0 });
+      gsap.set(sidebarDeviderRef.current, { opacity: 0 });
+  
+      sidebarOpeningClosingTl.current = gsap.timeline({ paused: true })
+        .to(containerRef.current, {
+          xPercent: 0,
+          duration: 0.8,
+          ease: "power2.inOut"
+        });
+  
+      sidebarNavLinkRevealTl.current = gsap.timeline({ paused: true })
+        .to(".sidebar-link-reveal", {
+          yPercent: -10,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power4.out",
+        })
+        .to(sidebarDeviderRef.current, {
+          opacity: 1,
+          duration: 0.1,
+        }, "<");
+    }
+
+    const mobileTimeline = () => {
+      gsap.set(containerRef.current, { xPercent: 88 });
+      gsap.set(".sidebar-link-reveal", { yPercent: 110, opacity: 0 });
+      gsap.set(sidebarDeviderRef.current, { opacity: 0 });
+  
+      sidebarOpeningClosingTl.current = gsap.timeline({ paused: true })
+        .to(containerRef.current, {
+          xPercent: 0,
+          duration: 0.8,
+          ease: "power2.inOut"
+        });
+  
+      sidebarNavLinkRevealTl.current = gsap.timeline({ paused: true })
+        .to(".sidebar-link-reveal", {
+          yPercent: -10,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power4.out",
+        })
+        .to(sidebarDeviderRef.current, {
+          opacity: 1,
+          duration: 0.1,
+        }, "<");
+    }
+
+    mm.add("(min-width: 1200px)", DesktopTimeline);
+    mm.add("(min-width: 768px) and (max-width: 1199px)", TabletTimeline);
+    mm.add("(max-width: 767px)", mobileTimeline);
+
+      return () => mm.revert();
   }, { scope: containerRef });
 
   const handleSidebarToggle = () => {
-    setIsOpen((prev) => {
-      const nextState = !prev;
-      if(nextState) {
-        sidebarTimelineRef.current.play();
-      }else {
-        sidebarTimelineRef.current.reverse();
-      }
-      return nextState;
-    } );
-  }
+    if (isNavigatingRef.current) return;
 
-  // 3. Handle link clicks by intercepting the event, reversing, and navigating on reverse completion
+    if (isOpen) {
+      sidebarOpeningClosingTl.current.reverse();
+      sidebarNavLinkRevealTl.current.reverse();
+      setIsOpen(false);
+      return;
+    }
+
+    gsap.set(containerRef.current, { opacity: 1 });
+    sidebarOpeningClosingTl.current.play();
+    sidebarNavLinkRevealTl.current.play();
+    setIsOpen(true);
+  };
+
+  // Hide the text before changing pages, then retract the transparent sidebar.
   const handleLinkClick = (e, href) => {
     e.preventDefault();
-    
-    // Set the onReverseComplete callback dynamically just for this exit action
-    sidebarTimelineRef.current.eventCallback("onReverseComplete", () => {
-      setIsOpen(false);
-      navigate(href); // Navigate only after the sidebar is safely tucked away
+
+    if (isNavigatingRef.current) return;
+    isNavigatingRef.current = true;
+    sidebarOpeningClosingTl.current.pause();
+
+    sidebarNavLinkRevealTl.current.eventCallback("onReverseComplete", () => {
+      sidebarNavLinkRevealTl.current.eventCallback("onReverseComplete", null);
+      navigate(href);
+
+      gsap.timeline({
+        onComplete: () => {
+          sidebarOpeningClosingTl.current.pause(0);
+          sidebarNavLinkRevealTl.current.pause(0);
+          setIsOpen(false);
+          isNavigatingRef.current = false;
+        },
+      })
+        .to(containerRef.current, {
+          opacity: 0,
+          duration: 0.8,
+          ease: "power1.out",
+        }, "+=0.5")
+        .to(containerRef.current, {
+          xPercent: 96.5,
+          duration: 0.2,
+          ease: "power2.inOut",
+        }, ">")
+        .to(containerRef.current, {
+          opacity: 1,
+          duration: 0.1,
+          ease: "power1.in",
+        }, ">");
     });
 
-    sidebarTimelineRef.current.reverse();
+    sidebarNavLinkRevealTl.current.reverse();
   };
 
   return (
     <div
       ref={containerRef}
       /* REMOVED: transition-all duration-300 to stop CSS from clashing with GSAP */
-      className="sidebar fixed border-l border-white bg-black top-0 right-0 flex h-screen w-full max-w-150 shadow-xl flex-col z-[100]"
+      className="sidebar fixed border-l/2 border-black text-black bg-white top-0 right-0 flex h-screen w-full shadow-xl flex-col z-[100]"
     >
       <div
         onClick={handleSidebarToggle} 
@@ -100,7 +204,7 @@ const Sidebar = () => {
       <div className="flex flex-row w-full h-full overflow-hidden">
         {/* side items */}
         <div className="flex flex-col w-13 h-full justify-between">
-          <p className="sidebar-text transform whitespace-nowrap text-xs pb-12 origin-left rotate-90 font-satoshi">
+          <p className="sidebar-text transform whitespace-nowrap text-xs pb-12 origin-left rotate-90 font-arima">
             Every manifestation begins with imagination. Every journey begins with a single idea.
           </p>
           {/* logo */}
@@ -110,14 +214,14 @@ const Sidebar = () => {
         </div>
         <div className="flex flex-col w-full h-full">
           {/* nav items */}
-          <ul className="flex flex-col w-full h-full items-center mt-10">
-            {links.map((item, index) => (
-              <li key={index} className="p-4">
-                <div className="overflow-hidden">
+          <ul className="flex flex-col w-full h-full justify-center items-center">
+            {links.map((item) => (
+              <li key={item.href} className="p-4">
+                <div className="overflow-hidden pr-5">
                   <Link
                     to={item.href} 
                     onClick={(e) => handleLinkClick(e, item.href)} 
-                    className="sidebar-link-reveal sidebar-text text-white font-ravello text-6xl block"
+                    className="sidebar-link-reveal sidebar-text text-black font-italianno text-4xl md:text-6xl lg:text-8xl block cursor-pointer hover:font-bold transition-all duration-300"
                   >
                     {item.label}
                   </Link>
@@ -128,28 +232,34 @@ const Sidebar = () => {
 
           {/* footer items */}
           <div className="items-center flex flex-col gap-5 w-full pb-10">
-            <p className="sidebar-text font-satoshi text-sm text-white text-right">
-              © 2026 Infinity Artverse Crafted <br/> with imagination.
-            </p>
+            <div className="overflow-hidden">
+              <p className="sidebar-link-reveal pr-8 md:pr-0 lg:pr-0 pb-8 md:pb-0 lg:pb-0 sidebar-text font-arima text-xs lg:text-sm md:text-xs text-black sm:text-left md:text-right lg:text-right">
+                © 2026 Infinity Artverse Crafted <br/> with imagination.
+              </p>
+            </div>
             
             {/* devider */}
-            <div className="sidebar-devider ml-50 w-full h-px bg-white/20" />
+            <div ref={sidebarDeviderRef} className="sidebar-devider ml-50 w-full h-px bg-black/10" />
 
-            {/* links, nav items container*/}
-            <div className="flex flex-col pl-10 items-center w-full h-full">
+            {/* navbar footer*/}
+            <div className="flex flex-col justify-center md:pl-35 items-center w-full h-full">
                 {/* single container to hold both nav and social links */}
-                <div className="flex flex-row max-w-sm w-full">
+                <div className="flex flex-row max-w-sm pl-12 md:pl-0 lg:pl-0 w-full">
                   {/* nav links */}
                   <div className="flex-col flex w-full gap-2">
-                      <h2 className="sidebar-text font-satoshi uppercase text-white text-sm">
-                          studio
-                      </h2>
-                      <ul className="font-satoshi text-sm text-white">
-                          {navLinks.map((item, index) => (
+                      <div className="overflow-hidden">
+                        <h2 className="sidebar-link-reveal sidebar-text font-arima uppercase text-black text-xs md:text-xs lg:text-sm">
+                            studio
+                        </h2>
+                      </div>
+                      <ul className="font-arima text-xs md:text-xs lg:text-sm text-black">
+                          {navLinks.map((item) => (
                               <li
-                                onClick={(e) => handleLinkClick(e, item.link)} 
-                                className="sidebar-text font-satoshi text-sm hover:underline cursor-pointer" key={index}>
-                                  {item.label}
+                                key={item.link}
+                                onClick={(e) => handleLinkClick(e, item.link)}
+                                className="sidebar-text font-arima md:text-xs lg:text-sm cursor-pointer hover:font-bold transition-all duration-300 overflow-hidden"
+                              >
+                                <span className="sidebar-link-reveal block">{item.label}</span>
                               </li>
                           ))}
                       </ul>
@@ -157,13 +267,15 @@ const Sidebar = () => {
 
                   {/* social links */}
                   <div className="flex-col flex w-full gap-2">
-                      <h2 className="sidebar-text font-satoshi uppercase text-white text-sm">
-                          connect
-                      </h2>
-                      <ul className="font-satoshi text-sm text-white">
-                          {socialLinks.map((item, index) => (
-                              <li className="sidebar-text font-satoshi text-sm hover:underline cursor-pointer" key={index}>
-                                  <a href={item.href} target="_blank" rel="noopener noreferrer">
+                      <div className="overflow-hidden">
+                        <h2 className="sidebar-link-reveal sidebar-text font-arima uppercase text-black text-xs md:text-xs lg:text-sm">
+                            connect
+                        </h2>
+                      </div>
+                      <ul className="font-arima text-xs md:text-xs lg:text-sm text-black">
+                          {socialLinks.map((item) => (
+                              <li className="sidebar-text font-arima md:text-xs lg:text-sm cursor-pointer hover:font-bold transition-all duration-300 overflow-hidden" key={item.href}>
+                                  <a className="sidebar-link-reveal inline-block" href={item.href} target="_blank" rel="noopener noreferrer">
                                       {item.label}
                                   </a>
                               </li>

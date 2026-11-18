@@ -13,3 +13,12 @@ export const viewportVerticalProgress = (element) => {
 
     return (rect.top >= topBound && rect.bottom <= bottomBound)? true: false;
 }
+
+export const viewportIntersectionProgress = (element) => {
+    const rect = element.getBoundingClientRect();
+
+    return rect.bottom > 0
+        && rect.top < window.innerHeight
+        && rect.right > 0
+        && rect.left < window.innerWidth;
+}

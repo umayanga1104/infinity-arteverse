@@ -20,7 +20,7 @@ export default function P5Canvas({ fitToContainer = false }) {
           width,
           height
         );
-        sketch.background(0);
+        sketch.background(255);
 
         for (let i = 0; i < numParticles; i++) {
           particles.push(
@@ -35,7 +35,7 @@ export default function P5Canvas({ fitToContainer = false }) {
       };
 
       sketch.draw = () => {
-        sketch.background(0, 10);
+        sketch.background(255, 18);
         particles.forEach((particle) => {
           particle.follow();
           particle.update();
@@ -246,7 +246,7 @@ class Particle {
 
   show() {
 
-    this.sketch.stroke(255, 100 );
+    this.sketch.stroke(0, 100 );
 
     this.sketch.line(
       this.prevPos.x,

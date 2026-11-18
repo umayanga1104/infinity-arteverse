@@ -6,8 +6,8 @@ import './index.css'
 import AppLayout from './layouts/AppLayout';
 import Home from './pages/Home/Home';
 import AboutUs from './pages/About/AboutUs';
-import ContactUs from './pages/ContactUs';
 import NotFound from './NotFound';
+import Manifestations from './pages/Manifestations';
 
 
 
@@ -26,8 +26,8 @@ const router = createBrowserRouter([
         element: <AboutUs/>
       },
       {
-        path: "/contact",
-        element: <ContactUs/>
+        path: "/projects",
+        element: <Manifestations/>
       },
       {
         path: "/*", 

@@ -51,10 +51,10 @@ const pageMetadata = {
         description: "Discover the ideas, creative process, and people behind Infinity Artverse, a collective exploring photography, cinematography, branding, and visual storytelling.",
         canonicalPath: "/about",
     },
-    "/contact": {
-        title: "Contact Infinity Artverse | Get in Touch",
-        description: "Contact Infinity Artverse in Sri Lanka about creative collaborations, photography, cinematography, branding, and visual storytelling.",
-        canonicalPath: "/contact",
+    "/projects": {
+        title: "Projects | Infinity Artverse | Photography & Visual Stories",
+        description: "Explore selected photography, film, and visual storytelling projects from Infinity Artverse, a creative collective based in Sri Lanka.",
+        canonicalPath: "/projects",
     },
 };
 

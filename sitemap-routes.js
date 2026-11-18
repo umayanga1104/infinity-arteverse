@@ -1,1 +1,1 @@
-export default ['/', '/about', '/contact'];
+export default ['/', '/about', '/projects'];

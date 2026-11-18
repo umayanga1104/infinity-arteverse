@@ -1,12 +1,10 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
-    const navigate = useNavigate();
-
     const navLinks = [
         {label: "home", link: "/"},
         {label: "about us", link: "/about"},
-        {label: "contact us", link: "/contact"},
+        {label: "projects", link: "/projects"},
     ];
     
     const socialLinks = [
@@ -15,23 +13,18 @@ const Footer = () => {
         {label: "linked_in", href: "https://www.linkedin.com/company/infinity-artverse/"},
     ]
 
-    const handleLinkClick = (e, link) => {
-        e.preventDefault();
-        navigate(link);
-    }
-
     return(
-        <div className="footer relative w-full gap-15 z-50 flex flex-row">
-            <h1 className="font-ravello text-black text-9xl leading-1 uppercase opacity-46">
+        <div className="footer absolute bg-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.25)] bottom-0 left-0 lg:pt-20 md:pt-15 md:px-12 w-full gap-15 z-50 flex flex-row">
+            <h1 className="font-cormorant text-black md:text-7xl lg:text-9xl leading-1 uppercase opacity-46">
                 Infinity <br/> 
-                <span className="font ravello text-9xl opacity-15">
+                <span className="font-cormorant md:text-7xl lg:text-9xl opacity-15">
                     Artverse
                 </span>
             </h1>
 
             {/* left col */}
             <div className="w flex flex-col gap-5 w-full">
-                <p className="text-sm text-black font-satoshi">
+                <p className="md:text-xs lg:text-sm text-black font-arima">
                     Every manifestation begins with imagination. <br/>
                     Every journey begins with a single idea.
                 </p>
@@ -40,18 +33,18 @@ const Footer = () => {
                 <div className="w-full h-px bg-black/20" />
 
                 {/* links container*/}
-                <div className="flex flex-row w-full gap-10 pb-5 h-full">
+                <div className="flex flex-row w-full gap-10 md:pr-10 pb-5 h-full">
                     {/* nav links */}
                     <div className="flex-col flex w-full h-full gap-2">
-                        <h2 className="font-satoshi uppercase text-black text-sm">
+                        <h2 className="font-arima uppercase text-black md:text-xs lg:text-sm">
                             studio
                         </h2>
-                        <ul className="font-satoshi text-sm text-black">
+                        <ul className="font-arima text-black">
                             {navLinks.map((item, index) => (
-                                <li className="font-satoshi text-sm hover:underline cursor-pointer" 
-                                    key={index} onClick={(e) => handleLinkClick(e, item.link)}
+                                <li className="font-arima md:text-xs lg:text-sm hover:underline cursor-pointer"
+                                    key={index}
                                 >
-                                    {item.label}
+                                    <Link to={item.link}>{item.label}</Link>
                                 </li>
                             ))}
                         </ul>
@@ -59,12 +52,12 @@ const Footer = () => {
 
                     {/* social links */}
                     <div className="flex-col flex w-full h-full gap-2">
-                        <h2 className="font-satoshi uppercase text-black text-sm">
+                        <h2 className="font-arima uppercase text-black md:text-xs lg:text-sm">
                             connect
                         </h2>
-                        <ul className="font-satoshi text-sm text-black">
+                        <ul className="font-arima text-black">
                             {socialLinks.map((item, index) => (
-                                <li className="font-satoshi text-sm hover:underline cursor-pointer" key={index}>
+                                <li className="font-arima md:text-xs lg:text-sm hover:underline cursor-pointer" key={index}>
                                     <a href={item.href} target="_blank" rel="noopener noreferrer">
                                         {item.label}
                                     </a>
@@ -75,8 +68,11 @@ const Footer = () => {
 
                     {/* all rights resereved */}
                     <div className="w-full h-full flex items-end">
-                        <p className="font-satoshi text-sm text-black text-right">
+                        <p className="hidden font-arima text-sm text-black text-right">
                             © 2026 Infinity Artverse Crafted <br/> with imagination.
+                        </p>
+                        <p className="hidden font-arima md:text-xs lg:text-sm text-black text-right">
+                            © 2026 Infinity Artverse
                         </p>
                     </div>
                 </div>

@@ -48,23 +48,55 @@ import Yannemi_img_7 from "../assets/artefactCovers/yannemi/yannemi_7.jpg";
 export const Artefacts = {
         anantasakha: {
             refs: {title: null, description: null, cards: []},
-            landingPosition: { xFrac: -0.02, yFrac: -0.1 },
-            stackPosition:   { xFrac: 0.82, yFrac: 0.08 },
-            spreadPositions: [
-                { x:   0, y:   0 },
-                { x: -70, y: -80 },
-                { x:  50, y: -60 },
-                { x: -40, y:  80 },
-                { x:  60, y:  50 },
-            ],
+            landingPosition: { desktopRes: { xFrac: -0.02, yFrac: -0.1  }, tabletRes: { xFrac: -0.02, yFrac: -0.1  }, mobileRes: { xFrac: -0.2, yFrac: -0.1 } },
+            stackPosition: { desktopRes: { xFrac: 0.82, yFrac: 0.08  }, tabletRes: { xFrac: 0.82, yFrac: 0.08  }, mobileRes: { xFrac: -0.15, yFrac: 0.8 } },
+            spreadPositions: {
+                desktopRes: [
+                    { x:   0, y:   0 },
+                    { x: -70, y: -80 },
+                    { x:  50, y: -60 },
+                    { x: -40, y:  80 },
+                    { x:  60, y:  50 },
+                ],
+                tabletRes: [
+                    { x:   0, y:   0 },
+                    { x: -70, y: -80 },
+                    { x:  50, y: -60 },
+                    { x: -40, y:  80 },
+                    { x:  60, y:  50 },
+                ],
+                mobileRes: [
+                    { x: 0, y: 0 },
+                    { x: -60, y: -60 },
+                    { x: 60, y: 20 },
+                    { x: 0, y: 60 },
+                    { x: 16, y: 64 },
+                ],
+            },
             // anchor: xFrac 0.35, yFrac 0.25 → cards fan right from there
-            detailPositions: [
-                { x:   200, y:   -175  },
-                { x: 200, y:  175  },
-                { x: 500, y: -175  },
-                { x: 500, y:  175  },
-                { x: 800, y:  -175  },
-            ],
+            detailPositions: {
+                desktopRes: [
+                    { x:   200, y:   -175  },
+                    { x: 200, y:  175  },
+                    { x: 500, y: -175  },
+                    { x: 500, y:  175  },
+                    { x: 800, y:  -175  },
+                ],
+                tabletRes: [
+                    { x:   200, y:   -200  },
+                    { x: 200, y:  160  },
+                    { x: 500, y: -200  },
+                    { x: 500, y:  160  },
+                    { x: 500, y:  500  },
+                ],
+                mobileRes: [
+                    { x: 0, y: 155 },
+                    { x: 250, y: 155 },
+                    { x: 0, y: 435 },
+                    { x: 250, y: 435 },
+                    { x: 24, y: 155 },
+                ],
+            },
             images: [
                 { image: Anantasakha_img_1, alt: 'Anantasakha Cover 1' },
                 { image: Anantasakha_img_2, alt: 'Anantasakha Cover 2' },
@@ -130,20 +162,48 @@ export const Artefacts = {
         },
         capturing_Affection: {
             refs: {title: null, description: null, cards: []},
-            landingPosition: { xFrac: 0.42, yFrac: -0.1 },
-            stackPosition:   { xFrac: 0.83, yFrac: 0.40 },
-            spreadPositions: [
-                { x:    0, y:   0 },
-                { x: -100, y: -80 },
-                { x:   60, y: -90 },
-                { x:  -50, y:  90 },
-            ],
-            detailPositions: [
-                { x:   300, y:   -160  },
-                { x: 300, y:  160  },
-                { x: 600, y: -160  },
-                { x: 600, y:  160  },
-            ],
+            landingPosition: { desktopRes: { xFrac: 0.42, yFrac: -0.1  }, tabletRes: { xFrac: 0.42, yFrac: -0.1  }, mobileRes: { xFrac: -0.15, yFrac: 0.3 } },
+            stackPosition: { desktopRes: { xFrac: 0.83, yFrac: 0.40  }, tabletRes: { xFrac: 0.83, yFrac: 0.40  }, mobileRes: { xFrac: 0.7, yFrac: 0.6 } },
+            spreadPositions: {
+                desktopRes: [
+                    { x:    0, y:   0 },
+                    { x: -100, y: -80 },
+                    { x:   60, y: -90 },
+                    { x:  -50, y:  90 },
+                ],
+                tabletRes: [
+                    { x:    0, y:   0 },
+                    { x: -100, y: -80 },
+                    { x:   60, y: -90 },
+                    { x:  -50, y:  90 },
+                ],
+                mobileRes: [
+                    { x: 0, y: 0 },
+                    { x: -24, y: 16 },
+                    { x: 24, y: 32 },
+                    { x: -16, y: 48 },
+                ],
+            },
+            detailPositions: {
+                desktopRes: [
+                    { x:   300, y:   -160  },
+                    { x: 300, y:  160  },
+                    { x: 600, y: -160  },
+                    { x: 600, y:  160  },
+                ],
+                tabletRes: [
+                    { x:   300, y:   -130  },
+                    { x: 300, y:  200  },
+                    { x: 300, y: 540  },
+                    { x: 600, y:  820  },
+                ],
+                mobileRes: [
+                    { x: -150, y: 380 },
+                    { x: 80, y: 380 },
+                    { x: 300, y: 380 },
+                    { x: 600, y: 300 },
+                ],
+            },
             images: [
                 { image: Capturing_Affection_img_1, alt: 'Capturing Affection Cover 1' },
                 { image: Capturing_Affection_img_2, alt: 'Capturing Affection Cover 2' },
@@ -254,20 +314,48 @@ export const Artefacts = {
         },
         dethol: {
             refs: {title: null, description: null, cards: []},
-            landingPosition: { xFrac: 0.64, yFrac: -0.15 },
-            stackPosition:   { xFrac: 0.50, yFrac: 0.10 },
-            spreadPositions: [
-                { x:   35, y:   -0 },
-                { x: -90, y: -100 },
-                { x:  100, y: -50 },
-                { x: 40, y:  70 },
-            ],
-            detailPositions: [
-                { x:   250, y:   -190  },
-                { x: 250, y:  150  },
-                { x: 520, y: -190  },
-                { x: 520, y:  150  },
-            ],
+            landingPosition: { desktopRes: { xFrac: 0.64, yFrac: -0.15  }, tabletRes: { xFrac: 0.64, yFrac: -0.15  }, mobileRes: { xFrac: -0.2, yFrac: 0.55 } },
+            stackPosition: { desktopRes: { xFrac: 0.50, yFrac: 0.10  }, tabletRes: { xFrac: 0.50, yFrac: 0.10  }, mobileRes: { xFrac: 0.25, yFrac: 0.75 } },
+            spreadPositions: {
+                desktopRes: [
+                    { x:   35, y:   -0 },
+                    { x: -90, y: -100 },
+                    { x:  100, y: -50 },
+                    { x: 40, y:  70 },
+                ],
+                tabletRes: [
+                    { x:   35, y:   -0 },
+                    { x: 100, y: -100 },
+                    { x:  180, y: -100 },
+                    { x: 40, y:  70 },
+                ],
+                mobileRes: [
+                    { x: 0, y: 0 },
+                    { x: -24, y: 16 },
+                    { x: 24, y: 32 },
+                    { x: -16, y: 48 },
+                ],
+            },
+            detailPositions: {
+                desktopRes: [
+                    { x:   250, y:   -190  },
+                    { x: 250, y:  150  },
+                    { x: 520, y: -190  },
+                    { x: 520, y:  150  },
+                ],
+                tabletRes: [
+                    { x:   230, y:   -120  },
+                    { x: 230, y:  240  },
+                    { x: 530, y: -120  },
+                    { x: 530, y:  240  },
+                ],
+                mobileRes: [
+                    { x: 0, y: 155 },
+                    { x: 230, y: 155 },
+                    { x: 0, y: 450 },
+                    { x: 230, y: 450 },
+                ],
+            },
             images: [
                 { image: Dethol_img_1, alt: 'Dethol Cover 1' },
                 { image: Dethol_img_2, alt: 'Dethol Cover 2' },
@@ -339,18 +427,42 @@ export const Artefacts = {
         },
         five_Feet_Apart: {
             refs: {title: null, description: null, cards: []},
-            landingPosition: { xFrac: 0.86, yFrac: -0.04 },
-            stackPosition:   { xFrac: 0.70, yFrac: 0.40 },
-            spreadPositions: [
-                { x:   0, y:   0 },
-                { x: -80, y: -70 },
-                { x:  80, y:  60 },
-            ],
-            detailPositions: [
-                { x:   200, y:   -150  },
-                { x: 200, y:  150  },
-                { x: 500, y: 0  },
-            ],
+            landingPosition: { desktopRes: { xFrac: 0.86, yFrac: -0.04  }, tabletRes: { xFrac: 0.86, yFrac: -0.04  }, mobileRes: { xFrac: -0.2, yFrac: 0.75 } },
+            stackPosition: { desktopRes: { xFrac: 0.70, yFrac: 0.40  }, tabletRes: { xFrac: 0.70, yFrac: 0.40  }, mobileRes: { xFrac: -0.2, yFrac: 0.62 } },
+            spreadPositions: {
+                desktopRes: [
+                    { x:   0, y:   0 },
+                    { x: -80, y: -70 },
+                    { x:  80, y:  60 },
+                ],
+                tabletRes: [
+                    { x:   0, y:   0 },
+                    { x: -80, y: -70 },
+                    { x:  80, y:  60 },
+                ],
+                mobileRes: [
+                    { x: 0, y: 0 },
+                    { x: -24, y: 16 },
+                    { x: 24, y: 32 },
+                ],
+            },
+            detailPositions: {
+                desktopRes: [
+                    { x:   200, y:   -150  },
+                    { x: 200, y:  150  },
+                    { x: 500, y: 0  },
+                ],
+                tabletRes: [
+                    { x:   240, y:   -90  },
+                    { x: 240, y:  180  },
+                    { x: 240, y: 460  },
+                ],
+                mobileRes: [
+                    { x: 0, y: 155 },
+                    { x: 230, y: 155 },
+                    { x: 0, y: 400 },
+                ],
+            },
             images: [
                 { image: Five_Feet_Apart_img_1, alt: 'Five Feet Apart Cover 1' },
                 { image: Five_Feet_Apart_img_2, alt: 'Five Feet Apart Cover 2' },
@@ -410,20 +522,48 @@ export const Artefacts = {
         },
         heena_Paarana: {
             refs: {title: null, description: null, cards: []},
-            landingPosition: { xFrac: 0.05, yFrac: 0.38 },
-            stackPosition:   { xFrac: 0.52, yFrac: 0.55 },
-            spreadPositions: [
-                { x: 0, y: 0 },
-                { x: 0, y: 0 },
-                { x: 0, y: 0 },
-                { x: 0, y: 0 },
-            ],
-            detailPositions: [
-                { x:   300, y:   -150  },
-                { x: 300, y:  150  },
-                { x: 600, y: -150  },
-                { x: 600, y:  150  },
-            ],
+            landingPosition: { desktopRes: { xFrac: 0.05, yFrac: 0.38  }, tabletRes: { xFrac: 0.05, yFrac: 0.38  }, mobileRes: { xFrac: 0.85, yFrac: 0.3 } },
+            stackPosition: { desktopRes: { xFrac: 0.52, yFrac: 0.55  }, tabletRes: { xFrac: 0.52, yFrac: 0.55  }, mobileRes: { xFrac: 0.1, yFrac: 0.6 } },
+            spreadPositions: {
+                desktopRes: [
+                    { x: 0, y: 0 },
+                    { x: 0, y: 0 },
+                    { x: 0, y: 0 },
+                    { x: 0, y: 0 },
+                ],
+                tabletRes: [
+                    { x: 0, y: 0 },
+                    { x: 0, y: 0 },
+                    { x: 0, y: 0 },
+                    { x: 0, y: 0 },
+                ],
+                mobileRes: [
+                    { x: 0, y: 0 },
+                    { x: -24, y: 16 },
+                    { x: 24, y: 32 },
+                    { x: -16, y: 48 },
+                ],
+            },
+            detailPositions: {
+                desktopRes: [
+                    { x:   300, y:   -150  },
+                    { x: 300, y:  150  },
+                    { x: 600, y: -150  },
+                    { x: 600, y:  150  },
+                ],
+                tabletRes: [
+                    { x:   280, y:   -80  },
+                    { x: 280, y:  200  },
+                    { x: 280, y: 480  },
+                    { x: 800, y:  150  },
+                ],
+                mobileRes: [
+                    { x: 0, y: 220 },
+                    { x: 230, y: 220 },
+                    { x: 0, y: 450 },
+                    { x: 230, y: 450 },
+                ],
+            },
             images: [
                 { image: Heena_Paarana_img_1, alt: 'Heena Paarana Cover 1' },
                 { image: Heena_Paarana_img_1, alt: 'Heena Paarana Cover 1' },
@@ -512,20 +652,48 @@ export const Artefacts = {
         },
         seema_Wii_Adare: {
             refs: {title: null, description: null, cards: []},
-            landingPosition: { xFrac: 0.86, yFrac: 0.78 },
-            stackPosition:   { xFrac: 0.82, yFrac: 0.72 },
-            spreadPositions: [
-                { x:    0, y:   0 },
-                { x: -100, y: -70 },
-                { x:   70, y: -60 },
-                { x:  -50, y:  70 },
-            ],
-            detailPositions: [
-                { x:   320, y:   -170  },
-                { x: 320, y:  160  },
-                { x: 600, y: -170  },
-                { x: 600, y:  160  },
-            ],
+            landingPosition: { desktopRes: { xFrac: 0.86, yFrac: 0.78  }, tabletRes: { xFrac: 0.9, yFrac: 0.35  }, mobileRes: { xFrac: 1.05, yFrac: 0.51 } },
+            stackPosition: { desktopRes: { xFrac: 0.82, yFrac: 0.72  }, tabletRes: { xFrac: 0.82, yFrac: 0.72  }, mobileRes: { xFrac: 0.2, yFrac: 0.87 } },
+            spreadPositions: {
+                desktopRes: [
+                    { x:    0, y:   0 },
+                    { x: -100, y: -70 },
+                    { x:   70, y: -60 },
+                    { x:  -50, y:  70 },
+                ],
+                tabletRes: [
+                    { x:    0, y:   0 },
+                    { x: -100, y: -70 },
+                    { x:   70, y: -60 },
+                    { x:  -50, y:  70 },
+                ],
+                mobileRes: [
+                    { x: 0, y: 0 },
+                    { x: -24, y: 16 },
+                    { x: 24, y: 32 },
+                    { x: -16, y: 48 },
+                ],
+            },
+            detailPositions: {
+                desktopRes: [
+                    { x:   320, y:   -170  },
+                    { x: 320, y:  160  },
+                    { x: 600, y: -170  },
+                    { x: 600, y:  160  },
+                ],
+                tabletRes: [
+                    { x:   220, y:   -120  },
+                    { x: 220, y:  240  },
+                    { x: 520, y: -120  },
+                    { x: 520, y:  240  },
+                ],
+                mobileRes: [
+                    { x: 0, y: 165 },
+                    { x: 230, y: 165 },
+                    { x: 0, y: 450 },
+                    { x: 230, y: 450 },
+                ],
+            },
             images: [
                 { image: Seema_Wii_Adare_img_1, alt: 'Seema Wii Adare Cover 1' },
                 { image: Seema_Wii_Adare_img_2, alt: 'Seema Wii Adare Cover 2' },
@@ -594,18 +762,42 @@ export const Artefacts = {
         },
         seven_Days_Descent: {
             refs: {title: null, description: null, cards: []},
-            landingPosition: { xFrac: 0.78, yFrac: 0.38 },
-            stackPosition:   { xFrac: 0.52, yFrac: 0.72 },
-            spreadPositions: [
-                { x:   100, y:   0 },
-                { x: -90, y: -70 },
-                { x:  60, y:  60 },
-            ],
-            detailPositions: [
-                { x:   530, y:   150  },
-                { x: 230, y:  0  },
-                { x: 530, y: -150  },
-            ],
+            landingPosition: { desktopRes: { xFrac: 0.78, yFrac: 0.38  }, tabletRes: { xFrac: 0.78, yFrac: 0.38  }, mobileRes: { xFrac: -0.55, yFrac: 0.72 } },
+            stackPosition: { desktopRes: { xFrac: 0.52, yFrac: 0.72  }, tabletRes: { xFrac: 0.52, yFrac: 0.72  }, mobileRes: { xFrac: 0.03, yFrac: 0.76 } },
+            spreadPositions: {
+                desktopRes: [
+                    { x:   100, y:   0 },
+                    { x: -90, y: -70 },
+                    { x:  60, y:  60 },
+                ],
+                tabletRes: [
+                    { x:   100, y:   0 },
+                    { x: 0, y: -70 },
+                    { x:  60, y:  60 },
+                ],
+                mobileRes: [
+                    { x: 0, y: 0 },
+                    { x: -24, y: 16 },
+                    { x: 24, y: 32 },
+                ],
+            },
+            detailPositions: {
+                desktopRes: [
+                    { x:   530, y:   150  },
+                    { x: 230, y:  0  },
+                    { x: 530, y: -150  },
+                ],
+                tabletRes: [
+                    { x:   230, y:   220  },
+                    { x: 230, y:  540  },
+                    { x: 230, y: -90  },
+                ],
+                mobileRes: [
+                    { x: 0, y: 170 },
+                    { x: 230, y: 170 },
+                    { x: 0, y: 400 },
+                ],
+            },
             images: [
                 { image: Seven_Days_Descent_img_1, alt: 'Seven Days Descent Cover 1' },
                 { image: Seven_Days_Descent_img_2, alt: 'Seven Days Descent Cover 2' },
@@ -665,26 +857,67 @@ export const Artefacts = {
         },
         yannemi: {
             refs: {title: null, description: null, cards: []},
-            landingPosition: { xFrac: 0.64, yFrac: 0.80 },
-            stackPosition:   { xFrac: 0.65, yFrac: 0.22 },
-            spreadPositions: [
-                { x:    0, y:    0 },
-                { x:  -90, y:  -80 },
-                { x:   70, y:  -90 },
-                { x: -120, y:   60 },
-                { x:   90, y:   70 },
-                { x:  -50, y:  100 },
-                { x:   40, y:  -40 },
-            ],
-            detailPositions: [
-                { x:   300, y:   -160  },
-                { x: 300, y:  160  },
-                { x: 600, y: -160  },
-                { x: 600, y:  160  },
-                { x: 900, y:  -160 },
-                { x: 900, y:  160 },
-                { x: 1500, y: -10 },
-            ],
+            landingPosition: { desktopRes: { xFrac: 0.64, yFrac: 0.80  }, tabletRes: { xFrac: 0.64, yFrac: 0.80  }, mobileRes: { xFrac: 0.85, yFrac: 0.85 } },
+            stackPosition: { desktopRes: { xFrac: 0.65, yFrac: 0.22  }, tabletRes: { xFrac: 0.65, yFrac: 0.22  }, mobileRes: { xFrac: 0.8, yFrac: 0.76 } },
+            spreadPositions: {
+                desktopRes: [
+                    { x:    0, y:    0 },
+                    { x:  -90, y:  -80 },
+                    { x:   70, y:  -90 },
+                    { x: -120, y:   60 },
+                    { x:   90, y:   70 },
+                    { x:  -50, y:  100 },
+                    { x:   40, y:  -40 },
+                ],
+                tabletRes: [
+                    { x:    0, y:    0 },
+                    { x:  -90, y:  -80 },
+                    { x:   70, y:  -90 },
+                    { x: -120, y:   60 },
+                    { x:   90, y:   70 },
+                    { x:  -50, y:  100 },
+                    { x:   40, y:  -40 },
+                ],
+                mobileRes: [
+                    { x: 0, y: 0 },
+                    { x: -24, y: 16 },
+                    { x: 24, y: 32 },
+                    { x: -16, y: 48 },
+                    { x: 16, y: 64 },
+                    { x: -32, y: 80 },
+                    { x: 32, y: 96 },
+                ],
+            },
+            detailPositions: {
+                desktopRes: [
+                    { x:   300, y:   -160  },
+                    { x: 300, y:  160  },
+                    { x: 600, y: -160  },
+                    { x: 600, y:  160  },
+                    { x: 900, y:  -160 },
+                    { x: 900, y:  160 },
+                    { x: 1500, y: -10 },
+                ],
+                tabletRes: [
+                    { x:   260, y:   -110  },
+                    { x: 560, y:  240  },
+                    { x: 560, y: -110  },
+                    { x: 260, y:  240  },
+                    { x: 260, y:  600 },
+                    { x: 560, y:  600 },
+                    { x: 1500, y: -10 },
+                ],
+                mobileRes: [
+                    { x: 0, y: 220 },
+                    { x: 230, y: 220 },
+                    { x: 0, y: 500 },
+                    { x: 230, y: 500 },
+                    { x: 24, y: 700 },
+                    { x: 24, y: 700 },
+                    { x: 40, y: 700 },
+                    { x: 12, y: 700 },
+                ],
+            },
             images: [
                 { image: Yannemi_img_1, alt: 'Yannemi Cover 1' },
                 { image: Yannemi_img_2, alt: 'Yannemi Cover 2' },

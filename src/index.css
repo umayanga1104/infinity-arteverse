@@ -3,6 +3,9 @@
 @import url('https://fonts.googleapis.com/css2?family=BJCree:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arima:wght@100..700&display=swap');
+
 /* Self-hosted Ravello and Satoshi fonts */
 @import './assets/fonts/fonts.css';
 
@@ -17,6 +20,10 @@
   --font-satoshi:   'Satoshi', sans-serif;
   --font-cormorant: 'Cormorant Garamond', serif;
   --font-italianno: 'Italianno', cursive;
+  --font-cormorant-gramond: 'Cormorant Garamond', serif;
+  --font-arima: "Arima", system-ui;
+  --animate-mobile-art-drift: mobile-art-drift 14s ease-in-out infinite alternate;
+  --animate-mobile-cue-bob: mobile-cue-bob 1.7s ease-in-out infinite;
   --animate-mobile-art-drift: mobile-art-drift 14s ease-in-out infinite alternate;
   --animate-mobile-cue-bob: mobile-cue-bob 1.7s ease-in-out infinite;
 
@@ -53,8 +60,8 @@
 }
 
 html, body {
-  background: black;
-  color: white;
+  background: white;
+  color: black;
   overflow-x: hidden;
 }
 

@@ -2,7 +2,7 @@
 
 A modern portfolio and brand showcase for Infinity Arteverse — a digital presence where art, creativity, and visual storytelling come together.
 
-This project is built with React and Vite, featuring an immersive landing experience, animated visual background, and a clean single-page portfolio structure for showcasing the brand and contact information.
+This project is built with React and Vite, featuring an immersive landing experience, animated visual background, and a responsive portfolio for showcasing the brand, projects, and contact information.
 
 ## Overview
 
@@ -11,7 +11,7 @@ Infinity Arteverse is a portfolio website designed to present the brand in a vis
 - A cinematic hero/landing experience
 - Animated background visuals
 - Brand-focused home page layout
-- About and contact sections
+- About and projects pages, with contact details on the home page
 - Responsive design for different screen sizes
 - Deployment-ready static build for Netlify
 
@@ -31,7 +31,8 @@ Infinity Arteverse is a portfolio website designed to present the brand in a vis
 ├── public/
 │   ├── _redirects
 │   ├── favicon.svg
-│   └── icons.svg
+│   ├── robots.txt
+│   └── sitemap.xml
 ├── src/
 │   ├── animations/
 │   ├── assets/
@@ -62,7 +63,7 @@ Infinity Arteverse is a portfolio website designed to present the brand in a vis
 - Multi-page routing using React Router
 - Landing page with brand storytelling sections
 - Footer and sidebar-based navigation patterns
-- Contact page with business contact details and social links
+- Contact details and social links
 - Clean, minimal visual identity using a dark/neutral palette
 
 ## Getting Started
@@ -115,9 +116,11 @@ Runs the app in development mode with Vite.
 ```bash
 npm run build
 ```
-Builds the application for production into the `dist` folder. `public/sitemap.xml` is copied into the build, then regenerated in both `public/` and `dist/`.
+Builds the application for production into the `dist` folder. The `postbuild` script regenerates the sitemap in both `public/` and `dist/`.
 
-The sitemap includes the homepage, about page, and contact page at `https://infinityartverse.com`. Set `SITE_URL` to override the domain for another deployment. `public/robots.txt` also points search engines to the sitemap.
+The sitemap includes `/`, `/about`, and `/projects` at `https://infinityartverse.com`. These routes are maintained in `sitemap-routes.js`; `public/robots.txt` points crawlers to the sitemap. Set `SITE_URL` to override the sitemap domain for another deployment. Netlify runs the build command on deploy, so the sitemap is regenerated as part of each Netlify production build; a GitHub Actions build alone does not deploy the site.
+
+Page titles, descriptions, canonical URLs, social-sharing metadata, and structured data are managed in `src/components/Seo.jsx`. Update that metadata and `sitemap-routes.js` together whenever public routes change.
 
 ```bash
 npm run sitemap
@@ -176,7 +179,7 @@ The site includes the following brand/contact information:
 
 - The app uses a custom visual palette defined in `color.palette.txt`.
 - The project is primarily a front-end portfolio experience and does not currently include backend services or database integration.
-- The routing is configured in `src/main.jsx` and supports a homepage, about page, contact page, and a fallback 404 page.
+- The routing is configured in `src/main.jsx` and supports the homepage, about page, projects page, and a fallback 404 page.
 
 ## Contributing
 
@@ -197,7 +200,7 @@ This repository does not currently include a license file. If you plan to publis
 For questions or business inquiries related to Infinity Arteverse:
 
 - Email: hello@infinityartverse.com
-- Website: infinity-artverse.com
+- Website: https://infinityartverse.com
 
 ---
 

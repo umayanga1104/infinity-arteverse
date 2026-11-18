@@ -1,12 +1,10 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const Footer = () => {
-    const navigate = useNavigate();
-
+const ManifestationFooter = () => {
     const navLinks = [
         {label: "home", link: "/"},
         {label: "about us", link: "/about"},
-        {label: "contact us", link: "/contact"},
+        {label: "projects", link: "/projects"},
     ];
     
     const socialLinks = [
@@ -15,17 +13,12 @@ const Footer = () => {
         {label: "linked_in", href: "https://www.linkedin.com/company/infinity-artverse/"},
     ]
 
-    const handleLinkClick = (e, link) => {
-        e.preventDefault();
-        navigate(link);
-    }
-
     return(
-        <div className="manifestations-footer absolute bottom-0 left-0 w-full gap-15 z-50 flex items-start flex-row">
+        <div className="manifestations-footer hidden md:flex lg:flex fixed bottom-0 left-0 w-full gap-15 z-50 items-start flex-row">
 
             {/* left col */}
             <div className="max-w-xl flex flex-col gap-5 w-full">
-                <p className="text-sm text-black pl-5 font-satoshi">
+                <p className="md:text-xs lg:text-sm text-black pl-5 font-arima">
                     Every manifestation begins with imagination. <br/>
                     Every journey begins with a single idea.
                 </p>
@@ -37,15 +30,15 @@ const Footer = () => {
                 <div className="flex flex-row w-full gap-10 pb-5 pl-5 h-full">
                     {/* nav links */}
                     <div className="flex-col flex w-full h-full gap-2">
-                        <h2 className="font-satoshi uppercase text-black text-sm">
+                        <h2 className="font-arima uppercase text-black md:text-xs lg:text-sm">
                             studio
                         </h2>
-                        <ul className="font-satoshi text-sm text-black">
+                        <ul className="font-arima md:text-xs lg:text-sm text-black">
                             {navLinks.map((item, index) => (
-                                <li className="font-satoshi text-sm hover:underline cursor-pointer" 
-                                    key={index} onClick={(e) => handleLinkClick(e, item.link)}
+                                <li className="font-arima md:text-xs lg:text-sm hover:font-bold transition-all duration-300"
+                                    key={index}
                                 >
-                                    {item.label}
+                                    <Link to={item.link}>{item.label}</Link>
                                 </li>
                             ))}
                         </ul>
@@ -53,12 +46,12 @@ const Footer = () => {
 
                     {/* social links */}
                     <div className="flex-col flex w-full h-full gap-2">
-                        <h2 className="font-satoshi uppercase text-black text-sm">
+                        <h2 className="font-arima uppercase text-black md:text-xs lg:text-sm">
                             connect
                         </h2>
-                        <ul className="font-satoshi text-sm text-black">
+                        <ul className="font-arima md:text-xs lg:text-sm text-black">
                             {socialLinks.map((item, index) => (
-                                <li className="font-satoshi text-sm hover:underline cursor-pointer" key={index}>
+                                <li className="font-arima md:text-xs lg:text-sm hover:font-bold transition-all duration-300" key={index}>
                                     <a href={item.href} target="_blank" rel="noopener noreferrer">
                                         {item.label}
                                     </a>
@@ -68,8 +61,8 @@ const Footer = () => {
                     </div>
 
                     {/* all rights resereved */}
-                    <div className="w-full h-full flex items-end">
-                        <p className="font-satoshi text-sm text-black text-right">
+                    <div className="w-full h-full flex items-end md:pr-25">
+                        <p className="font-arima md:text-xs lg:text-sm text-black text-right">
                             © 2026 Infinity Artverse Crafted <br/> with imagination.
                         </p>
                     </div>
@@ -79,4 +72,4 @@ const Footer = () => {
     );
 }
 
-export default Footer;
+export default ManifestationFooter;

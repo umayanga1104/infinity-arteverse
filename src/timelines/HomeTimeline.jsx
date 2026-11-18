@@ -1,15 +1,14 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { SplitText } from "gsap/all";
 
 import Landing from "../pages/Home/sections/Landing";
 import { viewPortEngine } from "../animations/engine/viewportEngine";
 import HomeExperience from "../pages/Home/sections/HomeExperience";
-import { viewportHorizontalProgress, viewportVerticalProgress } from "../animations/helpers/viewportProgress";
+import { viewportHorizontalProgress, viewportIntersectionProgress, viewportVerticalProgress } from "../animations/helpers/viewportProgress";
 import { primaryParagraphRevealer } from "../animations/helpers/paragraphRevealHelper";
-
-import {Artefacts} from "../data/artefacts"
+import { fadeInRevealer } from "../animations/helpers/fadeInRevealHelper";
 import { primaryTitleRevealer } from "../animations/helpers/titleRevealHelper";
 
 gsap.registerPlugin(ScrollTrigger)
@@ -21,17 +20,18 @@ const HomeTimeline = () => {
     const masterTlRef = useRef(null);        // ← so you can pause/resume it
     const enterDetailsTlRef = useRef(null);  // ← bridge out of useEffect
     const exitDetailsTlRef = useRef(null);   // ← bridge out of useEffect
-    const [activeProject, setActiveProject] = useState(null);
 
     const transitionOneMarkerRef = useRef(null);
     const transitionTwoMarkerRef = useRef(null);
 
     useEffect(() => {
-        const splits = [];
+        const mm = gsap.matchMedia();
 
-        const context = gsap.context(() => {
-            const vw = window.innerWidth
-            const vh = window.innerHeight
+        // ################ DESKTOP TL ################# //
+        const DesktopTimeline = () => {
+            const splits = [];
+
+            const context = gsap.context(() => {
 
             const q = gsap.utils.selector(viewPortRef);
 
@@ -49,10 +49,12 @@ const HomeTimeline = () => {
             const originHeadings = q(".origin-headings");
             const originSubHeadings = q(".origin-sub-headings");
             const originTrack = q(".origin-track");
-            const manifestationsTrack = q(".manifestations-track");
-            const manifestationsLeftPanel = q(".manifestations-left-panel");
-            const manifestationInfoPanel = q(".manifestation-info-panel");
-            const manifestationFooter = q(".manifestations-footer");
+            const afterOriginTrack = q(".after-origin-track");
+            const afterOriginHeading = q(".after-origin-headings");
+            const afterOriginSubHeading = q(".after-origin-sub-headings");
+            const afterOriginDescription = q(".after-origin-descriptions");
+            const homeExperienceMedia = q(".home-experience img, .home-experience video");
+            // const footer = q(".footer");
 
             //transition elements
             const beams = q(".beam");
@@ -80,95 +82,27 @@ const HomeTimeline = () => {
             })
 
             gsap.set(originTitle, {
-                yPercent: -500
+                yPercent: -680
             })
 
             gsap.set(originTrack, {
                 yPercent: 100
             })
 
-            gsap.set(manifestationsTrack, {
+            gsap.set(afterOriginTrack, {
                 yPercent: 120
             })
 
-            gsap.set(manifestationsLeftPanel, { 
-                opacity: 0, 
-                xPercent: -100 
-            })
-            gsap.set(manifestationInfoPanel, { 
-                opacity: 0, 
-                xPercent: -100
-            })
-            gsap.set(manifestationFooter, { 
-                opacity: 0, 
-                yPercent: 100
-            })
-
-            Object.entries(Artefacts).forEach(([name, artefact]) => {
-                const cardRefs = artefact.refs.cards;
-                if(!cardRefs)return;
-
-                // Convert viewport fractions → real pixel values
-                const landX = artefact.landingPosition.xFrac * vw
-                const landY = artefact.landingPosition.yFrac * vh
-                
-                cardRefs.forEach((card, i) => {
-                    gsap.set(card, {
-                        x: landX,
-                        y: landY,
-                        zIndex:   artefact.images.length - i,  // img_1 on top
-                    })
-                })
-            })
+            // gsap.set(footer, { 
+            //     opacity: 0, 
+            //     yPercent: 150
+            // })
 
             // intial state of transitions
             gsap.set(beams, {
                 attr: {
                     x: 100
                 }
-            })
-
-            // enter details timeline & animations
-            const enterDetailsTl = gsap.timeline({
-                paused: true,
-                defaults: {
-                    ease: "power4"
-                }
-            });
-
-            enterDetailsTl.to(manifestationsLeftPanel, {
-                opacity:  0,
-                duration: 1,
-            })
-            .to(manifestationInfoPanel, {
-                xPercent: 0,
-                duration: 0.2,
-            })
-            .to(manifestationInfoPanel, {
-                opacity:  1,
-                duration: 1,
-            })
-
-            // exit details timeline & animations
-            const exitDetailsTl = gsap.timeline({
-                paused: true,
-                defaults: {
-                    duration: 1,
-                    ease: "power2.inOut"
-                }
-            })
-
-            exitDetailsTl.to(manifestationInfoPanel, {
-                opacity:  0,
-                duration: 1,
-            })
-            .to(manifestationInfoPanel, {
-                xPercent: -100,
-                duration: 0.2,
-            })
-            .to(manifestationsLeftPanel, {
-                opacity:  1,
-                duration: 1,
             })
 
             //Transtion 1 timeline and animations
@@ -287,44 +221,308 @@ const HomeTimeline = () => {
             .add("starting-overlap", "-=35")
 
             .to(originTitle, {
-                yPercent: 890,
+                yPercent: 920,
                 duration: 64
             }, "starting-overlap")
             .to(originTrack, {
                 yPercent: -100,
                 duration: 64
             }, "starting-overlap")
-            .to(manifestationsTrack, {
-                yPercent: 0,
-                duration: 32
-            }, "-=24")
-            .to(manifestationsLeftPanel, {
+            .to(afterOriginTrack, {
+                yPercent: -68,
+                duration: 100,
+            }, "-=42")
+            // .to(footer, {
+            //     yPercent: 0,
+            //     opacity: 1,
+            //     duration: 4,
+            // }, "-=8")
+            masterTlRef.current = tl;
+
+            // typography and visual elemnts registaration
+            viewPortEngine.register(idyllicsName, {
+                type: "title",
+                active: false, 
+                progress: viewportHorizontalProgress, 
+                animation: primaryTitleRevealer
+            });
+
+            viewPortEngine.register(idyllicsDescription, {
+                type: "paragraph",
+                active: false, 
+                progress: viewportHorizontalProgress, 
+                animation: primaryParagraphRevealer
+            });
+
+            viewPortEngine.register(originHeadings, {
+                type: "title",
+                active: false, 
+                progress: viewportVerticalProgress, 
+                animation: primaryTitleRevealer
+            });
+
+            viewPortEngine.register(originDescription, {
+                type: "paragraph",
+                active: false, 
+                progress: viewportVerticalProgress, 
+                animation: primaryParagraphRevealer
+            });
+
+            viewPortEngine.register(afterOriginHeading, {
+                type: "title",
+                active: false,
+                progress: viewportVerticalProgress,
+                animation: primaryTitleRevealer
+            });
+
+            viewPortEngine.register(afterOriginSubHeading, {
+                type: "paragraph",
+                active: false,
+                progress: viewportVerticalProgress,
+                animation: primaryParagraphRevealer
+            });
+
+            viewPortEngine.register(afterOriginDescription, {
+                type: "paragraph",
+                active: false,
+                progress: viewportVerticalProgress,
+                animation: primaryParagraphRevealer
+            });
+
+            viewPortEngine.register(homeExperienceMedia, {
+                type: "fade",
+                active: false,
+                progress: viewportIntersectionProgress,
+                animation: fadeInRevealer
+            });
+            
+            // viewport based animation engine initiation
+            viewPortEngine.start();
+            
+            //settle downs the layout with the pinning of scroll trigger
+            ScrollTrigger.refresh();
+            }, viewPortRef.current);
+
+            return () => {
+                splits.forEach(split => split.revert());
+                context.revert();
+                viewPortEngine.terminate();
+            };
+        };
+
+        // ################ TABLET TL ################# //
+        const TabletTimeline = () => {
+            const splits = [];
+
+            const context = gsap.context(() => {
+
+            const q = gsap.utils.selector(viewPortRef);
+
+            const landing = q(".landing");
+            // const homeTitle = q(".home-title");
+            // const homeDescription = q(".home-description");
+            const homeExperience=q(".home-experience");
+            const idyllicsTitle = q(".idyllics-title-container");
+            const idyllicsContainer = q(".idyllics-container");
+            const idyllicsName = q(".idyllic-name");
+            const idyllicsDescription = q(".idyllics-description");
+            const idyllicsDescriptionTrack = q(".idyllics-description-track");
+            const originDescription = q(".origin-description");
+            const originHeadings = q(".origin-headings");
+            const originSubHeadings = q(".origin-sub-headings");
+            const originTrack = q(".origin-track");
+            const afterOriginTrack = q(".after-origin-track");
+            const afterOriginHeading = q(".after-origin-headings");
+            const afterOriginSubHeading = q(".after-origin-sub-headings");
+            const afterOriginDescription = q(".after-origin-descriptions");
+            const homeExperienceMedia = q(".home-experience img, .home-experience video");
+            // const footer = q(".footer");
+
+            //transition elements
+            const beams = q(".beam");
+
+            // elements initial positions config
+            gsap.set(landing,{
+                xPercent:0,
+            })
+
+            gsap.set(homeExperience, {
+                opacity: 0,
+                xPercent: 100,
+                yPercent: -100
+            });
+
+            gsap.set(idyllicsTitle, {
+                xPercent: 50,
+            })
+            gsap.set(idyllicsDescriptionTrack, {
+                xPercent: -250
+            })
+
+            gsap.set(idyllicsContainer, {
+                xPercent: 30,
+            })
+
+            gsap.set(originTrack, {
+                yPercent: 100
+            })
+
+            gsap.set(afterOriginTrack, {
+                yPercent: 120
+            })
+
+            // gsap.set(footer, { 
+            //     opacity: 0, 
+            //     yPercent: 150
+            // })
+
+            // intial state of transitions
+            gsap.set(beams, {
+                attr: {
+                    x: 100
+                }
+            })
+
+            // enter details timeline & animations
+            const enterDetailsTl = gsap.timeline({
+                paused: true,
+                defaults: {
+                    ease: "power4"
+                }
+            });
+
+            // exit details timeline & animations
+            const exitDetailsTl = gsap.timeline({
+                paused: true,
+                defaults: {
+                    duration: 1,
+                    ease: "power2.inOut"
+                }
+            })
+
+            //Transtion 1 timeline and animations
+            const transitionOneTl = gsap.timeline({
+                paused: true
+            });
+
+            transitionOneTl.to(beams, {
+                attr: {
+                    x: 0
+                },
+                duration: 1,
+                stagger: 0.1,
+                ease: "power3.inOut"
+            }).to(landing, {
+                opacity: 0,
+                duration: 1,
+                ease: "power3.inOut",
+            }, "<")
+            .to(homeExperience, {
                 xPercent: 0,
-                duration: 32,
+                duration: 1,
+            }, "<")
+            .to(homeExperience, {
                 opacity: 1,
-            }, ">")
-            .to(manifestationFooter, {
-                yPercent: 0,
-                duration: 32,
-                opacity: 1,
+                duration: 1,
+                ease: "power3.inOut",
+            }, ">");
+
+            ScrollTrigger.create({
+                trigger: transitionOneMarkerRef.current,
+
+                start: "top top",
+
+                onEnter() {
+                    transitionOneTl.play();
+                },
+
+                onLeaveBack() {
+                    transitionOneTl.reverse();
+                }
+            });
+
+            // Transition 2 timeline and animations
+            const transitionTwoTl = gsap.timeline({
+                paused: true
+            });
+
+            transitionTwoTl.to(beams, {
+                attr: {
+                    fill: "#ffffff"
+                },
+                duration: 1,
+                ease: "power3.inOut",
+            })
+            .to(originHeadings, {
+                color: "#000000",
+                duration: 1
+            }, "<")
+            .to(originSubHeadings, {
+                color: "#000000",
+                duration: 1
+            }, "<")
+            .to(originDescription, {
+                color: "#000000",
+                duration: 1
             }, "<");
 
-            Object.entries(Artefacts).forEach(([name, artefact]) => {
-                const cardRefs = artefact.refs.cards;
-                if(!cardRefs)return;
+            ScrollTrigger.create({
+                trigger: transitionTwoMarkerRef.current,
 
-                const stackX = artefact.stackPosition.xFrac * vw
-                const stackY = artefact.stackPosition.yFrac * vh
+                start: "top top",
 
-                cardRefs.forEach((card, i) => {
-                    tl.to(card, {
-                        x:        stackX + (artefact.spreadPositions[i]?.x ?? 0),
-                        y:        stackY + (artefact.spreadPositions[i]?.y ?? 0),
-                        ease:     'power2.inOut',
-                        duration: 32,
-                    }, "<")   // ← "0" = all images start animating at the same scroll moment
-                })
+                onEnter() {
+                    transitionTwoTl.play();
+                },
+
+                onLeaveBack() {
+                    transitionTwoTl.reverse();
+                }
             });
+
+            // master timeline creation
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: scrollPanelRef.current,
+                    start: 'top top',
+                    end: ()=>window.innerHeight*6,
+                    scrub: true,
+                    pin: true,
+                }
+            });
+
+            // master timeline animations
+            tl.to(idyllicsContainer,{
+                xPercent:-180,
+                duration: 64
+            }).to(idyllicsTitle,{
+                xPercent:-100,
+                duration: 60
+            }, "0.5")
+            .to(idyllicsDescriptionTrack,{
+                xPercent: 100,
+                duration: 32
+            }, "<").to(idyllicsTitle,{
+                filter: "blur(15px)",
+                opacity: 0,
+                duration: 40
+            }, "<")
+
+            .add("starting-overlap", "-=48")
+
+            .to(originTrack, {
+                yPercent: -100,
+                duration: 64
+            }, "starting-overlap")
+            .to(afterOriginTrack, {
+                yPercent: -37,
+                duration: 110,
+            }, "-=48")
+            // .to(footer, {
+            //     yPercent: 0,
+            //     opacity: 1,
+            //     duration: 4,
+            // }, "-=8")
 
             // store timelines in refs so handlers below can reach them
             enterDetailsTlRef.current = enterDetailsTl;
@@ -359,111 +557,222 @@ const HomeTimeline = () => {
                 progress: viewportVerticalProgress, 
                 animation: primaryParagraphRevealer
             });
+
+            viewPortEngine.register(afterOriginHeading, {
+                type: "title",
+                active: false,
+                progress: viewportVerticalProgress,
+                animation: primaryTitleRevealer
+            });
+
+            viewPortEngine.register(afterOriginSubHeading, {
+                type: "paragraph",
+                active: false,
+                progress: viewportVerticalProgress,
+                animation: primaryParagraphRevealer
+            });
+
+            viewPortEngine.register(afterOriginDescription, {
+                type: "paragraph",
+                active: false,
+                progress: viewportVerticalProgress,
+                animation: primaryParagraphRevealer
+            });
+
+            viewPortEngine.register(homeExperienceMedia, {
+                type: "fade",
+                active: false,
+                progress: viewportIntersectionProgress,
+                animation: fadeInRevealer
+            });
             
             // viewport based animation engine initiation
             viewPortEngine.start();
             
             //settle downs the layout with the pinning of scroll trigger
             ScrollTrigger.refresh();
-        }, viewPortRef.current);
+            }, viewPortRef.current);
 
-        return () => {
-            splits.forEach(split => split.revert());
-            context.revert();
-            viewPortEngine.terminate();
+            return () => {
+                splits.forEach(split => split.revert());
+                context.revert();
+                viewPortEngine.terminate();
+            };
         };
-    }, []);
 
-    // detail view anchor point — cards fan out rightward from here
-    const DETAIL_ANCHOR = { xFrac: 0.35, yFrac: 0.30 }
+        // ################ MOBILE TL ################# //
+        const MobileTimeline = () => {
+            const splits = [];
 
-    const handleProjectClick = (projectName) => {
-        const vw = window.innerWidth
-        const vh = window.innerHeight
+            const context = gsap.context(() => {
 
-        setActiveProject(Artefacts[projectName]);
-        masterTlRef.current?.scrollTrigger?.disable(false);
+            const q = gsap.utils.selector(viewPortRef);
 
-        // kill any running exit
-        exitDetailsTlRef.current?.pause();
+            const landing = q(".landing");
+            // const homeTitle = q(".home-title");
+            // const homeDescription = q(".home-description");
+            const homeExperience=q(".home-experience");
+            const mobileHomeExperienceTrack = q(".mobile-home-experience-track");
+            
 
-        // build fresh enter tl each click
-        const detailAnchorX = DETAIL_ANCHOR.xFrac * vw
-        const detailAnchorY = DETAIL_ANCHOR.yFrac * vh
+            //transition elements
+            const beams = q(".beam");
 
-        const enterTl = gsap.timeline({
-            defaults: { ease: "power3.out", duration: 1 }
-        });
+            // elements initial positions config
+            gsap.set(landing,{
+                xPercent:0,
+            })
 
-        // panels
-        enterTl.to(".manifestations-left-panel", { opacity: 0, duration: 0.6 }, 0)
-        enterTl.to(".manifestation-info-panel",  { xPercent: 0, duration: 0.3 }, 0)
-        enterTl.to(".manifestation-info-panel",  { opacity: 1, duration: 0.8 }, 0.2)
+            gsap.set(homeExperience, {
+                opacity: 0,
+                xPercent: 100,
+                yPercent: -100
+            });
+            gsap.set(mobileHomeExperienceTrack, {
+                yPercent: 0,
+            })
 
-        // cards
-        Object.entries(Artefacts).forEach(([name, artefact]) => {
-            const isActive = name === projectName
-            const cards = artefact.refs.cards
+            
 
-            cards.forEach((card, i) => {
-                if (isActive) {
-                    enterTl.to(card, {
-                        x: detailAnchorX + (artefact.detailPositions[i]?.x ?? 0),
-                        y: detailAnchorY + (artefact.detailPositions[i]?.y ?? 0),
-                        opacity: 1,
-                        duration: 1,
-                    }, 0)
-                } else {
-                    enterTl.to(card, {
-                        y: vh + 300,
-                        opacity: 0,
-                        duration: 0.7,
-                        ease: "power2.in"
-                    }, 0)
+            // intial state of transitions
+            gsap.set(beams, {
+                attr: {
+                    x: 100
                 }
             })
-        })
 
-        enterDetailsTlRef.current = enterTl
-    }
+            // enter details timeline & animations
+            const enterDetailsTl = gsap.timeline({
+                paused: true,
+                defaults: {
+                    ease: "power4"
+                }
+            });
 
-    const handleBack = () => {
-        const vw = window.innerWidth
-        const vh = window.innerHeight
-
-        // setActiveProject(null);
-        enterDetailsTlRef.current?.pause();
-
-        const exitTl = gsap.timeline({
-            defaults: { ease: "power2.inOut", duration: 1 },
-            onComplete: () => {
-                masterTlRef.current?.scrollTrigger?.enable(false);
-            }
-        })
-
-        // panels
-        exitTl.to(".manifestation-info-panel",  { opacity: 0, duration: 0.6 }, 0)
-        exitTl.to(".manifestation-info-panel",  { xPercent: -100, duration: 0.3 }, 0.5)
-        exitTl.to(".manifestations-left-panel", { opacity: 1, duration: 0.8 }, 0.4)
-
-        // restore all cards to their stack + spread positions
-        Object.entries(Artefacts).forEach(([name, artefact]) => {
-            const stackX = artefact.stackPosition.xFrac * vw
-            const stackY = artefact.stackPosition.yFrac * vh
-            const cards = artefact.refs.cards
-
-            cards.forEach((card, i) => {
-                exitTl.to(card, {
-                    x: stackX + (artefact.spreadPositions[i]?.x ?? 0),
-                    y: stackY + (artefact.spreadPositions[i]?.y ?? 0),
-                    opacity: 1,
+            // exit details timeline & animations
+            const exitDetailsTl = gsap.timeline({
+                paused: true,
+                defaults: {
                     duration: 1,
-                }, 0)
+                    ease: "power2.inOut"
+                }
             })
-        })
 
-        exitDetailsTlRef.current = exitTl
-    }
+            //Transtion 1 timeline and animations
+            const transitionOneTl = gsap.timeline({
+                paused: true
+            });
+
+            transitionOneTl.to(beams, {
+                attr: {
+                    x: 0
+                },
+                duration: 1,
+                stagger: 0.1,
+                ease: "power3.inOut"
+            }).to(landing, {
+                opacity: 0,
+                duration: 1,
+                ease: "power3.inOut",
+            }, "<")
+            .to(homeExperience, {
+                xPercent: 0,
+                duration: 1,
+            }, "<")
+            .to(homeExperience, {
+                opacity: 1,
+                duration: 1,
+                ease: "power3.inOut",
+            }, ">");
+
+            ScrollTrigger.create({
+                trigger: transitionOneMarkerRef.current,
+
+                start: "top top",
+
+                onEnter() {
+                    transitionOneTl.play();
+                },
+
+                onLeaveBack() {
+                    transitionOneTl.reverse();
+                }
+            });
+
+            // Transition 2 timeline and animations
+            const transitionTwoTl = gsap.timeline({
+                paused: true
+            });
+
+            transitionTwoTl.to(beams, {
+                attr: {
+                    fill: "#ffffff"
+                },
+                duration: 1,
+                ease: "power3.inOut",
+            })
+            
+
+            ScrollTrigger.create({
+                trigger: transitionTwoMarkerRef.current,
+
+                start: "top top",
+
+                onEnter() {
+                    transitionTwoTl.play();
+                },
+
+                onLeaveBack() {
+                    transitionTwoTl.reverse();
+                }
+            });
+
+            // master timeline creation
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: scrollPanelRef.current,
+                    start: 'top top',
+                    end: ()=>window.innerHeight*6,
+                    scrub: true,
+                    pin: true,
+                }
+            });
+
+            // master timeline animations
+            tl.to(mobileHomeExperienceTrack, {
+                yPercent: -280,
+                duration: 16,
+            })
+
+            // store timelines in refs so handlers below can reach them
+            enterDetailsTlRef.current = enterDetailsTl;
+            exitDetailsTlRef.current = exitDetailsTl;
+            masterTlRef.current = tl;
+
+            // typography and visual elemnts registaration
+            
+            
+            // viewport based animation engine initiation
+            viewPortEngine.start();
+            
+            //settle downs the layout with the pinning of scroll trigger
+            ScrollTrigger.refresh();
+            }, viewPortRef.current);
+
+            return () => {
+                splits.forEach(split => split.revert());
+                context.revert();
+                viewPortEngine.terminate();
+            };
+        };
+
+        mm.add("(min-width: 1200px)", DesktopTimeline);
+
+        mm.add("(min-width: 768px) and (max-width: 1199px)", TabletTimeline);
+        mm.add("(max-width: 767px)", MobileTimeline);
+
+        return () => mm.revert();
+    }, []);
 
     return (<>
         <div ref={scrollPanelRef} className="w-full h-[100vh]">
@@ -515,12 +824,15 @@ const HomeTimeline = () => {
                     />
                 </svg>
 
+                <HomeExperience/>
+
+                {/* 
                 <HomeExperience
                     artefacts={Artefacts}
                     onProjectClick={handleProjectClick}  // ← passed down
                     onBack={handleBack}                  // ← passed down
                     activeProject={activeProject}
-                />
+                /> */}
             </div>
         </div>
     </>);
