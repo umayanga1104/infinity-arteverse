@@ -239,7 +239,7 @@ const Sidebar = () => {
             </div>
             
             {/* devider */}
-            <div ref={sidebarDeviderRef} className="sidebar-devider ml-50 w-full h-px bg-black/10" />
+            <div ref={sidebarDeviderRef} className="sidebar-devider ml-50 w-full h-[1px] bg-black/5" />
 
             {/* navbar footer*/}
             <div className="flex flex-col justify-center md:pl-35 items-center w-full h-full">
